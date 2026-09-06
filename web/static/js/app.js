@@ -7,6 +7,7 @@
 	var currentSongTitle = document.getElementById('current-song-title');
 	var currentSongArtist = document.getElementById('current-song-artist');
 	var currentSongOrigin = document.getElementById('current-song-origin');
+	var currentSongArt = document.getElementById('current-song-art');
 	var venueInfo = document.getElementById('venue-info');
 	var venueName = document.getElementById('venue-name');
 	var bandTable = document.getElementById('band-table');
@@ -40,6 +41,19 @@
 		return '/static/images/origin/' + encodeURIComponent(origin || 'generic') + '.png';
 	}
 
+	var BLANK_ALBUM_ART = '/static/art/blank_album_art_keep.png';
+
+	function albumArtURL(shortname) {
+		return '/static/art/' + encodeURIComponent(shortname || '') + '_keep.png';
+	}
+
+	var lastAlbumArtShortname = null;
+
+	currentSongArt.addEventListener('error', function () {
+		this.onerror = null;
+		this.src = BLANK_ALBUM_ART;
+	});
+
 	function applyState(state) {
 		statusDot.classList.toggle('on', state.connected);
 		statusDot.classList.toggle('off', !state.connected);
@@ -58,11 +72,16 @@
 			currentSongArtist.textContent = state.songArtist || '';
 			currentSongArtist.hidden = !inGame;
 			currentSongOrigin.hidden = !inGame;
+			currentSongArt.hidden = !inGame;
 			if (inGame) {
 				var song = findSong(state.songShortName);
 				if (song) {
 					currentSongOrigin.src = originIconURL(song.origin);
 					currentSongOrigin.title = song.origin || '';
+				}
+				if (state.songShortName !== lastAlbumArtShortname) {
+					lastAlbumArtShortname = state.songShortName;
+					currentSongArt.src = albumArtURL(state.songShortName);
 				}
 			}
 		} else {
@@ -146,6 +165,7 @@
 			li.dataset.search = (song.title + ' ' + song.artist + ' ' + song.album).toLowerCase();
 			li.innerHTML =
 				'<div class="song-info">' +
+				'<img class="album-art" src="' + albumArtURL(song.shortname) + '" alt="" loading="lazy">' +
 				'<div class="song-details">' +
 				'<span class="song-title">' + escapeHTML(song.title || '(untitled)') + '</span>' +
 				'<span class="song-artist">' + escapeHTML(song.artist) + '</span>' +
@@ -155,6 +175,10 @@
 				'<img class="origin-icon" src="' + originIconURL(song.origin) + '" alt="' + escapeHTML(song.origin) + '" title="' + escapeHTML(song.origin) + '" loading="lazy">' +
 				'<button class="button play-button">Play</button>' +
 				'</div>';
+			li.querySelector('.album-art').addEventListener('error', function () {
+				this.onerror = null;
+				this.src = BLANK_ALBUM_ART;
+			});
 			li.querySelector('.play-button').addEventListener('click', function () {
 				jumpToSong(song.shortname);
 			});
