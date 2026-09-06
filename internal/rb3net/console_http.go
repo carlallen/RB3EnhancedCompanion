@@ -3,6 +3,7 @@ package rb3net
 import (
 	"bufio"
 	"context"
+	"database/sql"
 	"fmt"
 	"io"
 	"log"
@@ -11,6 +12,8 @@ import (
 	"sort"
 	"strings"
 	"time"
+
+	"github.com/carlallen/RB3EnhancedCompanion/internal/db"
 )
 
 // consoleHTTPPort is the TCP port RB3Enhanced's in-game HTTP server listens
@@ -110,11 +113,11 @@ func Jump(ctx context.Context, ip, shortname string) error {
 
 // SongListWatcher fetches the song list from the console's HTTP server the
 // first time RB3Enhanced reports the song select screen after each
-// successful connection, and stores it on the Hub (in memory only - nothing
-// persists it across restarts) for subscribers, e.g. the web dashboard, to
-// pick up.
+// successful connection, stores it on the Hub for subscribers, e.g. the web
+// dashboard, to pick up, and persists it to DB so it survives restarts.
 type SongListWatcher struct {
 	Hub *Hub
+	DB  *sql.DB
 }
 
 func (w *SongListWatcher) Run(ctx context.Context) {
@@ -156,6 +159,14 @@ func (w *SongListWatcher) fetch(ctx context.Context, ip string) {
 	sort.Slice(songs, func(i, j int) bool {
 		return strings.ToLower(songs[i].Title) < strings.ToLower(songs[j].Title)
 	})
+
+	records := make([]db.SongRecord, len(songs))
+	for i, s := range songs {
+		records[i] = db.SongRecord(s)
+	}
+	if err := db.SaveSongs(w.DB, records); err != nil {
+		log.Printf("rb3net: song list save failed: %v (console_ip=%s)", err, ip)
+	}
 
 	w.Hub.Mutate(func(s *GameState) {
 		s.SongList = songs

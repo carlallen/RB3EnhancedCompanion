@@ -62,10 +62,10 @@ type GameState struct {
 
 	// SongList is fetched from the console's own HTTP server the first time
 	// it reports the song select screen after each connection - see
-	// SongListWatcher. It's kept in memory only; nothing persists it across
-	// restarts. SongListVersion increments each time SongList is (re)set, so
-	// subscribers can tell when it's actually changed without diffing the
-	// (potentially large) slice itself.
+	// SongListWatcher - and persisted to the database, so it's also loaded
+	// from there at startup to survive restarts. SongListVersion increments
+	// each time SongList is (re)set, so subscribers can tell when it's
+	// actually changed without diffing the (potentially large) slice itself.
 	SongList        []Song
 	SongListVersion int
 }

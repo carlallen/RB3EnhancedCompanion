@@ -27,6 +27,12 @@ go.work.sum
 # env file
 .env
 
+# SQLite database
+rb3ecompanion.sql
+rb3ecompanion.sql-journal
+rb3ecompanion.sql-wal
+rb3ecompanion.sql-shm
+
 # Editor/IDE
 # .idea/
 # .vscode/

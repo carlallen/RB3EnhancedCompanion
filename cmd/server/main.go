@@ -9,6 +9,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/carlallen/RB3EnhancedCompanion/internal/db"
 	"github.com/carlallen/RB3EnhancedCompanion/internal/rb3net"
 	"github.com/carlallen/RB3EnhancedCompanion/internal/server"
 )
@@ -34,10 +35,35 @@ func main() {
 		templateDir = "web/templates"
 	}
 
+	dbPath := os.Getenv("DB_PATH")
+	if dbPath == "" {
+		dbPath = "rb3ecompanion.sql"
+	}
+
+	database, err := db.Open(dbPath)
+	if err != nil {
+		log.Fatalf("db: failed to open %s: %v", dbPath, err)
+	}
+	defer database.Close()
+
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
 	hub := rb3net.NewHub()
+
+	if saved, err := db.LoadSongs(database); err != nil {
+		log.Fatalf("db: failed to load songs: %v", err)
+	} else if len(saved) > 0 {
+		songList := make([]rb3net.Song, len(saved))
+		for i, s := range saved {
+			songList[i] = rb3net.Song(s)
+		}
+		hub.Mutate(func(s *rb3net.GameState) {
+			s.SongList = songList
+			s.SongListVersion++
+		})
+	}
+
 	listener := &rb3net.Listener{Addr: udpAddr, Hub: hub}
 	go func() {
 		log.Printf("listening for RB3Enhanced on %s (udp)", udpAddr)
@@ -46,7 +72,7 @@ func main() {
 		}
 	}()
 
-	songs := &rb3net.SongListWatcher{Hub: hub}
+	songs := &rb3net.SongListWatcher{Hub: hub, DB: database}
 	go songs.Run(ctx)
 
 	srv := &http.Server{
