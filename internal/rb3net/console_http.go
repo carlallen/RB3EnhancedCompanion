@@ -1,0 +1,103 @@
+package rb3net
+
+import (
+	"bufio"
+	"context"
+	"fmt"
+	"io"
+	"net/http"
+	"net/url"
+	"strings"
+	"time"
+)
+
+// consoleHTTPPort is the TCP port RB3Enhanced's in-game HTTP server listens
+// on, on the same console whose UDP broadcast we've been receiving. It's
+// the same numeric port as the UDP broadcast (0x524E, 'RN'), just TCP
+// instead of UDP.
+const consoleHTTPPort = "21070"
+
+// FetchSongList fetches and parses RB3Enhanced's /list_songs endpoint from
+// the console at ip. The console builds this list from whatever's in the
+// Music Library at the time of the request, and does the same for every
+// caller, so there's no per-request state to worry about here.
+func FetchSongList(ctx context.Context, ip string) ([]Song, error) {
+	ctx, cancel := context.WithTimeout(ctx, 30*time.Second)
+	defer cancel()
+
+	target := fmt.Sprintf("http://%s:%s/list_songs", ip, consoleHTTPPort)
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, target, nil)
+	if err != nil {
+		return nil, err
+	}
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("console returned %s", resp.Status)
+	}
+	return parseSongListINI(resp.Body), nil
+}
+
+// parseSongListINI parses RB3Enhanced's /list_songs response: repeated
+// "[shortname]\r\nkey=value\r\n...\r\n\r\n" blocks, one per song.
+func parseSongListINI(r io.Reader) []Song {
+	var songs []Song
+	var cur *Song
+
+	scanner := bufio.NewScanner(r)
+	for scanner.Scan() {
+		line := strings.TrimSpace(scanner.Text())
+		if line == "" {
+			continue
+		}
+		if strings.HasPrefix(line, "[") && strings.HasSuffix(line, "]") {
+			songs = append(songs, Song{})
+			cur = &songs[len(songs)-1]
+			continue
+		}
+		if cur == nil {
+			continue
+		}
+		key, value, ok := strings.Cut(line, "=")
+		if !ok {
+			continue
+		}
+		switch key {
+		case "shortname":
+			cur.Shortname = value
+		case "title":
+			cur.Title = value
+		case "artist":
+			cur.Artist = value
+		case "album":
+			cur.Album = value
+		case "origin":
+			cur.Origin = value
+		}
+	}
+	return songs
+}
+
+// Jump tells the console to select shortname in the Music Library.
+func Jump(ctx context.Context, ip, shortname string) error {
+	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
+	defer cancel()
+
+	target := fmt.Sprintf("http://%s:%s/jump?shortname=%s", ip, consoleHTTPPort, url.QueryEscape(shortname))
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, target, nil)
+	if err != nil {
+		return err
+	}
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode >= 300 {
+		return fmt.Errorf("console returned %s", resp.Status)
+	}
+	return nil
+}

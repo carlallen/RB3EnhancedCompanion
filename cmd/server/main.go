@@ -9,6 +9,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/carlallen/RB3EnhancedCompanion/internal/rb3net"
 	"github.com/carlallen/RB3EnhancedCompanion/internal/server"
 )
 
@@ -16,6 +17,11 @@ func main() {
 	addr := os.Getenv("ADDR")
 	if addr == "" {
 		addr = ":8080"
+	}
+
+	udpAddr := os.Getenv("UDP_ADDR")
+	if udpAddr == "" {
+		udpAddr = ":21070"
 	}
 
 	staticDir := os.Getenv("STATIC_DIR")
@@ -27,6 +33,18 @@ func main() {
 	if templateDir == "" {
 		templateDir = "web/templates"
 	}
+
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	hub := rb3net.NewHub()
+	listener := &rb3net.Listener{Addr: udpAddr, Hub: hub}
+	go func() {
+		log.Printf("listening for RB3Enhanced on %s (udp)", udpAddr)
+		if err := listener.Run(ctx); err != nil {
+			log.Fatalf("udp listener error: %v", err)
+		}
+	}()
 
 	srv := &http.Server{
 		Addr:    addr,
@@ -43,12 +61,13 @@ func main() {
 	stop := make(chan os.Signal, 1)
 	signal.Notify(stop, os.Interrupt, syscall.SIGTERM)
 	<-stop
+	cancel()
 
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
+	shutdownCtx, shutdownCancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer shutdownCancel()
 
 	log.Println("shutting down")
-	if err := srv.Shutdown(ctx); err != nil {
+	if err := srv.Shutdown(shutdownCtx); err != nil {
 		log.Fatalf("shutdown error: %v", err)
 	}
 }
