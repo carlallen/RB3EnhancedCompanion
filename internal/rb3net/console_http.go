@@ -5,8 +5,10 @@ import (
 	"context"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"net/url"
+	"sort"
 	"strings"
 	"time"
 )
@@ -16,6 +18,10 @@ import (
 // the same numeric port as the UDP broadcast (0x524E, 'RN'), just TCP
 // instead of UDP.
 const consoleHTTPPort = "21070"
+
+// songListScreen is the ScreenName RB3Enhanced reports while the player is
+// in the Music Library's song select screen, learned by observation.
+const songListScreen = "song_select_screen"
 
 // FetchSongList fetches and parses RB3Enhanced's /list_songs endpoint from
 // the console at ip. The console builds this list from whatever's in the
@@ -100,4 +106,59 @@ func Jump(ctx context.Context, ip, shortname string) error {
 		return fmt.Errorf("console returned %s", resp.Status)
 	}
 	return nil
+}
+
+// SongListWatcher fetches the song list from the console's HTTP server the
+// first time RB3Enhanced reports the song select screen after each
+// successful connection, and stores it on the Hub (in memory only - nothing
+// persists it across restarts) for subscribers, e.g. the web dashboard, to
+// pick up.
+type SongListWatcher struct {
+	Hub *Hub
+}
+
+func (w *SongListWatcher) Run(ctx context.Context) {
+	ch := w.Hub.Subscribe()
+	defer w.Hub.Unsubscribe(ch)
+
+	wasConnected := false
+	fetchedThisConnection := false
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case state, ok := <-ch:
+			if !ok {
+				return
+			}
+			if state.Connected && !wasConnected {
+				// A new connection: allow one more refresh, the first time
+				// the song select screen is visited during it.
+				fetchedThisConnection = false
+			}
+			wasConnected = state.Connected
+
+			if fetchedThisConnection || state.ScreenName != songListScreen || state.SourceIP == "" {
+				continue
+			}
+			fetchedThisConnection = true
+			go w.fetch(ctx, state.SourceIP)
+		}
+	}
+}
+
+func (w *SongListWatcher) fetch(ctx context.Context, ip string) {
+	songs, err := FetchSongList(ctx, ip)
+	if err != nil {
+		log.Printf("rb3net: song list fetch failed: %v (console_ip=%s)", err, ip)
+		return
+	}
+	sort.Slice(songs, func(i, j int) bool {
+		return strings.ToLower(songs[i].Title) < strings.ToLower(songs[j].Title)
+	})
+
+	w.Hub.Mutate(func(s *GameState) {
+		s.SongList = songs
+		s.SongListVersion++
+	})
 }

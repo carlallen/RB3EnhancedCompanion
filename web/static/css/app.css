@@ -1,22 +1,122 @@
+:root { color-scheme: dark; }
+
 body {
-	margin: 0;
-	background: #111;
-	color: #eee;
-	font-family: sans-serif;
+	font-family: system-ui, sans-serif;
+	max-width: 640px;
+	margin: 3rem auto;
+	padding: 0 1rem;
+	background: #000;
+	color: #fff;
 }
 
-.site-header {
+h1 { font-size: 1.4rem; }
+
+.card {
+	border: 1px solid #8884;
+	border-radius: 0.5rem;
+	padding: 1.25rem;
+	margin-top: 1rem;
+}
+
+.topbar {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	gap: 1rem;
-	padding: 1.5rem;
-	border-bottom: 1px solid #333;
 }
 
-.logo {
-	height: 48px;
+.topbar h1 {
+	margin: 0;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
 }
 
-main {
-	padding: 1.5rem;
+.topbar h1 .logo { height: 1.8rem; width: auto; }
+
+.status {
+	display: inline-block;
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius: 50%;
 }
+
+.status.on { background: #2ea043; }
+.status.off { background: #a83232; }
+
+dl { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 1rem; margin: 1rem 0 0; }
+dt { font-weight: 600; opacity: 0.7; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+th, td { text-align: left; padding: 0.25rem 0.5rem; border-bottom: 1px solid #8883; font-size: 0.9rem; }
+
+.muted { opacity: 0.6; }
+
+.button {
+	padding: 0.5rem 0.9rem;
+	border-radius: 0.4rem;
+	border: 1px solid #8884;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	font-size: 0.9rem;
+}
+.button:hover { background: #8882; }
+
+#searchbox {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0.5rem 0.75rem;
+	border-radius: 0.4rem;
+	border: 1px solid #8884;
+	background: transparent;
+	color: inherit;
+	font-size: 1rem;
+	margin-bottom: 0.75rem;
+}
+
+#songlist { list-style: none; margin: 0; padding: 0; }
+
+.song-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0.5rem 0;
+	border-bottom: 1px solid #8883;
+}
+.song-row:last-child { border-bottom: none; }
+
+.song-info { display: flex; align-items: center; gap: 0.5rem; overflow: hidden; text-align: left; }
+.song-details { display: flex; flex-direction: column; overflow: hidden; text-align: left; }
+.song-title { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.song-artist { opacity: 0.7; font-size: 0.85rem; }
+.song-count, .song-message { text-align: center; opacity: 0.7; font-size: 0.85rem; padding: 0.5rem 0; }
+.song-actions { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+.origin-icon { width: 28px; height: 28px; object-fit: contain; flex-shrink: 0; }
+
+.current-song .song-title { font-size: 1.1rem; }
+.current-song .song-artist { font-size: 0.95rem; }
+
+/* The Play button only makes sense while RB3Enhanced is actually showing
+   the Music Library's song select screen - the console's own /jump
+   endpoint crashes the game otherwise. */
+body:not(.on-song-select) .play-button { display: none; }
+
+:root { --sk-dot: 13px; --sk-gap: 0.3rem; }
+.stagekit { display: flex; gap: 0.9rem; justify-content: center; padding: 0.75rem 0 1rem; flex-wrap: nowrap; }
+.sk-pos { display: flex; flex-direction: row; gap: var(--sk-gap); align-items: center; }
+.sk-dot { width: var(--sk-dot); height: var(--sk-dot); border-radius: 50%; background: #8884; display: block; transition: background-color 60ms linear, box-shadow 60ms linear; }
+.sk-dot.r.on { background: #ff3b3b; box-shadow: 0 0 6px #ff3b3baa; }
+.sk-dot.g.on { background: #35e35a; box-shadow: 0 0 6px #35e35aaa; }
+.sk-dot.b.on { background: #3b8bff; box-shadow: 0 0 6px #3b8bffaa; }
+.sk-dot.y.on { background: #ffe23b; box-shadow: 0 0 6px #ffe23baa; }
+
+.sk-strobe-row { display: flex; justify-content: center; padding-bottom: 0.5rem; }
+.sk-strobe { width: calc(var(--sk-dot) * 4 + var(--sk-gap) * 3); height: var(--sk-dot); border-radius: 3px; background: #8884; }
+.sk-strobe.on { background: #fff; box-shadow: 0 0 8px #ffffffcc; animation: sk-flash steps(1) infinite; }
+.sk-strobe.speed-1 { animation-duration: 0.9s; }
+.sk-strobe.speed-2 { animation-duration: 0.6s; }
+.sk-strobe.speed-3 { animation-duration: 0.4s; }
+.sk-strobe.speed-4 { animation-duration: 0.25s; }
+@keyframes sk-flash { 50% { opacity: 0.15; } }

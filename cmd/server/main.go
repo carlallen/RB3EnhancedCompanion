@@ -46,9 +46,12 @@ func main() {
 		}
 	}()
 
+	songs := &rb3net.SongListWatcher{Hub: hub}
+	go songs.Run(ctx)
+
 	srv := &http.Server{
 		Addr:    addr,
-		Handler: server.NewRouter(staticDir, templateDir),
+		Handler: server.NewRouter(hub, staticDir, templateDir),
 	}
 
 	go func() {

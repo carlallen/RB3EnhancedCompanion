@@ -4,24 +4,49 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RB3Enhanced Companion</title>
-  <style>
-    :root { color-scheme: dark; }
-    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 3rem auto; padding: 0 1rem; background: #000; color: #fff; }
-    h1 { font-size: 1.4rem; }
-    .card { border: 1px solid #8884; border-radius: 0.5rem; padding: 1.25rem; margin-top: 1rem; }
-    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .topbar h1 { margin: 0; display: flex; align-items: center; gap: 0.5rem; }
-    .topbar h1 .logo { height: 1.8rem; width: auto; }
-    .muted { opacity: 0.6; }
-  </style>
+  <link rel="stylesheet" href="/static/css/app.css">
 </head>
 <body>
   <div class="topbar">
     <h1><img class="logo" src="/static/images/rb3enhanced_logo.png" alt="RB3Enhanced"> Companion</h1>
+    <span class="status off" id="topbar-status" title="Waiting for RB3Enhanced..."></span>
+  </div>
+
+  <div class="card" id="player-card" hidden>
+    <div class="stagekit" id="stagekit">
+      <!-- 8 positions x 4 colours (R,G,B,Y), filled in by app.js -->
+    </div>
+    <div class="sk-strobe-row">
+      <div class="sk-strobe" id="sk-strobe"></div>
+    </div>
+
+    <div id="current-song" class="song-row current-song" hidden>
+      <div class="song-info">
+        <div class="song-details">
+          <span class="song-title" id="current-song-title"></span>
+          <span class="song-artist" id="current-song-artist"></span>
+        </div>
+      </div>
+      <img class="origin-icon" id="current-song-origin" alt="" hidden>
+    </div>
+
+    <dl id="venue-info" hidden>
+      <dt>Venue</dt><dd id="venue-name"></dd>
+    </dl>
+
+    <table id="band-table" hidden>
+      <thead><tr><th>Slot</th><th>Track</th><th>Difficulty</th></tr></thead>
+      <tbody id="band-rows"></tbody>
+    </table>
   </div>
 
   <div class="card">
-    <p class="muted">Companion server for Rock Band 3 Deluxe + RB3Enhanced.</p>
+    <input id="searchbox" type="text" placeholder="Search songs, artists, albums...">
+    <ul id="songlist">
+      <li class="song-message">Waiting for the song list&hellip; enter the Music Library to load it.</li>
+    </ul>
   </div>
+
+  <script src="/static/js/app.js"></script>
 </body>
 </html>
