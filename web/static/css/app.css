@@ -1,0 +1,22 @@
+body {
+	margin: 0;
+	background: #111;
+	color: #eee;
+	font-family: sans-serif;
+}
+
+.site-header {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1.5rem;
+	border-bottom: 1px solid #333;
+}
+
+.logo {
+	height: 48px;
+}
+
+main {
+	padding: 1.5rem;
+}
