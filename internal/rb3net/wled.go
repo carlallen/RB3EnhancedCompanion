@@ -129,10 +129,14 @@ func sendWARLS(ip string, frame wledFrame) error {
 }
 
 // WLEDWatcher mirrors the stage kit's lights to every configured WLED
-// device over UDP using WLED's WARLS realtime protocol. Frames are sent
-// whenever the lights actually change, plus once every wledCheckInterval
-// regardless - a check-in that resends the current frame when nothing new
-// has arrived, keeping each device's realtime hold from lapsing. While the
+// device over UDP using WLED's WARLS realtime protocol. Frames are only
+// sent while RB3Enhanced reports being in-game (GameState.InGame); outside
+// of a song, WLED devices are left alone and fall back to their own
+// configured effect once their realtime hold's wledTimeoutSeconds lapses.
+// While in-game, frames are sent whenever the lights actually change, plus
+// once every wledCheckInterval regardless - a check-in that resends the
+// current frame when nothing new has arrived, keeping each device's
+// realtime hold from lapsing. While the
 // strobe is active, a separate timer flips it on and off at the Stage Kit's
 // configured speed, sending a fresh frame on every transition. The device
 // list is reloaded from the database periodically, so devices added,
@@ -166,7 +170,9 @@ func (w *WLEDWatcher) Run(ctx context.Context) {
 	ch := w.Hub.Subscribe()
 	defer w.Hub.Unsubscribe(ch)
 
-	latest := w.Hub.State().StageKit
+	initial := w.Hub.State()
+	latest := initial.StageKit
+	inGame := initial.InGame
 	strobeLit := false
 
 	var strobeTicker *time.Ticker
@@ -200,6 +206,9 @@ func (w *WLEDWatcher) Run(ctx context.Context) {
 
 	var lastSentAt time.Time
 	send := func(now time.Time) {
+		if !inGame {
+			return
+		}
 		w.broadcast(latest, strobeLit)
 		lastSentAt = now
 	}
@@ -215,6 +224,7 @@ func (w *WLEDWatcher) Run(ctx context.Context) {
 			}
 			prevStrobe := latest.Strobe
 			latest = state.StageKit
+			inGame = state.InGame
 			if latest.Strobe != prevStrobe {
 				rearmStrobe()
 			}
