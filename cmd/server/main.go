@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"path/filepath"
 	"syscall"
 	"time"
 
@@ -35,9 +36,14 @@ func main() {
 		templateDir = "web/templates"
 	}
 
+	storeDir := os.Getenv("STORE_DIR")
+	if storeDir == "" {
+		storeDir = "store"
+	}
+
 	dbPath := os.Getenv("DB_PATH")
 	if dbPath == "" {
-		dbPath = "rb3ecompanion.sql"
+		dbPath = filepath.Join(storeDir, "rb3ecompanion.db")
 	}
 
 	database, err := db.Open(dbPath)
@@ -77,7 +83,7 @@ func main() {
 
 	srv := &http.Server{
 		Addr:    addr,
-		Handler: server.NewRouter(hub, staticDir, templateDir),
+		Handler: server.NewRouter(hub, staticDir, storeDir, templateDir),
 	}
 
 	go func() {
