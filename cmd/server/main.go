@@ -81,6 +81,9 @@ func main() {
 	songs := &rb3net.SongListWatcher{Hub: hub, DB: database}
 	go songs.Run(ctx)
 
+	wled := &rb3net.WLEDWatcher{Hub: hub, DB: database}
+	go wled.Run(ctx)
+
 	srv := &http.Server{
 		Addr:    addr,
 		Handler: server.NewRouter(hub, database, staticDir, storeDir, templateDir),

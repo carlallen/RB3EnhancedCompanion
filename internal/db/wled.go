@@ -6,9 +6,8 @@ import (
 	"fmt"
 )
 
-// WLEDDevice is a WLED-powered LED strip that can be mapped to mirror the
-// stage kit's lights. Nothing yet sends data to a configured device - this
-// is configuration storage only.
+// WLEDDevice is a WLED-powered LED strip mapped to mirror the stage kit's
+// lights; see rb3net.WLEDWatcher for what actually sends it data.
 type WLEDDevice struct {
 	ID      int64
 	Name    string

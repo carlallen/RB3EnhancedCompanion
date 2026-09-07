@@ -31,7 +31,11 @@
   <div class="card">
     <div class="setting-row">
       <div class="setting-label">WLED Devices</div>
-      <p class="setting-help">Add WLED controllers and choose which of their LEDs light up for each stage kit light. This is configuration only - nothing is sent to these devices yet.</p>
+      <p class="setting-help">Add WLED controllers and choose which of their LEDs light up for each stage kit light.</p>
+
+      {{if .WLEDError}}
+      <p class="setting-help wled-error">{{.WLEDError}}</p>
+      {{end}}
 
       {{if .WLEDDevices}}
       <ul class="device-list">
@@ -53,17 +57,27 @@
               </form>
             </div>
           </div>
-          <details class="device-channels">
+          <details class="device-channels" {{if eq $device.ID $.WLEDErrorDeviceID}}open{{end}}>
             <summary>Edit LED mapping</summary>
             <form method="post" action="/config/wled-devices/channels">
               <input type="hidden" name="id" value="{{$device.ID}}">
               <div class="channel-grid">
-                {{range $i, $label := $.WLEDChannelLabels}}
-                <div class="field channel-field">
-                  <label for="wled_{{$device.ID}}_channel_{{$i}}">{{$label}}</label>
-                  <input type="text" id="wled_{{$device.ID}}_channel_{{$i}}" name="channel_{{$i}}" value="{{index $device.ChannelDisplay $i}}" autocomplete="off">
+                {{range $row := $device.Rows}}
+                <div class="channel-row">
+                  {{range $cell := $row}}
+                  <div class="field channel-field">
+                    <label for="wled_{{$device.ID}}_channel_{{$cell.Index}}">{{$cell.Label}}</label>
+                    <input type="text" id="wled_{{$device.ID}}_channel_{{$cell.Index}}" name="channel_{{$cell.Index}}" value="{{$cell.Value}}" autocomplete="off">
+                  </div>
+                  {{end}}
                 </div>
                 {{end}}
+                <div class="channel-row channel-row-strobe">
+                  <div class="field channel-field channel-field-strobe">
+                    <label for="wled_{{$device.ID}}_channel_{{$device.Strobe.Index}}">{{$device.Strobe.Label}}</label>
+                    <input type="text" id="wled_{{$device.ID}}_channel_{{$device.Strobe.Index}}" name="channel_{{$device.Strobe.Index}}" value="{{$device.Strobe.Value}}" autocomplete="off">
+                  </div>
+                </div>
               </div>
               <div class="button-row">
                 <button class="button" type="submit">Save LED mapping</button>
