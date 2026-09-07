@@ -1,0 +1,9 @@
+.git
+.gitignore
+.claude
+store/*
+!store/.gitkeep
+!store/art
+store/art/*
+!store/art/.gitkeep
+*.md

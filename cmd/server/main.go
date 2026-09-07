@@ -26,15 +26,8 @@ func main() {
 		udpAddr = ":21070"
 	}
 
-	staticDir := os.Getenv("STATIC_DIR")
-	if staticDir == "" {
-		staticDir = "web/static"
-	}
-
-	templateDir := os.Getenv("TEMPLATE_DIR")
-	if templateDir == "" {
-		templateDir = "web/templates"
-	}
+	staticDir := "web/static"
+	templateDir := "web/templates"
 
 	storeDir := os.Getenv("STORE_DIR")
 	if storeDir == "" {
