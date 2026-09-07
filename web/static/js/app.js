@@ -1,6 +1,11 @@
 (function () {
 	'use strict';
 
+	// ?test=1 keeps the current-song section (song info, venue, band,
+	// stage lights) visible even when not actually in a song, so the
+	// layout can be checked on a device without an active RB3 session.
+	var testMode = /(?:^|[?&])test=1(?:&|$)/.test(location.search);
+
 	var statusDot = document.getElementById('topbar-status');
 	var playerCard = document.getElementById('player-card');
 	var currentSong = document.getElementById('current-song');
@@ -63,10 +68,10 @@
 
 		document.body.classList.toggle('on-song-select', state.screenName === 'song_select_screen');
 
-		var inGame = state.connected && state.inGame;
+		var inGame = testMode || (state.connected && state.inGame);
 		playerCard.hidden = !inGame;
 
-		if (state.connected && state.songName) {
+		if (testMode || (state.connected && state.songName)) {
 			currentSong.hidden = false;
 			currentSongTitle.textContent = state.songName;
 			currentSongArtist.textContent = state.songArtist || '';
@@ -115,6 +120,7 @@
 
 		if (state.songList) {
 			renderSongList(state.songList);
+			lastSongListVersion = state.songListVersion || 0;
 		}
 	}
 
@@ -133,6 +139,10 @@
 	}
 
 	var currentSongList = [];
+	// lastSongListVersion survives across websocket reconnects (screen lock,
+	// backgrounding, network handoff) within the same page load, so a
+	// reconnect can tell the server it already has the current list.
+	var lastSongListVersion = 0;
 
 	function findSong(shortname) {
 		for (var i = 0; i < currentSongList.length; i++) {
@@ -217,7 +227,7 @@
 
 	function connect() {
 		var proto = location.protocol === 'https:' ? 'wss://' : 'ws://';
-		var ws = new WebSocket(proto + location.host + '/ws');
+		var ws = new WebSocket(proto + location.host + '/ws?songVersion=' + lastSongListVersion);
 		ws.onmessage = function (ev) {
 			applyState(JSON.parse(ev.data));
 		};

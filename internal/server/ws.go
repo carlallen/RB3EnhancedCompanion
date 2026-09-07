@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"strconv"
 	"time"
 
 	"nhooyr.io/websocket"
@@ -29,6 +30,9 @@ type dashboardState struct {
 	Band          [4]memberDTO `json:"band"`
 	StageKit      stageKitDTO  `json:"stageKit"`
 	SongList      []songDTO    `json:"songList,omitempty"`
+	// SongListVersion accompanies SongList, so the client can remember which
+	// version it has and skip asking for it again on the next connection.
+	SongListVersion int `json:"songListVersion,omitempty"`
 }
 
 type scoreDTO struct {
@@ -83,13 +87,19 @@ func toDashboardState(s rb3net.GameState, includeSongs bool) dashboardState {
 		for i, song := range s.SongList {
 			d.SongList[i] = songDTO(song)
 		}
+		d.SongListVersion = s.SongListVersion
 	}
 	return d
 }
 
-// handleWS streams the game state, and the song list once it's loaded, to
-// a browser over a websocket: once on connect, then again on every hub
-// update thereafter.
+// handleWS streams the game state, and the song list whenever the client
+// doesn't already have the current version of it, to a browser over a
+// websocket: once on connect (unless the client's songVersion query param
+// already matches), then again whenever it changes thereafter. Mobile
+// browsers reconnect the socket often - screen lock, backgrounding,
+// wifi/cellular handoff - and without this a reconnect would otherwise
+// mean re-fetching and re-rendering the whole (possibly large) song list,
+// images included, even though nothing about it changed.
 func handleWS(hub *rb3net.Hub) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		conn, err := websocket.Accept(w, r, nil)
@@ -104,9 +114,12 @@ func handleWS(hub *rb3net.Hub) http.HandlerFunc {
 		ch := hub.Subscribe()
 		defer hub.Unsubscribe(ch)
 
+		clientSongVersion, _ := strconv.Atoi(r.URL.Query().Get("songVersion"))
+
 		initial := hub.State()
 		lastSongVersion := initial.SongListVersion
-		if err := writeState(ctx, conn, toDashboardState(initial, true)); err != nil {
+		includeSongs := clientSongVersion != initial.SongListVersion
+		if err := writeState(ctx, conn, toDashboardState(initial, includeSongs)); err != nil {
 			return
 		}
 

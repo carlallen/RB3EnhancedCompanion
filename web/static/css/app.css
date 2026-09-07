@@ -1,3 +1,5 @@
+*, *::before, *::after { box-sizing: border-box; }
+
 :root {
 	color-scheme: dark;
 	--bg: #000;
@@ -23,6 +25,7 @@ body {
 	padding: 0 1rem;
 	background: var(--bg);
 	color: var(--fg);
+	overflow-x: hidden;
 }
 
 h1 { font-size: 1.4rem; }
@@ -224,7 +227,16 @@ input[type="text"]:focus {
 body:not(.on-song-select) .play-button { display: none; }
 
 :root { --sk-dot: 12px; --sk-gap: 0.25rem; }
-.stagekit { display: flex; gap: 0.8rem; justify-content: center; padding: 0.75rem 0 1rem; flex-wrap: nowrap; }
+/* Grid, not flex-wrap, so the 8 positions are always either one row of 8
+   (grid-template-columns: repeat(8, ...)) or exactly two rows of 4 below
+   the mobile breakpoint - never an uneven wrap like 5+3 or 7+1. */
+.stagekit {
+	display: grid;
+	grid-template-columns: repeat(8, auto);
+	justify-content: center;
+	gap: 0.8rem;
+	padding: 0.75rem 0 1rem;
+}
 .sk-pos { display: flex; flex-direction: row; gap: var(--sk-gap); align-items: center; }
 .sk-dot { width: var(--sk-dot); height: var(--sk-dot); border-radius: 50%; background: #8884; display: block; transition: background-color 60ms linear, box-shadow 60ms linear; }
 .sk-dot.r.on { background: #ff3b3b; box-shadow: 0 0 6px #ff3b3baa; }
@@ -240,3 +252,11 @@ body:not(.on-song-select) .play-button { display: none; }
 .sk-strobe.speed-3 { animation-duration: 0.4s; }
 .sk-strobe.speed-4 { animation-duration: 0.25s; }
 @keyframes sk-flash { 50% { opacity: 0.15; } }
+
+/* Below this, body itself shrinks under its 640px design width, so the
+   8-position row (~570px wide) no longer fits - switch to exactly two
+   rows of 4 instead of forcing horizontal overflow. Widths at or above
+   this still get the full single row, as before. */
+@media (max-width: 640px) {
+	.stagekit { grid-template-columns: repeat(4, auto); gap: 0.5rem; }
+}
