@@ -1,6 +1,7 @@
 package server
 
 import (
+	"database/sql"
 	"html/template"
 	"net/http"
 	"os"
@@ -11,14 +12,18 @@ import (
 
 const defaultAlbumArt = "blank_album_art_keep.png"
 
-func NewRouter(hub *rb3net.Hub, staticDir, storeDir, templateDir string) http.Handler {
+func NewRouter(hub *rb3net.Hub, database *sql.DB, staticDir, storeDir, templateDir string) http.Handler {
 	indexTmpl := template.Must(template.ParseFiles(filepath.Join(templateDir, "index.html")))
 	configTmpl := template.Must(template.ParseFiles(filepath.Join(templateDir, "config.html")))
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/healthz", handleHealthz)
 	mux.Handle("/", handleIndex(indexTmpl))
-	mux.Handle("/config", handlePage(configTmpl))
+	mux.Handle("/config", handleConfig(configTmpl, database))
+	mux.Handle("/config/wled-devices", handleAddWLEDDevice(database))
+	mux.Handle("/config/wled-devices/delete", handleDeleteWLEDDevice(database))
+	mux.Handle("/config/wled-devices/enabled", handleWLEDDeviceEnabled(database))
+	mux.Handle("/config/wled-devices/channels", handleWLEDDeviceChannels(database))
 	mux.HandleFunc("/ws", handleWS(hub))
 	mux.HandleFunc("/jump", handleJump(hub))
 
@@ -66,14 +71,6 @@ func handleIndex(tmpl *template.Template) http.HandlerFunc {
 			http.NotFound(w, r)
 			return
 		}
-		if err := tmpl.Execute(w, nil); err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-		}
-	}
-}
-
-func handlePage(tmpl *template.Template) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
 		if err := tmpl.Execute(w, nil); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}

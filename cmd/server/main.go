@@ -83,7 +83,7 @@ func main() {
 
 	srv := &http.Server{
 		Addr:    addr,
-		Handler: server.NewRouter(hub, staticDir, storeDir, templateDir),
+		Handler: server.NewRouter(hub, database, staticDir, storeDir, templateDir),
 	}
 
 	go func() {
