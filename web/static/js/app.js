@@ -49,7 +49,7 @@
 		return '/static/images/origin/' + encodeURIComponent(origin || 'generic') + '.png';
 	}
 
-	var BLANK_ALBUM_ART = '/static/art/blank_album_art_keep.png';
+	var BLANK_ALBUM_ART = '/static/images/blank_album_art_keep.png';
 
 	function albumArtURL(shortname) {
 		return '/static/art/' + encodeURIComponent(shortname || '') + '_keep.png';

@@ -70,7 +70,8 @@ const songsTableColumns = `
 	vocal_parts             INTEGER,
 	year                    INTEGER,
 	length                  INTEGER,
-	metadata_datetime       DATETIME
+	metadata_datetime       DATETIME,
+	db_art_check            INTEGER NOT NULL DEFAULT 0
 `
 
 var createSongsTable = "CREATE TABLE IF NOT EXISTS songs (" + songsTableColumns + ")"
@@ -103,6 +104,7 @@ var songMigrationColumns = []string{
 	"year INTEGER",
 	"length INTEGER",
 	"metadata_datetime DATETIME",
+	"db_art_check INTEGER NOT NULL DEFAULT 0",
 }
 
 // migrateSongsTable brings an already-existing songs table up to
@@ -189,7 +191,7 @@ func rebuildSongsTableNullable(sqlDB *sql.DB) error {
 			shortname, title, artist, album, origin,
 			difficulty_band, difficulty_guitar, difficulty_bass, difficulty_drum, difficulty_keys,
 			difficulty_vocals, difficulty_pro_guitar, difficulty_pro_bass, difficulty_pro_drum, difficulty_pro_keys,
-			genre, vocal_parts, year, length, metadata_datetime
+			genre, vocal_parts, year, length, metadata_datetime, db_art_check
 		FROM songs`); err != nil {
 		return err
 	}
@@ -490,6 +492,40 @@ func SaveSongs(sqlDB *sql.DB, songs []SongRecord, metadataDirs ...string) error 
 	}
 
 	return tx.Commit()
+}
+
+// ArtCheckSong is a song not yet checked against the bundled art database -
+// see PendingArtCheckSongs.
+type ArtCheckSong struct {
+	Shortname string
+	Origin    string
+}
+
+// PendingArtCheckSongs returns the shortname and origin of every song whose
+// db_art_check flag is still false, i.e. hasn't been checked yet.
+func PendingArtCheckSongs(sqlDB *sql.DB) ([]ArtCheckSong, error) {
+	rows, err := sqlDB.Query(`SELECT shortname, origin FROM songs WHERE db_art_check = 0`)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var pending []ArtCheckSong
+	for rows.Next() {
+		var s ArtCheckSong
+		if err := rows.Scan(&s.Shortname, &s.Origin); err != nil {
+			return nil, err
+		}
+		pending = append(pending, s)
+	}
+	return pending, rows.Err()
+}
+
+// MarkArtChecked sets shortname's db_art_check flag so PendingArtCheckSongs
+// won't return it again.
+func MarkArtChecked(sqlDB *sql.DB, shortname string) error {
+	_, err := sqlDB.Exec(`UPDATE songs SET db_art_check = 1 WHERE shortname = ?`, shortname)
+	return err
 }
 
 // LoadSongs returns every song stored in the songs table, ordered by title.

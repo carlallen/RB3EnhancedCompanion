@@ -27,9 +27,9 @@ func NewRouter(hub *rb3net.Hub, database *sql.DB, staticDir, storeDir, templateD
 	mux.HandleFunc("/ws", handleWS(hub))
 	mux.HandleFunc("/jump", handleJump(hub))
 
-	staticArtDir := filepath.Join(staticDir, "art")
+	staticImagesDir := filepath.Join(staticDir, "images")
 	storeArtDir := filepath.Join(storeDir, "art")
-	mux.Handle("/static/art/", http.StripPrefix("/static/art/", handleArt(storeArtDir, staticArtDir)))
+	mux.Handle("/static/art/", http.StripPrefix("/static/art/", handleArt(storeArtDir, staticImagesDir)))
 
 	fs := http.FileServer(http.Dir(staticDir))
 	mux.Handle("/static/", http.StripPrefix("/static/", fs))
@@ -38,15 +38,14 @@ func NewRouter(hub *rb3net.Hub, database *sql.DB, staticDir, storeDir, templateD
 }
 
 // handleArt serves album art, preferring a custom file in storeArtDir, then
-// falling back to the bundled artwork in staticArtDir, then a default image.
-func handleArt(storeArtDir, staticArtDir string) http.HandlerFunc {
+// falling back to a default image.
+func handleArt(storeArtDir, staticImagesDir string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		name := filepath.Base(r.URL.Path)
 
 		candidates := []string{
 			filepath.Join(storeArtDir, name),
-			filepath.Join(staticArtDir, name),
-			filepath.Join(staticArtDir, defaultAlbumArt),
+			filepath.Join(staticImagesDir, defaultAlbumArt),
 		}
 
 		for _, path := range candidates {

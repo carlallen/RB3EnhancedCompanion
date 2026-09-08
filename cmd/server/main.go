@@ -80,6 +80,9 @@ func main() {
 	wled := &rb3net.WLEDWatcher{Hub: hub, DB: database}
 	go wled.Run(ctx)
 
+	artCheck := &rb3net.ArtCheckWatcher{Hub: hub, DB: database, StoreDir: storeDir}
+	go artCheck.Run(ctx)
+
 	srv := &http.Server{
 		Addr:    addr,
 		Handler: server.NewRouter(hub, database, staticDir, storeDir, templateDir),
