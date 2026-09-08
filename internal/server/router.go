@@ -50,6 +50,11 @@ func handleArt(storeArtDir, staticImagesDir string) http.HandlerFunc {
 
 		for _, path := range candidates {
 			if info, err := os.Stat(path); err == nil && !info.IsDir() {
+				// A shortname's art URL never changes even when the file
+				// backing it does (e.g. rb3net.ArtCheckWatcher downloading
+				// art after the fact), so browsers must always revalidate
+				// rather than trust a previously cached copy.
+				w.Header().Set("Cache-Control", "no-cache")
 				http.ServeFile(w, r, path)
 				return
 			}
