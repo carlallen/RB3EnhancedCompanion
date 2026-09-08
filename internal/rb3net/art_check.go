@@ -10,6 +10,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"sync"
 	"time"
 
 	"github.com/carlallen/RB3EnhancedCompanion/internal/db"
@@ -30,6 +31,15 @@ type ArtCheckWatcher struct {
 	Hub      *Hub
 	DB       *sql.DB
 	StoreDir string
+
+	// mu guards running and rerun, which together coalesce version bumps
+	// that arrive while a check() pass is still in flight (see trigger) so
+	// two passes never run concurrently - both would pull overlapping
+	// PendingArtCheckSongs results and race on downloadArt's shared tmp
+	// file for any song they have in common.
+	mu      sync.Mutex
+	running bool
+	rerun   bool
 }
 
 func (w *ArtCheckWatcher) Run(ctx context.Context) {
@@ -42,7 +52,7 @@ func (w *ArtCheckWatcher) Run(ctx context.Context) {
 	lastVersion := -1
 	if state := w.Hub.State(); state.SongListVersion != lastVersion {
 		lastVersion = state.SongListVersion
-		go w.check(ctx)
+		w.trigger(ctx)
 	}
 
 	for {
@@ -57,9 +67,39 @@ func (w *ArtCheckWatcher) Run(ctx context.Context) {
 				continue
 			}
 			lastVersion = state.SongListVersion
-			go w.check(ctx)
+			w.trigger(ctx)
 		}
 	}
+}
+
+// trigger starts a check() pass, unless one is already running - in which
+// case it flags that pass to run again once it finishes, rather than
+// starting a second pass concurrently.
+func (w *ArtCheckWatcher) trigger(ctx context.Context) {
+	w.mu.Lock()
+	if w.running {
+		w.rerun = true
+		w.mu.Unlock()
+		return
+	}
+	w.running = true
+	w.mu.Unlock()
+
+	go func() {
+		for {
+			w.check(ctx)
+
+			w.mu.Lock()
+			if !w.rerun || ctx.Err() != nil {
+				w.running = false
+				w.rerun = false
+				w.mu.Unlock()
+				return
+			}
+			w.rerun = false
+			w.mu.Unlock()
+		}
+	}()
 }
 
 func (w *ArtCheckWatcher) check(ctx context.Context) {
