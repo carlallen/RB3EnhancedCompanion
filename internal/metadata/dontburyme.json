@@ -1,0 +1,20 @@
+{
+  "album_name": "To the Confusion of Our Enemies",
+  "artist": "Riverboat Gamblers",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 3,
+    "pro_bass": 0,
+    "pro_drum": 4,
+    "pro_guitar": 2,
+    "vocals": 2
+  },
+  "genre": "punk",
+  "name": "Don't Bury Me... I'm Still Not Dead",
+  "shortname": "dontburyme",
+  "song_length": 168251,
+  "vocal_parts": 2,
+  "year_released": 2006
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Soundgarden",
+  "diff": {
+    "band": 1,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 1
+  },
+  "genre": "rock",
+  "name": "Black Hole Sun",
+  "shortname": "blackholesun",
+  "song_length": 271000,
+  "vocal_parts": 1,
+  "year_released": 1994
+}

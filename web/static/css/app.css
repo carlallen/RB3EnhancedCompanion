@@ -200,23 +200,102 @@ input[type="text"]:focus {
 
 .song-row {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
-	gap: 1rem;
+	/* Column-gap only (no row-gap): .song-panel wraps onto its own line via
+	   flex-basis: 100%, and a row-gap here would add fixed space between
+	   that line and the row above it even while the panel is collapsed to
+	   0 height - permanently inflating the row once it's been opened once.
+	   The panel's own top padding (on .song-meta) provides that spacing
+	   instead, since it collapses correctly along with the panel. */
+	gap: 0 1rem;
 	padding: 0.5rem 0;
 	border-bottom: 1px solid var(--border-soft);
 }
 .song-row:last-child { border-bottom: none; }
 
 .song-info { display: flex; align-items: center; gap: 0.5rem; overflow: hidden; text-align: left; }
+#songlist .song-info { cursor: pointer; }
 .song-details { display: flex; flex-direction: column; overflow: hidden; text-align: left; }
 .song-title { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .song-artist { opacity: 0.7; font-size: 0.85rem; }
 .song-count, .song-message { text-align: center; opacity: 0.7; font-size: 0.85rem; padding: 0.5rem 0; }
 .song-actions { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
 .origin-icon { width: 28px; height: 28px; object-fit: contain; flex-shrink: 0; }
-.album-art { width: 40px; height: 40px; object-fit: cover; border-radius: 3px; flex-shrink: 0; background: var(--border-soft); }
+.album-art {
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	border-radius: 3px;
+	flex-shrink: 0;
+	background: var(--border-soft);
+	transition: width 0.2s ease, height 0.2s ease;
+}
 .album-art-lg { width: 56px; height: 56px; border-radius: 4px; }
+
+/* The row's own album art grows in place when expanded, rather than the
+   panel showing a second, larger copy of it. Top-align everything in the
+   row - title/artist next to the art, and the origin icon/Play button on
+   the right - instead of centering it all against the now-tall image. */
+#songlist .song-row.expanded { align-items: flex-start; }
+#songlist .song-row.expanded .song-info { align-items: flex-start; }
+#songlist .song-row.expanded .song-info .album-art { width: 110px; height: 110px; border-radius: 6px; }
+
+/* .song-panel and .song-extra slide open/closed by animating max-height to
+   their actual measured content height (app.js's setRowExpanded sets this
+   inline), rather than a CSS-only intrinsic-sizing trick - that approach
+   (0fr->1fr grid rows) kept leaving the row taller than it should be once
+   a panel had been opened, since flex/grid items' default "automatic
+   minimum size" fought the collapse. Opening is delayed until the art's
+   own resize transition above has finished, so the art grows first and
+   the details slide open after; closing happens immediately, in step with
+   the art shrinking back. .song-extra's parent (.song-details) is a
+   column-direction flex container, making height its flex main axis - so
+   without min-height: 0 here, the default min-height: auto would win over
+   max-height: 0 (min overrides max when they conflict) and keep it at its
+   natural content height regardless. */
+.song-panel, .song-extra {
+	overflow: hidden;
+	max-height: 0;
+	min-height: 0;
+	opacity: 0;
+	transition: max-height 0.25s ease, opacity 0.2s ease;
+}
+#songlist .song-row.expanded .song-panel,
+#songlist .song-row.expanded .song-extra {
+	opacity: 1;
+	transition-delay: 0.2s;
+}
+.song-panel { flex-basis: 100%; }
+
+.song-meta { display: flex; flex-direction: column; gap: 0.6rem; padding: 0.75rem 0 0.25rem; }
+.song-extra-inner { display: flex; flex-direction: column; gap: 0.1rem; margin-top: 0.35rem; }
+.song-extra-line { opacity: 0.6; font-size: 0.8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Two rows of five: guitar/bass/drums/keys/vocals, then the four pro
+   instruments and band. Each cell layers the instrument icon over the
+   ring_0.png-ring_6.png image matching its difficulty, so the ring itself
+   shows the tier. */
+.diff-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.3rem 0.15rem; }
+.diff-cell { display: flex; align-items: center; justify-content: center; }
+.diff-ring { position: relative; width: 60px; height: 60px; flex-shrink: 0; }
+.diff-ring-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.diff-icon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 65%;
+	height: 65%;
+	object-fit: contain;
+	transform: translate(-50%, -50%);
+}
+.diff-icon.diff-icon-dim { width: 100%; height: 100%; opacity: 0.35; }
+
+@media (max-width: 480px) {
+	.diff-grid { gap: 0.25rem 0.1rem; }
+	.diff-ring { width: 48px; height: 48px; }
+}
 
 .current-song .song-title { font-size: 1.1rem; }
 .current-song .song-artist { font-size: 0.95rem; }

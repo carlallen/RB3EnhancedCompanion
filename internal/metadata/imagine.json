@@ -1,0 +1,21 @@
+{
+  "album_name": "Imagine",
+  "artist": "John Lennon",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 0,
+    "guitar": 2,
+    "keys": 2,
+    "pro_bass": 0,
+    "pro_drum": 0,
+    "pro_keys": 2,
+    "vocals": 0
+  },
+  "genre": "classicrock",
+  "name": "Imagine",
+  "shortname": "imagine",
+  "song_length": 186788,
+  "vocal_parts": 1,
+  "year_released": 1971
+}

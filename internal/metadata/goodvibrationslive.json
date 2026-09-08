@@ -1,0 +1,22 @@
+{
+  "album_name": "Live at London",
+  "artist": "The Beach Boys",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 1,
+    "guitar": 1,
+    "keys": 3,
+    "pro_bass": 2,
+    "pro_drum": 1,
+    "pro_guitar": 1,
+    "pro_keys": 4,
+    "vocals": 6
+  },
+  "genre": "rock",
+  "name": "Good Vibrations (Live)",
+  "shortname": "goodvibrationslive",
+  "song_length": 222373,
+  "vocal_parts": 3,
+  "year_released": 1970
+}

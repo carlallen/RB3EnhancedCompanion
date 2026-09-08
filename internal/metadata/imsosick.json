@@ -1,0 +1,17 @@
+{
+  "album_name": null,
+  "artist": "Flyleaf",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "vocals": 5
+  },
+  "genre": "alternative",
+  "name": "I'm So Sick",
+  "shortname": "imsosick",
+  "song_length": null,
+  "vocal_parts": 1,
+  "year_released": 2005
+}

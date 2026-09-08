@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "The Who",
+  "diff": {
+    "band": 6,
+    "bass": 4,
+    "drum": 6,
+    "guitar": 5,
+    "pro_drum": 6,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "Won't Get Fooled Again",
+  "shortname": "wontgetfooled",
+  "song_length": 515000,
+  "vocal_parts": 1,
+  "year_released": 1971
+}

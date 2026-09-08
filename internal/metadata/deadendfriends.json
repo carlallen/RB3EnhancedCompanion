@@ -1,0 +1,22 @@
+{
+  "album_name": "Them Crooked Vultures",
+  "artist": "Them Crooked Vultures",
+  "diff": {
+    "band": 5,
+    "bass": 5,
+    "drum": 5,
+    "guitar": 5,
+    "keys": 4,
+    "pro_bass": 5,
+    "pro_drum": 5,
+    "pro_guitar": 6,
+    "pro_keys": 4,
+    "vocals": 4
+  },
+  "genre": "rock",
+  "name": "Dead End Friends",
+  "shortname": "deadendfriends",
+  "song_length": 199948,
+  "vocal_parts": 2,
+  "year_released": 2009
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Pixies",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 1,
+    "guitar": 1,
+    "pro_drum": 1,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Wave of Mutilation",
+  "shortname": "waveofmutilation",
+  "song_length": null,
+  "vocal_parts": 1,
+  "year_released": 1989
+}

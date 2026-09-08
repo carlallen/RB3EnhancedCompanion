@@ -1,0 +1,22 @@
+{
+  "album_name": "Why Can't We Be Friends?",
+  "artist": "WAR",
+  "diff": {
+    "band": 0,
+    "bass": 3,
+    "drum": 0,
+    "guitar": 0,
+    "keys": 3,
+    "pro_bass": 1,
+    "pro_drum": 0,
+    "pro_guitar": 0,
+    "pro_keys": 3,
+    "vocals": 1
+  },
+  "genre": "rbsoulfunk",
+  "name": "Low Rider",
+  "shortname": "lowrider",
+  "song_length": 191530,
+  "vocal_parts": 1,
+  "year_released": 1975
+}

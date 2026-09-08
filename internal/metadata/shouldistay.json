@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "The Clash",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 0,
+    "pro_drum": 3,
+    "vocals": 1
+  },
+  "genre": "punk",
+  "name": "Should I Stay or Should I Go",
+  "shortname": "shouldistay",
+  "song_length": 194000,
+  "vocal_parts": 1,
+  "year_released": 1982
+}

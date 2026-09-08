@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Hole",
+  "diff": {
+    "band": 1,
+    "bass": 3,
+    "drum": 2,
+    "guitar": 3,
+    "pro_drum": 2,
+    "vocals": 1
+  },
+  "genre": "poprock",
+  "name": "Celebrity Skin",
+  "shortname": "celebrityskin",
+  "song_length": 143000,
+  "vocal_parts": 1,
+  "year_released": 1998
+}

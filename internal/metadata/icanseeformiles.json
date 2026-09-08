@@ -1,0 +1,20 @@
+{
+  "album_name": "The Who Sell Out",
+  "artist": "The Who",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 6,
+    "guitar": 2,
+    "pro_bass": 3,
+    "pro_drum": 6,
+    "pro_guitar": 3,
+    "vocals": 2
+  },
+  "genre": "classicrock",
+  "name": "I Can See For Miles",
+  "shortname": "icanseeformiles",
+  "song_length": 272670,
+  "vocal_parts": 3,
+  "year_released": 1967
+}

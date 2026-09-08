@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Bon Jovi",
+  "diff": {
+    "band": 2,
+    "bass": 4,
+    "drum": 0,
+    "guitar": 4,
+    "pro_drum": 0,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "Wanted Dead or Alive",
+  "shortname": "wanteddeadoralive",
+  "song_length": 303000,
+  "vocal_parts": 1,
+  "year_released": 1986
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Sweet",
+  "diff": {
+    "band": 4,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 4,
+    "pro_drum": 5,
+    "vocals": 2
+  },
+  "genre": "glam",
+  "name": "Ballroom Blitz",
+  "shortname": "ballroomblitz",
+  "song_length": 203000,
+  "vocal_parts": 1,
+  "year_released": 1975
+}

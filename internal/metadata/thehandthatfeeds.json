@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Nine Inch Nails",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 1,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "The Hand That Feeds",
+  "shortname": "thehandthatfeeds",
+  "song_length": null,
+  "vocal_parts": 1,
+  "year_released": 2005
+}

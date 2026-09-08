@@ -1,0 +1,22 @@
+{
+  "album_name": "Brothers in Arms",
+  "artist": "Dire Straits",
+  "diff": {
+    "band": 2,
+    "bass": 5,
+    "drum": 0,
+    "guitar": 6,
+    "keys": 5,
+    "pro_bass": 4,
+    "pro_drum": 0,
+    "pro_guitar": 3,
+    "pro_keys": 2,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Walk of Life",
+  "shortname": "walkoflife",
+  "song_length": 243439,
+  "vocal_parts": 3,
+  "year_released": 1985
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Metallica",
+  "diff": {
+    "band": 6,
+    "bass": 5,
+    "drum": 5,
+    "guitar": 5,
+    "pro_drum": 5,
+    "vocals": 3
+  },
+  "genre": "metal",
+  "name": "Enter Sandman",
+  "shortname": "entersandman",
+  "song_length": null,
+  "vocal_parts": 1,
+  "year_released": 1991
+}

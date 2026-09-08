@@ -1,0 +1,21 @@
+{
+  "album_name": "In and Out of Control",
+  "artist": "Raveonettes",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 1,
+    "guitar": 0,
+    "keys": 2,
+    "pro_bass": 4,
+    "pro_guitar": 0,
+    "pro_keys": 1,
+    "vocals": 1
+  },
+  "genre": "indierock",
+  "name": "Last Dance",
+  "shortname": "lastdance",
+  "song_length": 216466,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

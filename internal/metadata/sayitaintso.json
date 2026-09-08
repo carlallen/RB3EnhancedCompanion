@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Weezer",
+  "diff": {
+    "band": 0,
+    "bass": 2,
+    "drum": 0,
+    "guitar": 2,
+    "pro_drum": 0,
+    "vocals": 0
+  },
+  "genre": "alternative",
+  "name": "Say It Ain't So",
+  "shortname": "sayitaintso",
+  "song_length": 262000,
+  "vocal_parts": 1,
+  "year_released": 1994
+}

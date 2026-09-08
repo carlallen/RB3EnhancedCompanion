@@ -1,0 +1,22 @@
+{
+  "album_name": "Alternative Studio Version",
+  "artist": "James Brown",
+  "diff": {
+    "band": 5,
+    "bass": 6,
+    "drum": 3,
+    "guitar": 4,
+    "keys": 6,
+    "pro_bass": 4,
+    "pro_drum": 3,
+    "pro_guitar": 2,
+    "pro_keys": 6,
+    "vocals": 6
+  },
+  "genre": "rbsoulfunk",
+  "name": "I Got You (I Feel Good)",
+  "shortname": "ifeelgoodalt",
+  "song_length": 178839,
+  "vocal_parts": 1,
+  "year_released": 2010
+}

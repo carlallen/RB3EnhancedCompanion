@@ -1,0 +1,20 @@
+{
+  "album_name": "Through the Chaos",
+  "artist": "Hypernova",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 6,
+    "guitar": 4,
+    "pro_bass": 2,
+    "pro_drum": 6,
+    "pro_guitar": 3,
+    "vocals": 4
+  },
+  "genre": "indierock",
+  "name": "Viva La Resistance",
+  "shortname": "vivalaresistance",
+  "song_length": 185448,
+  "vocal_parts": 2,
+  "year_released": 2010
+}

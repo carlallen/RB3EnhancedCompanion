@@ -1,0 +1,20 @@
+{
+  "album_name": "Core",
+  "artist": "Stone Temple Pilots",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 2,
+    "guitar": 3,
+    "pro_bass": 4,
+    "pro_drum": 2,
+    "pro_guitar": 4,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Plush",
+  "shortname": "plush",
+  "song_length": 313992,
+  "vocal_parts": 1,
+  "year_released": 1992
+}

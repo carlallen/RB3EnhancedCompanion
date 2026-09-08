@@ -118,6 +118,9 @@ func Jump(ctx context.Context, ip, shortname string) error {
 type SongListWatcher struct {
 	Hub *Hub
 	DB  *sql.DB
+	// MetadataDirs is checked, in order, for a <shortname>.json metadata
+	// file for each song on every save - see db.SaveSongs.
+	MetadataDirs []string
 }
 
 func (w *SongListWatcher) Run(ctx context.Context) {
@@ -164,8 +167,16 @@ func (w *SongListWatcher) fetch(ctx context.Context, ip string) {
 	for i, s := range songs {
 		records[i] = db.SongRecord(s)
 	}
-	if err := db.SaveSongs(w.DB, records); err != nil {
+	if err := db.SaveSongs(w.DB, records, w.MetadataDirs...); err != nil {
 		log.Printf("rb3net: song list save failed: %v (console_ip=%s)", err, ip)
+	} else {
+		// SaveSongs fills in each record's difficulty/genre/vocal-parts/
+		// year/length/metadata-datetime fields from its metadata file (see
+		// db.applySongMetadata) - copy those back so the live state served
+		// over /ws carries them too, not just what the console reported.
+		for i := range songs {
+			songs[i] = Song(records[i])
+		}
 	}
 
 	w.Hub.Mutate(func(s *GameState) {

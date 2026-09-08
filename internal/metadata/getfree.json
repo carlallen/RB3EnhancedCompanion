@@ -1,0 +1,20 @@
+{
+  "album_name": "Highly Evolved",
+  "artist": "The Vines",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 2,
+    "guitar": 1,
+    "pro_bass": 2,
+    "pro_drum": 2,
+    "pro_guitar": 1,
+    "vocals": 4
+  },
+  "genre": "rock",
+  "name": "Get Free",
+  "shortname": "getfree",
+  "song_length": 129561,
+  "vocal_parts": 3,
+  "year_released": 2002
+}

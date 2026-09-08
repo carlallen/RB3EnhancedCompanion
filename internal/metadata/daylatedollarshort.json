@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "The Acro-brats",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 1,
+    "pro_drum": 3,
+    "vocals": 4
+  },
+  "genre": "rock",
+  "name": "Day Late, Dollar Short",
+  "shortname": "daylatedollarshort",
+  "song_length": 152000,
+  "vocal_parts": 1,
+  "year_released": 2006
+}

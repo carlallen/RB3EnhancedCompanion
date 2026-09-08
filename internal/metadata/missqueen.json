@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Mountain",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 2,
+    "guitar": 0,
+    "pro_drum": 2,
+    "vocals": 3
+  },
+  "genre": "southernrock",
+  "name": "Mississippi Queen",
+  "shortname": "missqueen",
+  "song_length": 133000,
+  "vocal_parts": 1,
+  "year_released": 1971
+}

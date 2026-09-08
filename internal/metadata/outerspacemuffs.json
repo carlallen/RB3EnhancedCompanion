@@ -1,0 +1,20 @@
+{
+  "album_name": "The Muffs Rock Band Re-Records",
+  "artist": "The Muffs",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 0,
+    "guitar": 0,
+    "pro_bass": 2,
+    "pro_drum": 0,
+    "pro_guitar": 1,
+    "vocals": 4
+  },
+  "genre": "poprock",
+  "name": "Outer Space",
+  "shortname": "outerspacemuffs",
+  "song_length": 183703,
+  "vocal_parts": 3,
+  "year_released": 1997
+}

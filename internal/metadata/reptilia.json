@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "The Strokes",
+  "diff": {
+    "band": 6,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 4,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Reptilia",
+  "shortname": "reptilia",
+  "song_length": null,
+  "vocal_parts": 1,
+  "year_released": 2003
+}

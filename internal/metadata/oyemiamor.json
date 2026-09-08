@@ -1,0 +1,22 @@
+{
+  "album_name": "\u00bfD\u00f3nde Jugar\u00e1n los Ni\u00f1os?",
+  "artist": "Man\u00e1",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 1,
+    "keys": 2,
+    "pro_bass": 1,
+    "pro_drum": 3,
+    "pro_guitar": 5,
+    "pro_keys": 2,
+    "vocals": 4
+  },
+  "genre": "latin",
+  "name": "Oye Mi Amor",
+  "shortname": "oyemiamor",
+  "song_length": 269170,
+  "vocal_parts": 2,
+  "year_released": 1992
+}

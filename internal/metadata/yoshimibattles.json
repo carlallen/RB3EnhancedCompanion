@@ -1,0 +1,22 @@
+{
+  "album_name": "Yoshimi Battles the Pink Robots",
+  "artist": "The Flaming Lips",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 1,
+    "guitar": 2,
+    "keys": 1,
+    "pro_bass": 0,
+    "pro_drum": 1,
+    "pro_guitar": 0,
+    "pro_keys": 2,
+    "vocals": 0
+  },
+  "genre": "alternative",
+  "name": "Yoshimi Battles the Pink Robots Pt. 1",
+  "shortname": "yoshimibattles",
+  "song_length": 293164,
+  "vocal_parts": 3,
+  "year_released": 2002
+}

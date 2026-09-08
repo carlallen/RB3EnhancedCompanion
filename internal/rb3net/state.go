@@ -3,7 +3,10 @@
 // in-game HTTP server for the song list and jump commands.
 package rb3net
 
-import "sync"
+import (
+	"sync"
+	"time"
+)
 
 // BandMember is one of the up to 4 instrument/vocal slots reported by a
 // BAND_INFO packet.
@@ -36,12 +39,37 @@ func (sk *StageKit) applyColour(colourIdx int, ledMask byte) {
 }
 
 // Song is one entry from RB3Enhanced's console-side /list_songs response.
+// The DifficultyX fields are chart difficulty ratings from 0-6, nil when
+// the song's metadata file didn't supply that part's difficulty (which
+// includes every field here until db.SaveSongs fills them in - the
+// console's own song list doesn't report them).
 type Song struct {
 	Shortname string
 	Title     string
 	Artist    string
 	Album     string
 	Origin    string
+
+	DifficultyBand      *int
+	DifficultyGuitar    *int
+	DifficultyBass      *int
+	DifficultyDrum      *int
+	DifficultyKeys      *int
+	DifficultyVocals    *int
+	DifficultyProGuitar *int
+	DifficultyProBass   *int
+	DifficultyProDrum   *int
+	DifficultyProKeys   *int
+
+	// Genre, VocalParts, Year and Length are nullable - nil when unknown.
+	Genre      *string
+	VocalParts *int // 0-3
+	Year       *int
+	Length     *int // milliseconds
+
+	// MetadataDatetime is the modification time of the metadata JSON file
+	// db.SaveSongs found for this song (nil if none was found).
+	MetadataDatetime *time.Time
 }
 
 // GameState is the latest known state of the game, assembled from whichever

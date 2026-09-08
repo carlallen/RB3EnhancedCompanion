@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Fall Out Boy",
+  "diff": {
+    "band": 4,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 4,
+    "pro_drum": 5,
+    "vocals": 2
+  },
+  "genre": "emo",
+  "name": "Dead on Arrival",
+  "shortname": "deadonarrival",
+  "song_length": null,
+  "vocal_parts": 1,
+  "year_released": 2003
+}

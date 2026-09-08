@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Jet",
+  "diff": {
+    "band": 5,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Are You Gonna Be My Girl",
+  "shortname": "areyougonnabemygirl",
+  "song_length": 179000,
+  "vocal_parts": 1,
+  "year_released": 2003
+}

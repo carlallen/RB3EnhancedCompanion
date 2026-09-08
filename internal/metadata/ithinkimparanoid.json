@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Garbage",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 0,
+    "guitar": 1,
+    "pro_drum": 0,
+    "vocals": 0
+  },
+  "genre": "poprock",
+  "name": "I Think I'm Paranoid",
+  "shortname": "ithinkimparanoid",
+  "song_length": 226000,
+  "vocal_parts": 1,
+  "year_released": 1998
+}

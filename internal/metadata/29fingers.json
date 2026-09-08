@@ -1,0 +1,17 @@
+{
+  "album_name": null,
+  "artist": "The Konks",
+  "diff": {
+    "band": 0,
+    "bass": 3,
+    "drum": 0,
+    "guitar": 2,
+    "vocals": 1
+  },
+  "genre": "rock",
+  "name": "29 Fingers",
+  "shortname": "29fingers",
+  "song_length": 175000,
+  "vocal_parts": 1,
+  "year_released": 2005
+}

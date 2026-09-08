@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "The Police",
+  "diff": {
+    "band": 6,
+    "bass": 4,
+    "drum": 6,
+    "guitar": 5,
+    "pro_drum": 6,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Next to You",
+  "shortname": "nexttoyou",
+  "song_length": null,
+  "vocal_parts": 1,
+  "year_released": 1978
+}

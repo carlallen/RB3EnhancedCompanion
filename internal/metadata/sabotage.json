@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Beastie Boys",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 1
+  },
+  "genre": "rock",
+  "name": "Sabotage",
+  "shortname": "sabotage",
+  "song_length": 181000,
+  "vocal_parts": 1,
+  "year_released": 1994
+}

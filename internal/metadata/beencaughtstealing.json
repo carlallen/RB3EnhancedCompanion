@@ -1,0 +1,20 @@
+{
+  "album_name": "Ritual de lo Habitual",
+  "artist": "Jane's Addiction",
+  "diff": {
+    "band": 5,
+    "bass": 5,
+    "drum": 5,
+    "guitar": 6,
+    "pro_bass": 3,
+    "pro_drum": 5,
+    "pro_guitar": 5,
+    "vocals": 5
+  },
+  "genre": "alternative",
+  "name": "Been Caught Stealing",
+  "shortname": "beencaughtstealing",
+  "song_length": 206869,
+  "vocal_parts": 3,
+  "year_released": 1990
+}

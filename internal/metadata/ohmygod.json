@@ -1,0 +1,22 @@
+{
+  "album_name": "Fortress Round My Heart",
+  "artist": "Ida Maria",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 0,
+    "pro_bass": 4,
+    "pro_drum": 4,
+    "pro_guitar": 3,
+    "pro_keys": 0,
+    "vocals": 4
+  },
+  "genre": "alternative",
+  "name": "Oh My God",
+  "shortname": "ohmygod",
+  "song_length": 201964,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

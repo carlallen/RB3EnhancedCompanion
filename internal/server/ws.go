@@ -58,6 +58,24 @@ type songDTO struct {
 	Artist    string `json:"artist"`
 	Album     string `json:"album"`
 	Origin    string `json:"origin"`
+
+	DifficultyBand      *int `json:"difficultyBand,omitempty"`
+	DifficultyGuitar    *int `json:"difficultyGuitar,omitempty"`
+	DifficultyBass      *int `json:"difficultyBass,omitempty"`
+	DifficultyDrum      *int `json:"difficultyDrum,omitempty"`
+	DifficultyKeys      *int `json:"difficultyKeys,omitempty"`
+	DifficultyVocals    *int `json:"difficultyVocals,omitempty"`
+	DifficultyProGuitar *int `json:"difficultyProGuitar,omitempty"`
+	DifficultyProBass   *int `json:"difficultyProBass,omitempty"`
+	DifficultyProDrum   *int `json:"difficultyProDrum,omitempty"`
+	DifficultyProKeys   *int `json:"difficultyProKeys,omitempty"`
+
+	Genre      *string `json:"genre,omitempty"`
+	VocalParts *int    `json:"vocalParts,omitempty"`
+	Year       *int    `json:"year,omitempty"`
+	Length     *int    `json:"lengthMs,omitempty"`
+
+	MetadataDatetime *time.Time `json:"metadataDatetime,omitempty"`
 }
 
 // toDashboardState converts a rb3net.GameState to the JSON shape sent to

@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Faith No More",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 4,
+    "pro_drum": 3,
+    "vocals": 1
+  },
+  "genre": "rock",
+  "name": "Epic",
+  "shortname": "epic",
+  "song_length": null,
+  "vocal_parts": 1,
+  "year_released": 1990
+}

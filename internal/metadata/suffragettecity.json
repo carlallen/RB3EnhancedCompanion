@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "David Bowie",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 4
+  },
+  "genre": "glam",
+  "name": "Suffragette City",
+  "shortname": "suffragettecity",
+  "song_length": null,
+  "vocal_parts": 1,
+  "year_released": 1972
+}

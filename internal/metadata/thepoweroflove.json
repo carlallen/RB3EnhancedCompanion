@@ -1,0 +1,22 @@
+{
+  "album_name": "Back to the Future: Music from the Motion Picture Soundtrack",
+  "artist": "Huey Lewis and the News",
+  "diff": {
+    "band": 2,
+    "bass": 4,
+    "drum": 0,
+    "guitar": 5,
+    "keys": 3,
+    "pro_bass": 4,
+    "pro_drum": 0,
+    "pro_guitar": 5,
+    "pro_keys": 3,
+    "vocals": 5
+  },
+  "genre": "rock",
+  "name": "The Power of Love",
+  "shortname": "thepoweroflove",
+  "song_length": 237627,
+  "vocal_parts": 3,
+  "year_released": 1985
+}

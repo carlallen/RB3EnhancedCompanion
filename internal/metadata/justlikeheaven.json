@@ -1,0 +1,22 @@
+{
+  "album_name": "Kiss Me, Kiss Me, Kiss Me",
+  "artist": "The Cure",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 0,
+    "guitar": 1,
+    "keys": 0,
+    "pro_bass": 0,
+    "pro_drum": 0,
+    "pro_guitar": 5,
+    "pro_keys": 1,
+    "vocals": 1
+  },
+  "genre": "new_wave",
+  "name": "Just Like Heaven",
+  "shortname": "justlikeheaven",
+  "song_length": 214000,
+  "vocal_parts": 2,
+  "year_released": 1987
+}

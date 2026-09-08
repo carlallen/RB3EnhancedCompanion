@@ -1,0 +1,19 @@
+{
+  "album_name": "Short Bus",
+  "artist": "Filter",
+  "diff": {
+    "band": 4,
+    "bass": 6,
+    "drum": 1,
+    "guitar": 3,
+    "pro_bass": 3,
+    "pro_guitar": 3,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Hey Man Nice Shot",
+  "shortname": "heymanniceshot",
+  "song_length": 298399,
+  "vocal_parts": 1,
+  "year_released": 1995
+}

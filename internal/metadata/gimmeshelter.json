@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "The Rolling Stones",
+  "diff": {
+    "band": 1,
+    "bass": 3,
+    "drum": 1,
+    "guitar": 3,
+    "pro_drum": 1,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "Gimme Shelter",
+  "shortname": "gimmeshelter",
+  "song_length": null,
+  "vocal_parts": 1,
+  "year_released": 1969
+}

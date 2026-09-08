@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Black Sabbath",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 0
+  },
+  "genre": "metal",
+  "name": "Paranoid",
+  "shortname": "paranoid",
+  "song_length": null,
+  "vocal_parts": 1,
+  "year_released": 1970
+}

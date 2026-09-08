@@ -37,3 +37,6 @@ go.work.sum
 !/store/art/
 /store/art/*
 !/store/art/.gitkeep
+!/store/metadata/
+/store/metadata/*
+!/store/metadata/.gitkeep
