@@ -1,0 +1,18 @@
+{
+  "album_name": "Rides Again",
+  "artist": "James Gang",
+  "diff": {
+    "band": 6,
+    "bass": 5,
+    "drum": 5,
+    "guitar": 4,
+    "pro_drum": 5,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "Funk #49",
+  "shortname": "funk49",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1970
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": "Bricks Are Heavy",
+  "artist": "L7",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 1,
+    "guitar": 0,
+    "pro_bass": 1,
+    "pro_drum": 1,
+    "pro_guitar": 1,
+    "vocals": 0
+  },
+  "genre": "grunge",
+  "name": "Pretend We're Dead",
+  "shortname": "pretendweredead",
+  "song_length": 243636,
+  "vocal_parts": 2,
+  "year_released": 1992
+}

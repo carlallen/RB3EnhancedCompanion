@@ -1,0 +1,20 @@
+{
+  "album_name": "Permanent Vacation",
+  "artist": "Aerosmith",
+  "diff": {
+    "band": 2,
+    "bass": 0,
+    "drum": 0,
+    "guitar": 4,
+    "keys": 0,
+    "pro_drum": 0,
+    "pro_keys": 1,
+    "vocals": 4
+  },
+  "genre": "rock",
+  "name": "Angel",
+  "shortname": "angel3",
+  "song_length": 299811,
+  "vocal_parts": 3,
+  "year_released": 1987
+}

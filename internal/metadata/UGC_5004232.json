@@ -1,0 +1,19 @@
+{
+  "album_name": "Of The Blue Colour Of The Sky",
+  "artist": "OK Go",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 3,
+    "keys": 1,
+    "pro_keys": 1,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "White Knuckles",
+  "shortname": "UGC_5004232",
+  "song_length": 203798,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

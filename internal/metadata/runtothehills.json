@@ -6,13 +6,15 @@
     "bass": 6,
     "drum": 6,
     "guitar": 6,
+    "pro_bass": 6,
     "pro_drum": 6,
+    "pro_guitar": 6,
     "vocals": 4
   },
   "genre": "metal",
   "name": "Run to the Hills",
   "shortname": "runtothehills",
   "song_length": 235000,
-  "vocal_parts": 1,
+  "vocal_parts": 3,
   "year_released": 1982
 }

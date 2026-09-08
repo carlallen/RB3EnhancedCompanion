@@ -1,0 +1,18 @@
+{
+  "album_name": "K",
+  "artist": "Kula Shaker",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 5,
+    "pro_drum": 4,
+    "vocals": 1
+  },
+  "genre": "alternative",
+  "name": "Knight on the Town",
+  "shortname": "knightonthetown",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1996
+}

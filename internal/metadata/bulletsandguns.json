@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Them Terribles",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 1,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Bullets & Guns",
+  "shortname": "bulletsandguns",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

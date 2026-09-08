@@ -1,0 +1,18 @@
+{
+  "album_name": "More Fun in the New World",
+  "artist": "X",
+  "diff": {
+    "band": 5,
+    "bass": 3,
+    "drum": 5,
+    "guitar": 4,
+    "pro_drum": 5,
+    "vocals": 2
+  },
+  "genre": "punk",
+  "name": "I Must Not Think Bad Thoughts",
+  "shortname": "imustnotthink",
+  "song_length": 284185,
+  "vocal_parts": 2,
+  "year_released": 1983
+}

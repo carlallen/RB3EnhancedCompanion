@@ -1,0 +1,17 @@
+{
+  "album_name": "Bayou Country",
+  "artist": "Creedence Clearwater Revival",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 3,
+    "vocals": 1
+  },
+  "genre": "southernrock",
+  "name": "Proud Mary",
+  "shortname": "proudmary2",
+  "song_length": 200565,
+  "vocal_parts": 3,
+  "year_released": 1969
+}

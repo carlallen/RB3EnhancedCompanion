@@ -1,0 +1,19 @@
+{
+  "album_name": "Mechanical Animals",
+  "artist": "Marilyn Manson",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 1,
+    "keys": 0,
+    "pro_keys": 0,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "The Dope Show",
+  "shortname": "thedopeshow",
+  "song_length": 221818,
+  "vocal_parts": 3,
+  "year_released": 1998
+}

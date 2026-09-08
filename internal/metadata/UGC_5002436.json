@@ -1,0 +1,17 @@
+{
+  "album_name": "The Few Not Fleeting",
+  "artist": "Nothing More",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 3,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Fat Kid",
+  "shortname": "UGC_5002436",
+  "song_length": 166000,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

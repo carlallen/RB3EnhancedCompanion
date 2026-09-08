@@ -1,0 +1,18 @@
+{
+  "album_name": "James Gang (Alternate Studio Version)",
+  "artist": "James Gang",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Walk Away",
+  "shortname": "walkaway",
+  "song_length": 213918,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

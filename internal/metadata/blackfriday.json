@@ -1,0 +1,18 @@
+{
+  "album_name": "Katy Lied",
+  "artist": "Steely Dan",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "classicrock",
+  "name": "Black Friday",
+  "shortname": "blackfriday",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1975
+}

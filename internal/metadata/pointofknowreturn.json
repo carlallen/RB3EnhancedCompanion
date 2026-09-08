@@ -1,0 +1,18 @@
+{
+  "album_name": "Two for the Show",
+  "artist": "Kansas",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 5,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "prog",
+  "name": "Point of Know Return (Live)",
+  "shortname": "pointofknowreturn",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1978
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "There Is Nothing Left to Lose",
+  "artist": "Foo Fighters",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Breakout",
+  "shortname": "breakout",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1999
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "Hey Babe",
+  "artist": "Juliana Hatfield",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "indierock",
+  "name": "Nirvana",
+  "shortname": "nirvana",
+  "song_length": 250549,
+  "vocal_parts": 2,
+  "year_released": 1992
+}

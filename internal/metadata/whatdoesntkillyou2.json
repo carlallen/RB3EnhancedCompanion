@@ -1,0 +1,22 @@
+{
+  "album_name": "Stronger",
+  "artist": "Kelly Clarkson",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 2,
+    "guitar": 2,
+    "keys": 4,
+    "pro_bass": 2,
+    "pro_drum": 2,
+    "pro_guitar": 2,
+    "pro_keys": 5,
+    "vocals": 6
+  },
+  "genre": "poprock",
+  "name": "Stronger (What Doesn't Kill You)",
+  "shortname": "whatdoesntkillyou2",
+  "song_length": 225519,
+  "vocal_parts": 3,
+  "year_released": 2011
+}

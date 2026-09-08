@@ -1,0 +1,18 @@
+{
+  "album_name": "Metamorphosis",
+  "artist": "Papa Roach",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 4,
+    "pro_drum": 3,
+    "vocals": 1
+  },
+  "genre": "alternative",
+  "name": "Lifeline",
+  "shortname": "lifeline",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

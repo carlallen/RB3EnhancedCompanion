@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Max\u00efmo Park",
+  "diff": {
+    "band": 2,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 1
+  },
+  "genre": "poprock",
+  "name": "Girls Who Play Guitars",
+  "shortname": "girlswhoplayguitars",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

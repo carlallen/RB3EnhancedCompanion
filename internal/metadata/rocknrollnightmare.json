@@ -1,0 +1,18 @@
+{
+  "album_name": "Back From The Dead",
+  "artist": "Spinal Tap",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "Rock 'n' Roll Nightmare",
+  "shortname": "rocknrollnightmare",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

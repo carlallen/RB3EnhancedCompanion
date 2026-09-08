@@ -1,0 +1,18 @@
+{
+  "album_name": "Wide Awake",
+  "artist": "Picture Me Broken",
+  "diff": {
+    "band": 5,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 5,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "metal",
+  "name": "Dearest (I'm So Sorry)",
+  "shortname": "dearestimsosorry",
+  "song_length": 214860,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

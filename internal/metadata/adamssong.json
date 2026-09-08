@@ -1,0 +1,20 @@
+{
+  "album_name": "Enema of the State",
+  "artist": "Blink-182",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 1,
+    "keys": 1,
+    "pro_drum": 4,
+    "pro_keys": 1,
+    "vocals": 2
+  },
+  "genre": "punk",
+  "name": "Adam's Song",
+  "shortname": "adamssong",
+  "song_length": 253181,
+  "vocal_parts": 2,
+  "year_released": 1999
+}

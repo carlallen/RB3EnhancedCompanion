@@ -1,0 +1,20 @@
+{
+  "album_name": "Warning",
+  "artist": "Green Day",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 1,
+    "pro_drum": 4,
+    "pro_keys": 1,
+    "vocals": 1
+  },
+  "genre": "rock",
+  "name": "Minority",
+  "shortname": "minority",
+  "song_length": 174090,
+  "vocal_parts": 3,
+  "year_released": 2000
+}

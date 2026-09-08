@@ -1,0 +1,22 @@
+{
+  "album_name": "Curiosity",
+  "artist": "Carly Rae Jepsen",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 3,
+    "keys": 2,
+    "pro_bass": 0,
+    "pro_drum": 2,
+    "pro_guitar": 0,
+    "pro_keys": 2,
+    "vocals": 3
+  },
+  "genre": "popdanceelectronic",
+  "name": "Call Me Maybe",
+  "shortname": "callmemaybe",
+  "song_length": 198470,
+  "vocal_parts": 3,
+  "year_released": 2012
+}

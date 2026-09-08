@@ -1,0 +1,20 @@
+{
+  "album_name": "Satellite",
+  "artist": "P.O.D.",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 2,
+    "keys": 0,
+    "pro_drum": 4,
+    "pro_keys": 0,
+    "vocals": 1
+  },
+  "genre": "numetal",
+  "name": "Alive",
+  "shortname": "alivepod",
+  "song_length": 208210,
+  "vocal_parts": 3,
+  "year_released": 2001
+}

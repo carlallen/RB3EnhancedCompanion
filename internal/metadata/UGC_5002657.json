@@ -1,0 +1,17 @@
+{
+  "album_name": "Happiness",
+  "artist": "Dance Gavin Dance",
+  "diff": {
+    "band": 6,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 5,
+    "vocals": 3
+  },
+  "genre": "metal",
+  "name": "Tree Village",
+  "shortname": "UGC_5002657",
+  "song_length": 207709,
+  "vocal_parts": 2,
+  "year_released": 2009
+}

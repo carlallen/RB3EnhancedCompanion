@@ -1,0 +1,20 @@
+{
+  "album_name": "MTV Unplugged in New York",
+  "artist": "Nirvana",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 2,
+    "guitar": 2,
+    "pro_bass": 2,
+    "pro_drum": 2,
+    "pro_guitar": 2,
+    "vocals": 3
+  },
+  "genre": "grunge",
+  "name": "The Man Who Sold the World (Live from MTV Unplugged)",
+  "shortname": "themanwhosoldtheworld",
+  "song_length": 231563,
+  "vocal_parts": 1,
+  "year_released": 1994
+}

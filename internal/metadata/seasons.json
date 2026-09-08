@@ -1,0 +1,18 @@
+{
+  "album_name": "Against the Grain",
+  "artist": "The Veer Union",
+  "diff": {
+    "band": 4,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Seasons",
+  "shortname": "seasons",
+  "song_length": 225685,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

@@ -1,0 +1,17 @@
+{
+  "album_name": "Workingman's Dead",
+  "artist": "The Grateful Dead",
+  "diff": {
+    "band": 5,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 5,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "Cumberland Blues",
+  "shortname": "cumberlandblues",
+  "song_length": 197747,
+  "vocal_parts": 3,
+  "year_released": 1970
+}

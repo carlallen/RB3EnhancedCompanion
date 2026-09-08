@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Blondie",
+  "diff": {
+    "band": 1,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 0
+  },
+  "genre": "poprock",
+  "name": "Hanging on the Telephone",
+  "shortname": "hangingonthetelephone",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

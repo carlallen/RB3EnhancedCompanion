@@ -1,0 +1,18 @@
+{
+  "album_name": "Nothing's Shocking",
+  "artist": "Jane's Addiction",
+  "diff": {
+    "band": 5,
+    "bass": 1,
+    "drum": 6,
+    "guitar": 4,
+    "pro_drum": 6,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "Ted, Just Admit It...",
+  "shortname": "tedjustadmitit",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1988
+}

@@ -1,0 +1,22 @@
+{
+  "album_name": "The Singles 1992-2003",
+  "artist": "No Doubt",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 3,
+    "keys": 3,
+    "pro_bass": 3,
+    "pro_drum": 3,
+    "pro_guitar": 3,
+    "pro_keys": 3,
+    "vocals": 1
+  },
+  "genre": "poprock",
+  "name": "Don't Speak",
+  "shortname": "dontspeak",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2003
+}

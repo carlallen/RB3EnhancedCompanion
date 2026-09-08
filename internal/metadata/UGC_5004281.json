@@ -1,0 +1,20 @@
+{
+  "album_name": "In This Life",
+  "artist": "Stan Bush",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "keys": 2,
+    "pro_drum": 3,
+    "pro_keys": 2,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "The Touch",
+  "shortname": "UGC_5004281",
+  "song_length": 253627,
+  "vocal_parts": 1,
+  "year_released": 2009
+}

@@ -1,0 +1,22 @@
+{
+  "album_name": null,
+  "artist": "Carl Douglas",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 5,
+    "keys": 2,
+    "pro_bass": 0,
+    "pro_drum": 4,
+    "pro_guitar": 1,
+    "pro_keys": 3,
+    "vocals": 3
+  },
+  "genre": "poprock",
+  "name": "Kung Fu Fighting",
+  "shortname": "kungfufighting",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1974
+}

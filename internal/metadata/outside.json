@@ -6,13 +6,17 @@
     "bass": 0,
     "drum": 6,
     "guitar": 4,
+    "keys": 1,
+    "pro_bass": 3,
     "pro_drum": 6,
+    "pro_guitar": 4,
+    "pro_keys": 1,
     "vocals": 3
   },
   "genre": "rock",
   "name": "Outside",
   "shortname": "outside",
   "song_length": null,
-  "vocal_parts": 1,
+  "vocal_parts": 3,
   "year_released": 1989
 }

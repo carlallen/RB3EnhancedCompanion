@@ -1,0 +1,20 @@
+{
+  "album_name": "Future Future Future Perfect",
+  "artist": "Freezepop",
+  "diff": {
+    "band": 6,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 5,
+    "keys": 5,
+    "pro_drum": 4,
+    "pro_keys": 6,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "Less Talk More Rokk",
+  "shortname": "lesstalkmorerokk",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 2007
+}

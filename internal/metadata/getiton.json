@@ -1,0 +1,20 @@
+{
+  "album_name": "Barbarella Girl God, Introducing The Chevelles",
+  "artist": "The Chevelles",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 4,
+    "keys": 0,
+    "pro_drum": 4,
+    "pro_keys": 0,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "Get It On",
+  "shortname": "getiton",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

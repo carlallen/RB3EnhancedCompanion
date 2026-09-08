@@ -1,0 +1,18 @@
+{
+  "album_name": "The Colour and the Shape",
+  "artist": "Foo Fighters",
+  "diff": {
+    "band": 2,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Wind Up",
+  "shortname": "windup",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1997
+}

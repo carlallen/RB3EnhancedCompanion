@@ -1,0 +1,22 @@
+{
+  "album_name": "Greatest Hits",
+  "artist": "Bon Jovi",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 1,
+    "guitar": 2,
+    "keys": 2,
+    "pro_bass": 2,
+    "pro_drum": 1,
+    "pro_guitar": 1,
+    "pro_keys": 1,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "It's My Life",
+  "shortname": "itsmylife2",
+  "song_length": 228076,
+  "vocal_parts": 3,
+  "year_released": 2000
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": "Styx Rock Band re-record",
+  "artist": "Styx",
+  "diff": {
+    "band": 5,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 5,
+    "keys": 4,
+    "pro_drum": 4,
+    "pro_keys": 4,
+    "vocals": 4
+  },
+  "genre": "classicrock",
+  "name": "Renegade",
+  "shortname": "renegade",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

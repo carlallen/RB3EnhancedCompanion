@@ -1,0 +1,18 @@
+{
+  "album_name": "Nevermind",
+  "artist": "Nirvana",
+  "diff": {
+    "band": 6,
+    "bass": 2,
+    "drum": 5,
+    "guitar": 3,
+    "pro_drum": 5,
+    "vocals": 2
+  },
+  "genre": "grunge",
+  "name": "Stay Away",
+  "shortname": "stayaway",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1991
+}

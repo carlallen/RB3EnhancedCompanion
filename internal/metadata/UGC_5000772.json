@@ -1,0 +1,17 @@
+{
+  "album_name": null,
+  "artist": "Giant Target",
+  "diff": {
+    "band": 5,
+    "bass": 3,
+    "drum": 5,
+    "guitar": 4,
+    "vocals": 3
+  },
+  "genre": "punk",
+  "name": "Signs",
+  "shortname": "UGC_5000772",
+  "song_length": 130028,
+  "vocal_parts": 2,
+  "year_released": 2009
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": "Without a Sound",
+  "artist": "Dinosaur Jr.",
+  "diff": {
+    "band": 1,
+    "bass": 4,
+    "drum": 3,
+    "guitar": 2,
+    "pro_bass": 3,
+    "pro_drum": 3,
+    "pro_guitar": 4,
+    "vocals": 1
+  },
+  "genre": "alternative",
+  "name": "Feel the Pain",
+  "shortname": "feelthepain",
+  "song_length": 260000,
+  "vocal_parts": 3,
+  "year_released": 1994
+}

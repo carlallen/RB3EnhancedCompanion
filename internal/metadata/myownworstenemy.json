@@ -1,0 +1,20 @@
+{
+  "album_name": "A Place in the Sun",
+  "artist": "Lit",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 0,
+    "guitar": 0,
+    "pro_bass": 0,
+    "pro_drum": 0,
+    "pro_guitar": 0,
+    "vocals": 0
+  },
+  "genre": "poprock",
+  "name": "My Own Worst Enemy",
+  "shortname": "myownworstenemy",
+  "song_length": 173181,
+  "vocal_parts": 2,
+  "year_released": 1999
+}

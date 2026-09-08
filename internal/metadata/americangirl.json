@@ -1,0 +1,18 @@
+{
+  "album_name": "The Live Anthology",
+  "artist": "Tom Petty and the Heartbreakers",
+  "diff": {
+    "band": 6,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 6,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "American Girl (Live)",
+  "shortname": "americangirl",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

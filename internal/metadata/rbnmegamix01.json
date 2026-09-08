@@ -1,0 +1,17 @@
+{
+  "album_name": "Rock Band Network Megamixes",
+  "artist": "Various Artists",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 5,
+    "vocals": 3
+  },
+  "genre": "other",
+  "name": "Rock Band Network Megamix 01",
+  "shortname": "rbnmegamix01",
+  "song_length": 578744,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": "Ocean Avenue",
+  "artist": "Yellowcard",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 2,
+    "pro_drum": 4,
+    "pro_keys": 3,
+    "vocals": 2
+  },
+  "genre": "emo",
+  "name": "Ocean Avenue",
+  "shortname": "oceanavenue",
+  "song_length": 247272,
+  "vocal_parts": 3,
+  "year_released": 2003
+}

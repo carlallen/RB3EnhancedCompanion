@@ -1,0 +1,18 @@
+{
+  "album_name": "Black Butterfly",
+  "artist": "Buckcherry",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 0
+  },
+  "genre": "rock",
+  "name": "Rescue Me",
+  "shortname": "rescueme",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 2008
+}

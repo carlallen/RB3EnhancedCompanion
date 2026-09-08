@@ -1,0 +1,20 @@
+{
+  "album_name": "The Karate Kid: The Original Motion Picture Soundtrack",
+  "artist": "Joe \\qBean\\q Esposito",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 2,
+    "guitar": 3,
+    "keys": 0,
+    "pro_drum": 2,
+    "pro_keys": 0,
+    "vocals": 5
+  },
+  "genre": "poprock",
+  "name": "You're the Best",
+  "shortname": "yourethebest",
+  "song_length": 181629,
+  "vocal_parts": 3,
+  "year_released": 1984
+}

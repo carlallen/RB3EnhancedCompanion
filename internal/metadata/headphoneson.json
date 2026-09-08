@@ -1,0 +1,20 @@
+{
+  "album_name": "iCarly",
+  "artist": "Miranda Cosgrove",
+  "diff": {
+    "band": 1,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 2,
+    "keys": 0,
+    "pro_drum": 3,
+    "pro_keys": 0,
+    "vocals": 1
+  },
+  "genre": "poprock",
+  "name": "Headphones On",
+  "shortname": "headphoneson",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

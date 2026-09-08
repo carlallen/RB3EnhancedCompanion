@@ -1,0 +1,20 @@
+{
+  "album_name": null,
+  "artist": "Oasis",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 3,
+    "keys": 1,
+    "pro_drum": 3,
+    "pro_keys": 2,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "Don't Look Back In Anger",
+  "shortname": "dontlookbackinanger",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": null
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Boston",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "More Than A Feeling",
+  "shortname": "morethanafeeling",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "Good Time",
+  "artist": "Alan Jackson",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 1
+  },
+  "genre": "country",
+  "name": "Good Time",
+  "shortname": "goodtime",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

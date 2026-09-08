@@ -1,0 +1,17 @@
+{
+  "album_name": "Let It Enfold You",
+  "artist": "Senses Fail",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 1,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "Lady in a Blue Dress",
+  "shortname": "UGC_5001459",
+  "song_length": 199784,
+  "vocal_parts": 3,
+  "year_released": 2004
+}

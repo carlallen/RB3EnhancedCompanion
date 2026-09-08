@@ -1,0 +1,20 @@
+{
+  "album_name": "Secrets from the Future",
+  "artist": "MC Frontalot",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 4,
+    "keys": 1,
+    "pro_drum": 4,
+    "pro_keys": 1,
+    "vocals": 2
+  },
+  "genre": "other",
+  "name": "Origin of Species",
+  "shortname": "originofthespecies",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

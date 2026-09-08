@@ -1,0 +1,20 @@
+{
+  "album_name": "The Psychedelic Furs",
+  "artist": "The Psychedelic Furs",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 0,
+    "guitar": 0,
+    "keys": 1,
+    "pro_drum": 0,
+    "pro_keys": 1,
+    "vocals": 2
+  },
+  "genre": "new_wave",
+  "name": "Sister Europe",
+  "shortname": "sistereurope",
+  "song_length": 338181,
+  "vocal_parts": 1,
+  "year_released": 1980
+}

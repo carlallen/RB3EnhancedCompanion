@@ -6,13 +6,15 @@
     "bass": 0,
     "drum": 4,
     "guitar": 4,
+    "pro_bass": 3,
     "pro_drum": 4,
+    "pro_guitar": 3,
     "vocals": 4
   },
   "genre": "rock",
   "name": "I Get By",
   "shortname": "igetby",
   "song_length": 211000,
-  "vocal_parts": 1,
+  "vocal_parts": 3,
   "year_released": 2007
 }

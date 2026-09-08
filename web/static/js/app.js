@@ -19,6 +19,9 @@
 	var bandRows = document.getElementById('band-rows');
 	var songlist = document.getElementById('songlist');
 	var searchbox = document.getElementById('searchbox');
+	var filtersButton = document.getElementById('filters-button');
+	var filtersModal = document.getElementById('filters-modal');
+	var filtersClose = document.getElementById('filters-close');
 
 	var stagekitDots = buildStagekit();
 	var strobeEl = document.getElementById('sk-strobe');
@@ -306,8 +309,34 @@
 		expandedRow = null;
 	}
 
+	// sortOrder is which field the song list is sorted by - changed via the
+	// filters modal. The list from the server already comes sorted by
+	// title, so re-sorting only actually reorders anything when this is
+	// 'artist'.
+	var sortOrder = 'title';
+
+	function sortedSongList() {
+		var list = currentSongList.slice();
+		list.sort(function (a, b) {
+			var av = ((sortOrder === 'artist' ? a.artist : a.title) || '').toLowerCase();
+			var bv = ((sortOrder === 'artist' ? b.artist : b.title) || '').toLowerCase();
+			if (av < bv) return -1;
+			if (av > bv) return 1;
+			return 0;
+		});
+		return list;
+	}
+
+	// renderSongList records the latest song list from the server and
+	// (re)renders it in the current sort order. Call renderSongRows
+	// directly instead when only the sort order changed, since
+	// currentSongList itself hasn't.
 	function renderSongList(songs) {
 		currentSongList = songs;
+		renderSongRows(sortedSongList());
+	}
+
+	function renderSongRows(songs) {
 		songlist.innerHTML = '';
 		expandedRow = null;
 
@@ -401,6 +430,31 @@
 		collapseExpandedRow();
 		var soleMatch = applyFilter();
 		if (soleMatch) expandRow(soleMatch);
+	});
+
+	function openFiltersModal() {
+		filtersModal.hidden = false;
+	}
+
+	function closeFiltersModal() {
+		filtersModal.hidden = true;
+	}
+
+	filtersButton.addEventListener('click', openFiltersModal);
+	filtersClose.addEventListener('click', closeFiltersModal);
+	filtersModal.addEventListener('click', function (ev) {
+		if (ev.target === filtersModal) closeFiltersModal();
+	});
+	document.addEventListener('keydown', function (ev) {
+		if (ev.key === 'Escape' && !filtersModal.hidden) closeFiltersModal();
+	});
+
+	// Sort order applies immediately (no separate "Apply" step) and
+	// re-renders the list in place, without needing a fresh copy from the
+	// server.
+	document.getElementById('sort-order-select').addEventListener('change', function (ev) {
+		sortOrder = ev.target.value;
+		renderSongRows(sortedSongList());
 	});
 
 	function connect() {

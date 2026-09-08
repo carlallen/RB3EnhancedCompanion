@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Judas Priest",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 1,
+    "pro_drum": 2,
+    "vocals": 3
+  },
+  "genre": "metal",
+  "name": "You've Got Another Thing Comin'",
+  "shortname": "yougotanotherthingcoming",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

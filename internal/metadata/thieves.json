@@ -1,0 +1,17 @@
+{
+  "album_name": "The Mind is a Terrible Thing to Taste",
+  "artist": "Ministry",
+  "diff": {
+    "band": 6,
+    "bass": 3,
+    "drum": 5,
+    "guitar": 5,
+    "vocals": 1
+  },
+  "genre": "metal",
+  "name": "Thieves",
+  "shortname": "thieves",
+  "song_length": 300454,
+  "vocal_parts": 3,
+  "year_released": 1989
+}

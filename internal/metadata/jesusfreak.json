@@ -1,0 +1,20 @@
+{
+  "album_name": "Jesus Freak",
+  "artist": "dc Talk",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 3,
+    "keys": 1,
+    "pro_drum": 3,
+    "pro_keys": 1,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Jesus Freak",
+  "shortname": "jesusfreak",
+  "song_length": 304308,
+  "vocal_parts": 3,
+  "year_released": 1995
+}

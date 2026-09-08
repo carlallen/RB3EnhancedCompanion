@@ -1,0 +1,18 @@
+{
+  "album_name": "Chinese Democracy",
+  "artist": "Guns N' Roses",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 1
+  },
+  "genre": "rock",
+  "name": "Sorry",
+  "shortname": "sorry",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

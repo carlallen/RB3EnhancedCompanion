@@ -1,0 +1,18 @@
+{
+  "album_name": "Live",
+  "artist": "AC/DC",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 1,
+    "guitar": 2,
+    "pro_drum": 1,
+    "vocals": 5
+  },
+  "genre": "classicrock",
+  "name": "The Jack (Live)",
+  "shortname": "thejack_live",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1992
+}

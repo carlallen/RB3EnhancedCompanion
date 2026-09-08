@@ -1,0 +1,18 @@
+{
+  "album_name": "Flight 666: Rock Band Edition",
+  "artist": "Iron Maiden",
+  "diff": {
+    "band": 6,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 5,
+    "pro_drum": 5,
+    "vocals": 4
+  },
+  "genre": "metal",
+  "name": "Powerslave",
+  "shortname": "powerslave",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1984
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "Holy Wood (In the Shadow of the Valley of Death)",
+  "artist": "Marilyn Manson",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 1,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "glam",
+  "name": "Disposable Teens",
+  "shortname": "disposableteens",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2000
+}

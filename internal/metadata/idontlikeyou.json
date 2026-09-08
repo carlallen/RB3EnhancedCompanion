@@ -1,0 +1,18 @@
+{
+  "album_name": "I Shall Exterminate Everything Around Me That Restricts Me from Being the Master",
+  "artist": "Electric Six",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 5
+  },
+  "genre": "rock",
+  "name": "I Don't Like You",
+  "shortname": "idontlikeyou",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

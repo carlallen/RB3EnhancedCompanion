@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Judas Priest",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 1,
+    "guitar": 3,
+    "pro_drum": 1,
+    "vocals": 3
+  },
+  "genre": "metal",
+  "name": "Pain And Pleasure",
+  "shortname": "painandpleasure",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

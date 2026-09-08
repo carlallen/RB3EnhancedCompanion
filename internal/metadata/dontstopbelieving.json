@@ -1,0 +1,22 @@
+{
+  "album_name": "Escape",
+  "artist": "Journey",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 3,
+    "keys": 3,
+    "pro_bass": 2,
+    "pro_drum": 3,
+    "pro_guitar": 4,
+    "pro_keys": 3,
+    "vocals": 2
+  },
+  "genre": "classicrock",
+  "name": "Don't Stop Believing",
+  "shortname": "dontstopbelieving",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1981
+}

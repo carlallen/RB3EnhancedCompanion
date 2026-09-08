@@ -1,0 +1,18 @@
+{
+  "album_name": "Vs.",
+  "artist": "Mission of Burma",
+  "diff": {
+    "band": 5,
+    "bass": 5,
+    "drum": 5,
+    "guitar": 3,
+    "pro_drum": 5,
+    "vocals": 0
+  },
+  "genre": "punk",
+  "name": "Mica",
+  "shortname": "mica",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1982
+}

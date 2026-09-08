@@ -1,0 +1,18 @@
+{
+  "album_name": "This Is War",
+  "artist": "30 Seconds to Mars",
+  "diff": {
+    "band": 5,
+    "bass": 5,
+    "drum": 4,
+    "guitar": 1,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "emo",
+  "name": "Closer to the Edge",
+  "shortname": "closertotheedge",
+  "song_length": 256818,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

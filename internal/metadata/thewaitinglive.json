@@ -1,0 +1,18 @@
+{
+  "album_name": "The Live Anthology",
+  "artist": "Tom Petty and the Heartbreakers",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "The Waiting (Live)",
+  "shortname": "thewaitinglive",
+  "song_length": 252727,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

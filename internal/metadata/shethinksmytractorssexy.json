@@ -1,0 +1,18 @@
+{
+  "album_name": "Everywhere We Go",
+  "artist": "Kenny Chesney",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "country",
+  "name": "She Thinks My Tractor's Sexy",
+  "shortname": "shethinksmytractorssexy",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1999
+}

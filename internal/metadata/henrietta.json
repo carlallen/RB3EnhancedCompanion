@@ -1,0 +1,20 @@
+{
+  "album_name": "Costello Music",
+  "artist": "The Fratellis",
+  "diff": {
+    "band": 4,
+    "bass": 4,
+    "drum": 3,
+    "guitar": 3,
+    "keys": 1,
+    "pro_drum": 3,
+    "pro_keys": 1,
+    "vocals": 5
+  },
+  "genre": "alternative",
+  "name": "Henrietta",
+  "shortname": "henrietta",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 2006
+}

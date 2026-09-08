@@ -1,0 +1,19 @@
+{
+  "album_name": null,
+  "artist": "Nine Inch Nails",
+  "diff": {
+    "band": 6,
+    "bass": 1,
+    "drum": 6,
+    "guitar": 4,
+    "keys": 0,
+    "pro_keys": 0,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "The Perfect Drug",
+  "shortname": "perfectdrug",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

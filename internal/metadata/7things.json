@@ -1,0 +1,18 @@
+{
+  "album_name": "Breakout",
+  "artist": "Miley Cyrus",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "poprock",
+  "name": "7 Things",
+  "shortname": "7things",
+  "song_length": 213437,
+  "vocal_parts": 2,
+  "year_released": 2008
+}

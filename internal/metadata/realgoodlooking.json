@@ -1,0 +1,20 @@
+{
+  "album_name": "Then and Now",
+  "artist": "The Who",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 2,
+    "keys": 3,
+    "pro_drum": 4,
+    "pro_keys": 4,
+    "vocals": 1
+  },
+  "genre": "classicrock",
+  "name": "Real Good Looking Boy",
+  "shortname": "realgoodlooking",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2004
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": "Blood Sugar Sex Magik",
+  "artist": "Red Hot Chili Peppers",
+  "diff": {
+    "band": 5,
+    "bass": 3,
+    "drum": 5,
+    "guitar": 4,
+    "pro_bass": 2,
+    "pro_drum": 5,
+    "pro_guitar": 2,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "The Greeting Song",
+  "shortname": "thegreetingsong",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1991
+}

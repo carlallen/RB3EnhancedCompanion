@@ -1,0 +1,20 @@
+{
+  "album_name": "Me and My Gang",
+  "artist": "Rascal Flatts",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 3,
+    "keys": 4,
+    "pro_drum": 3,
+    "pro_keys": 4,
+    "vocals": 4
+  },
+  "genre": "country",
+  "name": "Life Is a Highway",
+  "shortname": "lifeisahighway",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2006
+}

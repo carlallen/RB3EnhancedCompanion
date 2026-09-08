@@ -1,0 +1,18 @@
+{
+  "album_name": "Tragic Kingdom",
+  "artist": "No Doubt",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 4
+  },
+  "genre": "poprock",
+  "name": "Happy Now?",
+  "shortname": "happynow",
+  "song_length": 226222,
+  "vocal_parts": 3,
+  "year_released": 1995
+}

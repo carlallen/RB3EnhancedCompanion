@@ -1,0 +1,18 @@
+{
+  "album_name": "Consolers of the Lonely",
+  "artist": "The Raconteurs",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Many Shades of Black",
+  "shortname": "manyshadesofblack",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

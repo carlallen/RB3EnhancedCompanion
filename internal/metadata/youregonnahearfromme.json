@@ -1,0 +1,18 @@
+{
+  "album_name": "Hole in the Sun",
+  "artist": "Night Ranger",
+  "diff": {
+    "band": 6,
+    "bass": 3,
+    "drum": 5,
+    "guitar": 5,
+    "pro_drum": 5,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "You're Gonna Hear from Me",
+  "shortname": "youregonnahearfromme",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

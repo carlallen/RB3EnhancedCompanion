@@ -1,0 +1,20 @@
+{
+  "album_name": "The Best Years of Our Lives",
+  "artist": "Steve Harley & Cockney Rebel",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 2,
+    "keys": 3,
+    "pro_drum": 3,
+    "pro_keys": 3,
+    "vocals": 4
+  },
+  "genre": "rock",
+  "name": "Make Me Smile (Come Up and See Me)",
+  "shortname": "makemesmile",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1975
+}

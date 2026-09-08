@@ -1,0 +1,18 @@
+{
+  "album_name": "Nevermind",
+  "artist": "Nirvana",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 1,
+    "pro_drum": 4,
+    "vocals": 0
+  },
+  "genre": "grunge",
+  "name": "On A Plain",
+  "shortname": "onaplain",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1991
+}

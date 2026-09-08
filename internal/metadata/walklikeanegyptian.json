@@ -1,0 +1,20 @@
+{
+  "album_name": "Different Light",
+  "artist": "The Bangles",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 4,
+    "keys": 3,
+    "pro_drum": 4,
+    "pro_keys": 2,
+    "vocals": 1
+  },
+  "genre": "rock",
+  "name": "Walk Like an Egyptian",
+  "shortname": "walklikeanegyptian",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1986
+}

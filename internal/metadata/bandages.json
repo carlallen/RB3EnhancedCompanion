@@ -1,0 +1,20 @@
+{
+  "album_name": "Make Up the Breakdown",
+  "artist": "Hot Hot Heat",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 1,
+    "keys": 1,
+    "pro_drum": 2,
+    "pro_keys": 1,
+    "vocals": 1
+  },
+  "genre": "alternative",
+  "name": "Bandages",
+  "shortname": "bandages",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 2002
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "City of Evil",
+  "artist": "Avenged Sevenfold",
+  "diff": {
+    "band": 6,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 6,
+    "pro_drum": 5,
+    "vocals": 4
+  },
+  "genre": "metal",
+  "name": "Bat Country",
+  "shortname": "batcountry",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2005
+}

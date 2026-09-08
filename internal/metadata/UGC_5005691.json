@@ -1,0 +1,21 @@
+{
+  "album_name": "Airbrushed",
+  "artist": "Anamanaguchi",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 6,
+    "guitar": 3,
+    "keys": 4,
+    "pro_bass": 3,
+    "pro_drum": 6,
+    "pro_guitar": 4,
+    "pro_keys": 6
+  },
+  "genre": "popdanceelectronic",
+  "name": "Airbrushed",
+  "shortname": "UGC_5005691",
+  "song_length": 240648,
+  "vocal_parts": 0,
+  "year_released": 2010
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "Dark Horse",
+  "artist": "Nickelback",
+  "diff": {
+    "band": 5,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 5,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Burn It to the Ground",
+  "shortname": "burnittotheground",
+  "song_length": 210909,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

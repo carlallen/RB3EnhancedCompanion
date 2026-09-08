@@ -1,0 +1,19 @@
+{
+  "album_name": "Snoop Dogg Rock Band Mix",
+  "artist": "Snoop Dogg",
+  "diff": {
+    "band": 4,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 3,
+    "pro_keys": 3,
+    "vocals": 0
+  },
+  "genre": "urban",
+  "name": "Ridin' in My Chevy",
+  "shortname": "ridininmychevy",
+  "song_length": 216818,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

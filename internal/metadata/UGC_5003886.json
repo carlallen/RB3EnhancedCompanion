@@ -1,0 +1,17 @@
+{
+  "album_name": "Evil Urges",
+  "artist": "My Morning Jacket",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 1,
+    "guitar": 3,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "I'm Amazed",
+  "shortname": "UGC_5003886",
+  "song_length": 290116,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

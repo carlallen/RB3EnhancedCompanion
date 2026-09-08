@@ -1,0 +1,17 @@
+{
+  "album_name": "Greatest Hits",
+  "artist": "Stroke 9",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 2,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "Little Black Backpack '09",
+  "shortname": "UGC_5000990",
+  "song_length": 230034,
+  "vocal_parts": 2,
+  "year_released": 2010
+}

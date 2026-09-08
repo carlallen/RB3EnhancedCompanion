@@ -1,0 +1,19 @@
+{
+  "album_name": "Everybody Else Is Doing It, So Why Can't We?",
+  "artist": "The Cranberries",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 1,
+    "pro_bass": 0,
+    "pro_guitar": 1,
+    "vocals": 1
+  },
+  "genre": "alternative",
+  "name": "Linger",
+  "shortname": "linger",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1993
+}

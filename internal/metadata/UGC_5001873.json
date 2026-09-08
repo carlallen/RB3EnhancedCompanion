@@ -1,0 +1,17 @@
+{
+  "album_name": null,
+  "artist": "Parry Gripp",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 3,
+    "vocals": 1
+  },
+  "genre": "novelty",
+  "name": "The Girl at the Video Game Store",
+  "shortname": "UGC_5001873",
+  "song_length": 216904,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

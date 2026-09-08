@@ -1,0 +1,18 @@
+{
+  "album_name": "Tragic Kingdom",
+  "artist": "No Doubt",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 4
+  },
+  "genre": "poprock",
+  "name": "World Go 'Round",
+  "shortname": "worldgoround",
+  "song_length": 288708,
+  "vocal_parts": 3,
+  "year_released": 1995
+}

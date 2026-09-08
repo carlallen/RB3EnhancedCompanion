@@ -1,0 +1,22 @@
+{
+  "album_name": "Saturday Night Fever: The Original Movie Sound Track",
+  "artist": "Bee Gees",
+  "diff": {
+    "band": 5,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 1,
+    "keys": 2,
+    "pro_bass": 1,
+    "pro_drum": 3,
+    "pro_guitar": 2,
+    "pro_keys": 3,
+    "vocals": 4
+  },
+  "genre": "other",
+  "name": "Night Fever",
+  "shortname": "nightfever",
+  "song_length": 230442,
+  "vocal_parts": 3,
+  "year_released": 1977
+}

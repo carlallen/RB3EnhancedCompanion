@@ -1,0 +1,20 @@
+{
+  "album_name": "Let's Dance",
+  "artist": "David Bowie",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 1,
+    "keys": 1,
+    "pro_drum": 2,
+    "pro_keys": 1,
+    "vocals": 1
+  },
+  "genre": "glam",
+  "name": "Let's Dance",
+  "shortname": "letsdance",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1983
+}

@@ -1,0 +1,17 @@
+{
+  "album_name": "Gimme Fiction",
+  "artist": "Spoon",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 1,
+    "guitar": 0,
+    "vocals": 3
+  },
+  "genre": "indierock",
+  "name": "I Turn My Camera On",
+  "shortname": "iturnmycameraon",
+  "song_length": 216568,
+  "vocal_parts": 3,
+  "year_released": 2005
+}

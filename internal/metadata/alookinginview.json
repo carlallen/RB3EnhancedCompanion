@@ -1,0 +1,18 @@
+{
+  "album_name": "Black Gives Way to Blue",
+  "artist": "Alice In Chains",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 1
+  },
+  "genre": "grunge",
+  "name": "A Looking in View",
+  "shortname": "alookinginview",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

@@ -1,0 +1,22 @@
+{
+  "album_name": "Songs from the Big Chair",
+  "artist": "Tears for Fears",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 2,
+    "keys": 3,
+    "pro_bass": 1,
+    "pro_drum": 4,
+    "pro_guitar": 2,
+    "pro_keys": 3,
+    "vocals": 4
+  },
+  "genre": "new_wave",
+  "name": "Shout",
+  "shortname": "shout",
+  "song_length": 376362,
+  "vocal_parts": 3,
+  "year_released": 1985
+}

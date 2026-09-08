@@ -1,0 +1,17 @@
+{
+  "album_name": "War is the Answer",
+  "artist": "Five Finger Death Punch",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 5,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "Hard To See",
+  "shortname": "UGC_5002994",
+  "song_length": 210964,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

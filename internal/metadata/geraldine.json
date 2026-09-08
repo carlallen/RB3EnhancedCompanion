@@ -1,0 +1,18 @@
+{
+  "album_name": "Glasvegas",
+  "artist": "Glasvegas",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 1,
+    "guitar": 0,
+    "pro_drum": 1,
+    "vocals": 0
+  },
+  "genre": "alternative",
+  "name": "Geraldine",
+  "shortname": "geraldine",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

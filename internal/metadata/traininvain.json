@@ -1,0 +1,20 @@
+{
+  "album_name": null,
+  "artist": "The Clash",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 1,
+    "guitar": 0,
+    "keys": 4,
+    "pro_drum": 1,
+    "pro_keys": 4,
+    "vocals": 1
+  },
+  "genre": "punk",
+  "name": "Train in Vain (Stand by Me)",
+  "shortname": "traininvain",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": null
+}

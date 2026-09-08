@@ -1,0 +1,20 @@
+{
+  "album_name": "Let's Face It",
+  "artist": "The Mighty Mighty Bosstones",
+  "diff": {
+    "band": 5,
+    "bass": 6,
+    "drum": 5,
+    "guitar": 4,
+    "keys": 2,
+    "pro_drum": 5,
+    "pro_keys": 2,
+    "vocals": 2
+  },
+  "genre": "reggaeska",
+  "name": "The Impression That I Get",
+  "shortname": "theimpressionthatiget",
+  "song_length": 196167,
+  "vocal_parts": 2,
+  "year_released": 1997
+}

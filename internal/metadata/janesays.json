@@ -1,0 +1,17 @@
+{
+  "album_name": "Nothing's Shocking",
+  "artist": "Jane's Addiction",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 0,
+    "guitar": 2,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Jane Says",
+  "shortname": "janesays",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1988
+}

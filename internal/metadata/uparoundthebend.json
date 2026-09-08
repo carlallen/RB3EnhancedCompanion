@@ -1,0 +1,18 @@
+{
+  "album_name": "Cosmo's Factory",
+  "artist": "Creedence Clearwater Revival",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "southernrock",
+  "name": "Up Around the Bend",
+  "shortname": "uparoundthebend",
+  "song_length": 180557,
+  "vocal_parts": 3,
+  "year_released": 1970
+}

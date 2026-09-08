@@ -1,0 +1,18 @@
+{
+  "album_name": "American Woman",
+  "artist": "The Guess Who",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "No Time",
+  "shortname": "notime",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1970
+}

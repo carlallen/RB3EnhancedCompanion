@@ -1,0 +1,20 @@
+{
+  "album_name": "The Zombies",
+  "artist": "The Zombies",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "keys": 2,
+    "pro_drum": 3,
+    "pro_keys": 4,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "Tell Her No",
+  "shortname": "tellherno",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1965
+}

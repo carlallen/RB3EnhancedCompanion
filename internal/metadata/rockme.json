@@ -1,0 +1,18 @@
+{
+  "album_name": "Liz Phair",
+  "artist": "Liz Phair",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 1,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "poprock",
+  "name": "Rock Me",
+  "shortname": "rockme",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2003
+}

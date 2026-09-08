@@ -1,0 +1,17 @@
+{
+  "album_name": "Nick Gallant",
+  "artist": "Nick Gallant",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 1,
+    "guitar": 3,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "Turn Yourself Around",
+  "shortname": "UGC_5000596",
+  "song_length": 145972,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

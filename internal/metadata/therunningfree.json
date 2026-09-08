@@ -1,0 +1,18 @@
+{
+  "album_name": "Good Apollo, I'm Burning Star IV, Volume Two: No World for Tomorrow",
+  "artist": "Coheed and Cambria",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "prog",
+  "name": "The Running Free",
+  "shortname": "therunningfree",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

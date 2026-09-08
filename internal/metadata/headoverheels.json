@@ -1,0 +1,22 @@
+{
+  "album_name": "Songs from the Big Chair",
+  "artist": "Tears for Fears",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 2,
+    "guitar": 2,
+    "keys": 2,
+    "pro_bass": 3,
+    "pro_drum": 2,
+    "pro_guitar": 2,
+    "pro_keys": 3,
+    "vocals": 5
+  },
+  "genre": "new_wave",
+  "name": "Head Over Heels",
+  "shortname": "headoverheels",
+  "song_length": 259572,
+  "vocal_parts": 3,
+  "year_released": 1985
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "Core",
+  "artist": "Stone Temple Pilots",
+  "diff": {
+    "band": 2,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "Crackerman",
+  "shortname": "crackerman",
+  "song_length": 197679,
+  "vocal_parts": 2,
+  "year_released": 1992
+}

@@ -1,0 +1,17 @@
+{
+  "album_name": null,
+  "artist": "Les Wampas",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 1,
+    "vocals": 3
+  },
+  "genre": "punk",
+  "name": "Manu Chao",
+  "shortname": "manuchao",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": null
+}

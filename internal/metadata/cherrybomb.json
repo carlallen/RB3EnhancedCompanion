@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "The Runaways",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 0
+  },
+  "genre": "punk",
+  "name": "Cherry Bomb",
+  "shortname": "cherrybomb",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": null
+}

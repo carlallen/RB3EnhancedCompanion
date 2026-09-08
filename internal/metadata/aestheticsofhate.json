@@ -1,0 +1,18 @@
+{
+  "album_name": "The Blackening",
+  "artist": "Machine Head",
+  "diff": {
+    "band": 5,
+    "bass": 3,
+    "drum": 6,
+    "guitar": 5,
+    "pro_drum": 6,
+    "vocals": 0
+  },
+  "genre": "metal",
+  "name": "Aesthetics of Hate",
+  "shortname": "aestheticsofhate",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 2007
+}

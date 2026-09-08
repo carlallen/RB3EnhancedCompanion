@@ -1,0 +1,18 @@
+{
+  "album_name": "Core",
+  "artist": "Stone Temple Pilots",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "Dead & Bloated",
+  "shortname": "deadandbloated",
+  "song_length": 319090,
+  "vocal_parts": 2,
+  "year_released": 1992
+}

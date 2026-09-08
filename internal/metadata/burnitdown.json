@@ -1,0 +1,22 @@
+{
+  "album_name": "Living Things",
+  "artist": "Linkin Park",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 2,
+    "guitar": 0,
+    "keys": 0,
+    "pro_bass": 0,
+    "pro_drum": 2,
+    "pro_guitar": 0,
+    "pro_keys": 0,
+    "vocals": 2
+  },
+  "genre": "numetal",
+  "name": "Burn It Down",
+  "shortname": "burnitdown",
+  "song_length": 235090,
+  "vocal_parts": 2,
+  "year_released": 2012
+}

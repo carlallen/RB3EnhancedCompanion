@@ -1,0 +1,18 @@
+{
+  "album_name": "Tiny Music... Songs from the Vatican Gift Shop",
+  "artist": "Stone Temple Pilots",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 5,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "Trippin' on a Hole in a Paper Heart",
+  "shortname": "trippinonahole",
+  "song_length": 179418,
+  "vocal_parts": 2,
+  "year_released": 1996
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": "Fallen",
+  "artist": "Evanescence",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 2,
+    "keys": 3,
+    "pro_drum": 2,
+    "pro_keys": 3,
+    "vocals": 3
+  },
+  "genre": "numetal",
+  "name": "Going Under",
+  "shortname": "UGC_5004788",
+  "song_length": 241998,
+  "vocal_parts": 3,
+  "year_released": 2003
+}

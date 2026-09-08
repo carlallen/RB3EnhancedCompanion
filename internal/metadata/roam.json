@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "The B-52's",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 1,
+    "guitar": 3,
+    "pro_drum": 1,
+    "vocals": 1
+  },
+  "genre": "poprock",
+  "name": "Roam",
+  "shortname": "roam",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

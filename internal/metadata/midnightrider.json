@@ -1,0 +1,18 @@
+{
+  "album_name": "Idlewild South",
+  "artist": "The Allman Brothers Band",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "southernrock",
+  "name": "Midnight Rider",
+  "shortname": "midnightrider",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1970
+}

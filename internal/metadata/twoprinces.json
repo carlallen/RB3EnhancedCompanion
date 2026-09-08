@@ -1,0 +1,18 @@
+{
+  "album_name": "Pocket Full of Kryptonite",
+  "artist": "Spin Doctors",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 3,
+    "pro_drum": 5,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "Two Princes",
+  "shortname": "twoprinces",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1991
+}

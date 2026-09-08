@@ -1,0 +1,18 @@
+{
+  "album_name": "Hay Poco Rock & Roll",
+  "artist": "Platero y T\u00fa",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 0,
+    "guitar": 4,
+    "pro_drum": 0,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Hay Poco Rock & Roll",
+  "shortname": "haypocorockandroll",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1994
+}

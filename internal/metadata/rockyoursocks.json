@@ -1,0 +1,18 @@
+{
+  "album_name": "Tenacious D",
+  "artist": "Tenacious D",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 1
+  },
+  "genre": "rock",
+  "name": "Rock Your Socks",
+  "shortname": "rockyoursocks",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 2001
+}

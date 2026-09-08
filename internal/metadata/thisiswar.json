@@ -1,0 +1,20 @@
+{
+  "album_name": "This Is War",
+  "artist": "30 Seconds to Mars",
+  "diff": {
+    "band": 5,
+    "bass": 1,
+    "drum": 5,
+    "guitar": 3,
+    "keys": 0,
+    "pro_drum": 5,
+    "pro_keys": 0,
+    "vocals": 3
+  },
+  "genre": "emo",
+  "name": "This Is War",
+  "shortname": "thisiswar",
+  "song_length": 306818,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

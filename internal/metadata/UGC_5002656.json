@@ -1,0 +1,17 @@
+{
+  "album_name": "Together",
+  "artist": "The New Pornographers",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 1,
+    "vocals": 3
+  },
+  "genre": "indierock",
+  "name": "Crash Years",
+  "shortname": "UGC_5002656",
+  "song_length": 267574,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

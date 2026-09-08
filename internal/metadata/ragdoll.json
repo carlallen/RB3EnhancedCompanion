@@ -1,0 +1,20 @@
+{
+  "album_name": "Permanent Vacation",
+  "artist": "Aerosmith",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 3,
+    "pro_drum": 4,
+    "pro_keys": 3,
+    "vocals": 5
+  },
+  "genre": "rock",
+  "name": "Rag Doll",
+  "shortname": "ragdoll",
+  "song_length": 258086,
+  "vocal_parts": 3,
+  "year_released": 1987
+}

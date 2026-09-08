@@ -1,0 +1,18 @@
+{
+  "album_name": "Night Ranger Rock Band Re-Record",
+  "artist": "Night Ranger",
+  "diff": {
+    "band": 6,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 6,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Don't Tell Me You Love Me",
+  "shortname": "donttellmeyouloveme",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

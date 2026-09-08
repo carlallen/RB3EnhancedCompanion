@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "The Pretenders",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 0,
+    "guitar": 1,
+    "pro_drum": 0,
+    "vocals": 0
+  },
+  "genre": "pop",
+  "name": "Brass In Pocket",
+  "shortname": "brassinpocket",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

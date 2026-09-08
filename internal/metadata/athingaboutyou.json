@@ -1,0 +1,18 @@
+{
+  "album_name": "The Live Anthology",
+  "artist": "Tom Petty and the Heartbreakers",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "A Thing About You (Live)",
+  "shortname": "athingaboutyou",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

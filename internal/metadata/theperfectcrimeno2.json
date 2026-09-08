@@ -1,0 +1,18 @@
+{
+  "album_name": "The Crane Wife",
+  "artist": "The Decemberists",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "indierock",
+  "name": "The Perfect Crime #2",
+  "shortname": "theperfectcrimeno2",
+  "song_length": 329939,
+  "vocal_parts": 3,
+  "year_released": 2006
+}

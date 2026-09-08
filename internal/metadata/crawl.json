@@ -1,0 +1,18 @@
+{
+  "album_name": "Only by the Night",
+  "artist": "Kings Of Leon",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 4,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Crawl",
+  "shortname": "crawl",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 2008
+}

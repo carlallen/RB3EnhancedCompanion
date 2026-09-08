@@ -6,7 +6,9 @@
     "bass": 3,
     "drum": 4,
     "guitar": 4,
+    "pro_bass": 3,
     "pro_drum": 4,
+    "pro_guitar": 5,
     "vocals": 3
   },
   "genre": "rock",

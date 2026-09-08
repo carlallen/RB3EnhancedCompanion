@@ -1,0 +1,18 @@
+{
+  "album_name": "Dressed To Kill Tour",
+  "artist": "KISS",
+  "diff": {
+    "band": 6,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 5,
+    "pro_drum": 5,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "Parasite (Live)",
+  "shortname": "parasitelive",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1975
+}

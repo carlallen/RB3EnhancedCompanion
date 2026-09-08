@@ -1,0 +1,18 @@
+{
+  "album_name": "Spectacular! Music from the Nickelodeon Original Movie",
+  "artist": "Nikko",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "Don't Tell Me",
+  "shortname": "donttellme",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

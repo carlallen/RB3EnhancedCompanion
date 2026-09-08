@@ -1,0 +1,20 @@
+{
+  "album_name": "They're Only Chasing Safety",
+  "artist": "Underoath",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 2,
+    "keys": 2,
+    "pro_drum": 3,
+    "pro_keys": 2,
+    "vocals": 2
+  },
+  "genre": "emo",
+  "name": "Reinventing Your Exit",
+  "shortname": "reinventingyourexit",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2004
+}

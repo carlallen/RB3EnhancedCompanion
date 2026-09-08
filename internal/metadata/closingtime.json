@@ -1,0 +1,20 @@
+{
+  "album_name": "Feeling Strangely Fine",
+  "artist": "Semisonic",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 2,
+    "keys": 0,
+    "pro_drum": 2,
+    "pro_keys": 0,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Closing Time",
+  "shortname": "closingtime",
+  "song_length": 278295,
+  "vocal_parts": 2,
+  "year_released": 1998
+}

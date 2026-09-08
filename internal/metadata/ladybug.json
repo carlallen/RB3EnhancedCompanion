@@ -1,0 +1,18 @@
+{
+  "album_name": "These Are the Good Times People",
+  "artist": "The Presidents of the United States of America",
+  "diff": {
+    "band": 5,
+    "bass": 5,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "poprock",
+  "name": "Ladybug",
+  "shortname": "ladybug",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "Define the Great Line",
+  "artist": "Underoath",
+  "diff": {
+    "band": 5,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "emo",
+  "name": "Writing on the Walls",
+  "shortname": "writingonthewall",
+  "song_length": 245454,
+  "vocal_parts": 3,
+  "year_released": 2006
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "Double Vision",
+  "artist": "Foreigner",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "Blue Morning, Blue Day",
+  "shortname": "bluemorningblueday",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1978
+}

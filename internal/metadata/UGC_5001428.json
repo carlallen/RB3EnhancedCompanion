@@ -1,0 +1,17 @@
+{
+  "album_name": "The Thought Chapter",
+  "artist": "Color Theory",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 0,
+    "vocals": 3
+  },
+  "genre": "other",
+  "name": "If Not Now When",
+  "shortname": "UGC_5001428",
+  "song_length": 261517,
+  "vocal_parts": 2,
+  "year_released": 2008
+}

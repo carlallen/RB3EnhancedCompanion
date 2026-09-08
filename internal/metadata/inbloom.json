@@ -6,13 +6,15 @@
     "bass": 0,
     "drum": 1,
     "guitar": 0,
+    "pro_bass": 0,
     "pro_drum": 1,
+    "pro_guitar": 1,
     "vocals": 0
   },
   "genre": "alternative",
   "name": "In Bloom",
   "shortname": "inbloom",
   "song_length": 213000,
-  "vocal_parts": 1,
+  "vocal_parts": 2,
   "year_released": 1991
 }

@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Foreigner",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "classicrock",
+  "name": "Juke Box Hero",
+  "shortname": "jukeboxhero",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

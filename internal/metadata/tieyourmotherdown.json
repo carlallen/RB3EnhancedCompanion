@@ -1,0 +1,18 @@
+{
+  "album_name": "A Day At The Races",
+  "artist": "Queen",
+  "diff": {
+    "band": 4,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 4
+  },
+  "genre": "classicrock",
+  "name": "Tie Your Mother Down",
+  "shortname": "tieyourmotherdown",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1976
+}

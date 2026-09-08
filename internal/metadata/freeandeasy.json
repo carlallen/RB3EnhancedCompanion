@@ -1,0 +1,18 @@
+{
+  "album_name": "Long Trip Alone",
+  "artist": "Dierks Bentley",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 5,
+    "pro_drum": 4,
+    "vocals": 1
+  },
+  "genre": "country",
+  "name": "Free and Easy (Down the Road I Go)",
+  "shortname": "freeandeasy",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2006
+}

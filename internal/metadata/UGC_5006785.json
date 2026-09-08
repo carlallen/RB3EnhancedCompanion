@@ -1,0 +1,22 @@
+{
+  "album_name": "Option Paralysis",
+  "artist": "The Dillinger Escape Plan",
+  "diff": {
+    "band": 5,
+    "bass": 5,
+    "drum": 6,
+    "guitar": 6,
+    "keys": 1,
+    "pro_bass": 5,
+    "pro_drum": 6,
+    "pro_guitar": 6,
+    "pro_keys": 1,
+    "vocals": 1
+  },
+  "genre": "metal",
+  "name": "Farewell, Mona Lisa",
+  "shortname": "UGC_5006785",
+  "song_length": 341763,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

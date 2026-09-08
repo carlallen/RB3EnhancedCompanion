@@ -1,0 +1,18 @@
+{
+  "album_name": "Don't Make Me Wait",
+  "artist": "Locksley",
+  "diff": {
+    "band": 2,
+    "bass": 0,
+    "drum": 5,
+    "guitar": 3,
+    "pro_drum": 5,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "Don't Make Me Wait",
+  "shortname": "dontmakemewait",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

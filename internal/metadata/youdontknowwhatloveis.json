@@ -1,0 +1,18 @@
+{
+  "album_name": "Icky Thump",
+  "artist": "The White Stripes",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 0,
+    "guitar": 2,
+    "pro_drum": 0,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "You Don't Know What Love Is (You Just Do as You're Told)",
+  "shortname": "youdontknowwhatloveis",
+  "song_length": 235536,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

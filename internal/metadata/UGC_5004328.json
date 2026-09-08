@@ -1,0 +1,18 @@
+{
+  "album_name": "Downtown Battle Mountain",
+  "artist": "Dance Gavin Dance",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 5,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "indierock",
+  "name": "Lemon Meringue Tie",
+  "shortname": "UGC_5004328",
+  "song_length": 233606,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

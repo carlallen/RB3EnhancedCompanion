@@ -1,0 +1,18 @@
+{
+  "album_name": "Melodia",
+  "artist": "The Vines",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 1,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "Orange Amber",
+  "shortname": "orangeamber",
+  "song_length": 125464,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

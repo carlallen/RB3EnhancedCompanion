@@ -1,0 +1,20 @@
+{
+  "album_name": "System of a Down",
+  "artist": "System of a Down",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 1,
+    "keys": 0,
+    "pro_drum": 2,
+    "pro_keys": 0,
+    "vocals": 4
+  },
+  "genre": "numetal",
+  "name": "Spiders",
+  "shortname": "spiders",
+  "song_length": 222498,
+  "vocal_parts": 3,
+  "year_released": 1998
+}

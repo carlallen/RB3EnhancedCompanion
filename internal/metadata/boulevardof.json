@@ -1,0 +1,22 @@
+{
+  "album_name": "American Idiot",
+  "artist": "Green Day",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 0,
+    "guitar": 2,
+    "keys": 1,
+    "pro_bass": 0,
+    "pro_drum": 0,
+    "pro_guitar": 1,
+    "pro_keys": 1,
+    "vocals": 1
+  },
+  "genre": "rock",
+  "name": "Boulevard of Broken Dreams",
+  "shortname": "boulevardof",
+  "song_length": 267272,
+  "vocal_parts": 2,
+  "year_released": 2004
+}

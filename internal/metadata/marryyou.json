@@ -1,0 +1,22 @@
+{
+  "album_name": "Doo-Wops & Hooligans",
+  "artist": "Bruno Mars",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 0,
+    "keys": 1,
+    "pro_bass": 0,
+    "pro_drum": 2,
+    "pro_guitar": 0,
+    "pro_keys": 1,
+    "vocals": 3
+  },
+  "genre": "poprock",
+  "name": "Marry You",
+  "shortname": "marryyou",
+  "song_length": 231724,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

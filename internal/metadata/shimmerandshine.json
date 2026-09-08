@@ -1,0 +1,18 @@
+{
+  "album_name": "White Lies For Dark Times",
+  "artist": "Ben Harper and Relentless7",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 4
+  },
+  "genre": "alternative",
+  "name": "Shimmer & Shine",
+  "shortname": "shimmerandshine",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

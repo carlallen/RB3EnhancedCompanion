@@ -1,0 +1,17 @@
+{
+  "album_name": "Working As Intended",
+  "artist": "Speck",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "vocals": 2
+  },
+  "genre": "emo",
+  "name": "Grumpytown",
+  "shortname": "UGC_5000202",
+  "song_length": 207189,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

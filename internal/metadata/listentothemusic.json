@@ -1,0 +1,20 @@
+{
+  "album_name": "Toulouse Street",
+  "artist": "The Doobie Brothers",
+  "diff": {
+    "band": 4,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 5,
+    "keys": 4,
+    "pro_drum": 4,
+    "pro_keys": 3,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "Listen to the Music",
+  "shortname": "listentothemusic",
+  "song_length": 255000,
+  "vocal_parts": 3,
+  "year_released": 1972
+}

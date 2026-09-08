@@ -1,0 +1,20 @@
+{
+  "album_name": "Pretty. Odd.",
+  "artist": "Panic at the Disco",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 1,
+    "keys": 2,
+    "pro_drum": 3,
+    "pro_keys": 2,
+    "vocals": 0
+  },
+  "genre": "poprock",
+  "name": "She's a Handsome Woman",
+  "shortname": "sheisahandsomewoman",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

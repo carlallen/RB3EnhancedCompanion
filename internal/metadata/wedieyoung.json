@@ -1,0 +1,18 @@
+{
+  "album_name": "Facelift",
+  "artist": "Alice In Chains",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 4,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "grunge",
+  "name": "We Die Young",
+  "shortname": "wedieyoung",
+  "song_length": 155909,
+  "vocal_parts": 2,
+  "year_released": 1990
+}

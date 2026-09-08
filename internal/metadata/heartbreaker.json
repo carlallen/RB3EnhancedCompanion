@@ -1,0 +1,20 @@
+{
+  "album_name": "In the Heat of the Night",
+  "artist": "Pat Benatar",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 4,
+    "pro_bass": 2,
+    "pro_drum": 4,
+    "pro_guitar": 5,
+    "vocals": 2
+  },
+  "genre": "classicrock",
+  "name": "Heartbreaker",
+  "shortname": "heartbreaker",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1979
+}

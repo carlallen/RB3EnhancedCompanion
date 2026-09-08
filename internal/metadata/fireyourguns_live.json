@@ -1,0 +1,17 @@
+{
+  "album_name": "Live",
+  "artist": "AC/DC",
+  "diff": {
+    "band": 6,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 4,
+    "vocals": 4
+  },
+  "genre": "classicrock",
+  "name": "Fire Your Guns (Live)",
+  "shortname": "fireyourguns_live",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1992
+}

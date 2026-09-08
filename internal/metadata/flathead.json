@@ -1,0 +1,18 @@
+{
+  "album_name": "Costello Music",
+  "artist": "The Fratellis",
+  "diff": {
+    "band": 4,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "Flathead",
+  "shortname": "flathead",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2006
+}

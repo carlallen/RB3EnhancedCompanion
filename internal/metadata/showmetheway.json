@@ -1,0 +1,18 @@
+{
+  "album_name": "Light From Above",
+  "artist": "Black Tide",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "metal",
+  "name": "Show Me the Way",
+  "shortname": "showmetheway",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "Spectres",
+  "artist": "Blue \u00d6yster Cult",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 1
+  },
+  "genre": "classicrock",
+  "name": "Godzilla",
+  "shortname": "godzilla",
+  "song_length": 234545,
+  "vocal_parts": 3,
+  "year_released": 1977
+}

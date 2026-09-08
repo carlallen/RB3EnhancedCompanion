@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Boston",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "Something About You",
+  "shortname": "somethingaboutyou",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

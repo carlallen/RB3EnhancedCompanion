@@ -1,0 +1,20 @@
+{
+  "album_name": "Cosmo's Factory",
+  "artist": "Creedence Clearwater Revival",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 1,
+    "guitar": 2,
+    "keys": 2,
+    "pro_drum": 1,
+    "pro_keys": 3,
+    "vocals": 3
+  },
+  "genre": "southernrock",
+  "name": "Lookin' Out My Back Door",
+  "shortname": "lookingoutmybackdoor",
+  "song_length": 159000,
+  "vocal_parts": 1,
+  "year_released": 1970
+}

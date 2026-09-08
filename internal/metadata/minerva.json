@@ -1,0 +1,20 @@
+{
+  "album_name": "Deftones",
+  "artist": "Deftones",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 1,
+    "guitar": 1,
+    "keys": 0,
+    "pro_drum": 1,
+    "pro_keys": 0,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Minerva",
+  "shortname": "minerva",
+  "song_length": 265043,
+  "vocal_parts": 2,
+  "year_released": 2003
+}

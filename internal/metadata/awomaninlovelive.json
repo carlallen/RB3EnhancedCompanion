@@ -1,0 +1,18 @@
+{
+  "album_name": "The Live Anthology",
+  "artist": "Tom Petty and the Heartbreakers",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "A Woman in Love (It's Not Me) (Live)",
+  "shortname": "awomaninlovelive",
+  "song_length": 337272,
+  "vocal_parts": 2,
+  "year_released": 2009
+}

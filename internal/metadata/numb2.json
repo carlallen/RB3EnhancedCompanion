@@ -1,0 +1,22 @@
+{
+  "album_name": "Meteora",
+  "artist": "Linkin Park",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 4,
+    "guitar": 1,
+    "keys": 0,
+    "pro_bass": 0,
+    "pro_drum": 4,
+    "pro_guitar": 0,
+    "pro_keys": 1,
+    "vocals": 3
+  },
+  "genre": "numetal",
+  "name": "Numb",
+  "shortname": "numb2",
+  "song_length": 187635,
+  "vocal_parts": 3,
+  "year_released": 2003
+}

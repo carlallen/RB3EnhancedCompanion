@@ -1,0 +1,17 @@
+{
+  "album_name": "For We Are Many",
+  "artist": "All That Remains",
+  "diff": {
+    "band": 6,
+    "bass": 3,
+    "drum": 5,
+    "guitar": 5,
+    "vocals": 3
+  },
+  "genre": "metal",
+  "name": "Hold On",
+  "shortname": "UGC_5004371",
+  "song_length": 180480,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

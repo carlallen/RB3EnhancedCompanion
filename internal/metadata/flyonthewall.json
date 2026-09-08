@@ -1,0 +1,20 @@
+{
+  "album_name": "Breakout",
+  "artist": "Miley Cyrus",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 2,
+    "keys": 1,
+    "pro_drum": 3,
+    "pro_keys": 1,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "Fly on the Wall",
+  "shortname": "flyonthewall",
+  "song_length": 153305,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

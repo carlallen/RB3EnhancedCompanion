@@ -1,0 +1,19 @@
+{
+  "album_name": "Carolina",
+  "artist": "Eric Church",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 1,
+    "keys": 0,
+    "pro_keys": 0,
+    "vocals": 4
+  },
+  "genre": "country",
+  "name": "Hell on the Heart",
+  "shortname": "hellontheheart",
+  "song_length": 165532,
+  "vocal_parts": 2,
+  "year_released": 2009
+}

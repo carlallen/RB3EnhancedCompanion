@@ -1,0 +1,18 @@
+{
+  "album_name": "Axis: Bold as Love",
+  "artist": "The Jimi Hendrix Experience",
+  "diff": {
+    "band": 6,
+    "bass": 5,
+    "drum": 6,
+    "guitar": 5,
+    "pro_drum": 6,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "If 6 Was 9",
+  "shortname": "if6was9",
+  "song_length": 340454,
+  "vocal_parts": 2,
+  "year_released": 1967
+}

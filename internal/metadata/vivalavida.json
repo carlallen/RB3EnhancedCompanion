@@ -1,0 +1,22 @@
+{
+  "album_name": "Viva la Vida or Death and All His Friends",
+  "artist": "Coldplay",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 0,
+    "guitar": 2,
+    "keys": 3,
+    "pro_bass": 0,
+    "pro_drum": 0,
+    "pro_guitar": 1,
+    "pro_keys": 3,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "Viva la Vida",
+  "shortname": "vivalavida",
+  "song_length": 249235,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

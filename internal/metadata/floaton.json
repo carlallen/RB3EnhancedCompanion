@@ -1,0 +1,21 @@
+{
+  "album_name": "Good News for People Who Love Bad News",
+  "artist": "Modest Mouse",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 1,
+    "guitar": 0,
+    "keys": 0,
+    "pro_bass": 0,
+    "pro_guitar": 0,
+    "pro_keys": 0,
+    "vocals": 2
+  },
+  "genre": "indierock",
+  "name": "Float On",
+  "shortname": "floaton",
+  "song_length": 217727,
+  "vocal_parts": 3,
+  "year_released": 2004
+}

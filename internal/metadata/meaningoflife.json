@@ -1,0 +1,20 @@
+{
+  "album_name": "The Sickness",
+  "artist": "Disturbed",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 4,
+    "keys": 1,
+    "pro_drum": 4,
+    "pro_keys": 1,
+    "vocals": 3
+  },
+  "genre": "numetal",
+  "name": "Meaning of Life",
+  "shortname": "meaningoflife",
+  "song_length": 242933,
+  "vocal_parts": 3,
+  "year_released": 2000
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": "Thankful",
+  "artist": "Kelly Clarkson",
+  "diff": {
+    "band": 2,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 2,
+    "keys": 1,
+    "pro_drum": 3,
+    "pro_keys": 1,
+    "vocals": 4
+  },
+  "genre": "poprock",
+  "name": "Miss Independent",
+  "shortname": "missindependent",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2003
+}

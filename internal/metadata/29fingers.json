@@ -6,12 +6,14 @@
     "bass": 3,
     "drum": 0,
     "guitar": 2,
+    "pro_bass": 0,
+    "pro_guitar": 1,
     "vocals": 1
   },
   "genre": "rock",
   "name": "29 Fingers",
   "shortname": "29fingers",
   "song_length": 175000,
-  "vocal_parts": 1,
+  "vocal_parts": 3,
   "year_released": 2005
 }

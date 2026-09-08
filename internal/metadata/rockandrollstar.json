@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Oasis",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Rock 'n' Roll Star",
+  "shortname": "rockandrollstar",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": null
+}

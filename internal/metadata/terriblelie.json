@@ -1,0 +1,22 @@
+{
+  "album_name": "Pretty Hate Machine",
+  "artist": "Nine Inch Nails",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 0,
+    "keys": 3,
+    "pro_bass": 0,
+    "pro_drum": 3,
+    "pro_guitar": 0,
+    "pro_keys": 4,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Terrible Lie",
+  "shortname": "terriblelie",
+  "song_length": 308207,
+  "vocal_parts": 2,
+  "year_released": 1989
+}

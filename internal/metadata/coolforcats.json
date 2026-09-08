@@ -1,0 +1,22 @@
+{
+  "album_name": "Cool for Cats",
+  "artist": "Squeeze",
+  "diff": {
+    "band": 1,
+    "bass": 3,
+    "drum": 1,
+    "guitar": 0,
+    "keys": 4,
+    "pro_bass": 2,
+    "pro_drum": 1,
+    "pro_guitar": 1,
+    "pro_keys": 4,
+    "vocals": 0
+  },
+  "genre": "new_wave",
+  "name": "Cool for Cats",
+  "shortname": "coolforcats",
+  "song_length": 202272,
+  "vocal_parts": 3,
+  "year_released": 1979
+}

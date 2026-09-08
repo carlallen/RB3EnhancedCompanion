@@ -1,0 +1,17 @@
+{
+  "album_name": "The Complexity of Light",
+  "artist": "Children of Nova",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 4,
+    "vocals": 4
+  },
+  "genre": "prog",
+  "name": "The Complexity of Light",
+  "shortname": "UGC_5001514",
+  "song_length": 401184,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

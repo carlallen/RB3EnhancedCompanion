@@ -6,13 +6,15 @@
     "bass": 1,
     "drum": 4,
     "guitar": 2,
+    "pro_bass": 1,
     "pro_drum": 4,
+    "pro_guitar": 1,
     "vocals": 1
   },
   "genre": "rock",
   "name": "Sabotage",
   "shortname": "sabotage",
   "song_length": 181000,
-  "vocal_parts": 1,
+  "vocal_parts": 3,
   "year_released": 1994
 }

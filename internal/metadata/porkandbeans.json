@@ -1,0 +1,22 @@
+{
+  "album_name": "Weezer (The Red Album)",
+  "artist": "Weezer",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 1,
+    "guitar": 0,
+    "keys": 1,
+    "pro_bass": 2,
+    "pro_drum": 1,
+    "pro_guitar": 0,
+    "pro_keys": 1,
+    "vocals": 1
+  },
+  "genre": "alternative",
+  "name": "Pork and Beans",
+  "shortname": "porkandbeans",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

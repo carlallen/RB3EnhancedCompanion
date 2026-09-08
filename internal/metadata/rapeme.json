@@ -1,0 +1,20 @@
+{
+  "album_name": "In Utero",
+  "artist": "Nirvana",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 2,
+    "pro_bass": 0,
+    "pro_drum": 3,
+    "pro_guitar": 1,
+    "vocals": 2
+  },
+  "genre": "grunge",
+  "name": "Rape Me",
+  "shortname": "rapeme",
+  "song_length": 172474,
+  "vocal_parts": 2,
+  "year_released": 1993
+}

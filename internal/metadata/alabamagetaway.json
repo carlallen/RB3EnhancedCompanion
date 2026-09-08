@@ -1,0 +1,20 @@
+{
+  "album_name": "Go to Heaven",
+  "artist": "The Grateful Dead",
+  "diff": {
+    "band": 5,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 5,
+    "keys": 6,
+    "pro_drum": 4,
+    "pro_keys": 5,
+    "vocals": 4
+  },
+  "genre": "classicrock",
+  "name": "Alabama Getaway",
+  "shortname": "alabamagetaway",
+  "song_length": 230454,
+  "vocal_parts": 3,
+  "year_released": 1980
+}

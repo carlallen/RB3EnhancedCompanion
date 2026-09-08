@@ -1,0 +1,18 @@
+{
+  "album_name": "La Roux",
+  "artist": "La Roux",
+  "diff": {
+    "band": 5,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 5,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "poprock",
+  "name": "Bulletproof",
+  "shortname": "bulletproof",
+  "song_length": 211903,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

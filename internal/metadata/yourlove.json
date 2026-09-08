@@ -1,0 +1,20 @@
+{
+  "album_name": "Play Deep",
+  "artist": "The Outfield",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 1,
+    "guitar": 3,
+    "pro_bass": 0,
+    "pro_drum": 1,
+    "pro_guitar": 2,
+    "vocals": 4
+  },
+  "genre": "poprock",
+  "name": "Your Love",
+  "shortname": "yourlove",
+  "song_length": 218745,
+  "vocal_parts": 3,
+  "year_released": 1985
+}

@@ -1,0 +1,19 @@
+{
+  "album_name": "Finding Beauty in Negative Spaces",
+  "artist": "Seether",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 1,
+    "guitar": 2,
+    "keys": 0,
+    "pro_keys": 0,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Rise Above This",
+  "shortname": "UGC_5002764",
+  "song_length": 208000,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

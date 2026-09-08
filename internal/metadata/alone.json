@@ -1,0 +1,21 @@
+{
+  "album_name": "Bad Animals",
+  "artist": "Heart",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 1,
+    "guitar": 2,
+    "keys": 3,
+    "pro_bass": 0,
+    "pro_guitar": 3,
+    "pro_keys": 3,
+    "vocals": 4
+  },
+  "genre": "classicrock",
+  "name": "Alone",
+  "shortname": "alone",
+  "song_length": 223527,
+  "vocal_parts": 2,
+  "year_released": 1987
+}

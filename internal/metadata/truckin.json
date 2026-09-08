@@ -1,0 +1,17 @@
+{
+  "album_name": null,
+  "artist": "The Grateful Dead",
+  "diff": {
+    "band": 5,
+    "bass": 3,
+    "drum": 5,
+    "guitar": 4,
+    "vocals": 2
+  },
+  "genre": "classicrock",
+  "name": "Truckin'",
+  "shortname": "truckin",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

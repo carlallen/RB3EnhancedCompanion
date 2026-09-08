@@ -1,0 +1,21 @@
+{
+  "album_name": "Hellbilly Deluxe",
+  "artist": "Rob Zombie",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 5,
+    "pro_bass": 0,
+    "pro_guitar": 1,
+    "pro_keys": 6,
+    "vocals": 1
+  },
+  "genre": "numetal",
+  "name": "Dragula",
+  "shortname": "dragula",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1998
+}

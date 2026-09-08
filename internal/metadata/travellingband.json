@@ -1,0 +1,20 @@
+{
+  "album_name": "Cosmo's Factory",
+  "artist": "Creedence Clearwater Revival",
+  "diff": {
+    "band": 5,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 4,
+    "keys": 1,
+    "pro_drum": 4,
+    "pro_keys": 1,
+    "vocals": 3
+  },
+  "genre": "southernrock",
+  "name": "Travelin' Band",
+  "shortname": "travellingband",
+  "song_length": 129161,
+  "vocal_parts": 1,
+  "year_released": 1970
+}

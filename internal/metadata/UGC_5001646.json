@@ -1,0 +1,17 @@
+{
+  "album_name": "Flight of the Conchords",
+  "artist": "Flight of the Conchords",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 3,
+    "vocals": 4
+  },
+  "genre": "novelty",
+  "name": "The Most Beautiful Girl (In the Room)",
+  "shortname": "UGC_5001646",
+  "song_length": 251675,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

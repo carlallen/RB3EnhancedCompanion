@@ -1,0 +1,21 @@
+{
+  "album_name": "Meteora",
+  "artist": "Linkin Park",
+  "diff": {
+    "band": 2,
+    "bass": 0,
+    "drum": 5,
+    "guitar": 3,
+    "keys": 1,
+    "pro_bass": 0,
+    "pro_guitar": 1,
+    "pro_keys": 2,
+    "vocals": 2
+  },
+  "genre": "numetal",
+  "name": "Breaking the Habit",
+  "shortname": "breakingthehabit",
+  "song_length": 199199,
+  "vocal_parts": 3,
+  "year_released": 2003
+}

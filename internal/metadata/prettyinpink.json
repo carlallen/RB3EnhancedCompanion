@@ -1,0 +1,20 @@
+{
+  "album_name": "Talk Talk Talk",
+  "artist": "The Psychedelic Furs",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 0,
+    "guitar": 0,
+    "keys": 0,
+    "pro_drum": 0,
+    "pro_keys": 1,
+    "vocals": 1
+  },
+  "genre": "rock",
+  "name": "Pretty in Pink",
+  "shortname": "prettyinpink",
+  "song_length": null,
+  "vocal_parts": 1,
+  "year_released": 1981
+}

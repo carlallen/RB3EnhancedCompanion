@@ -1,0 +1,20 @@
+{
+  "album_name": "21st Century Breakdown",
+  "artist": "Green Day",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 1,
+    "keys": 3,
+    "pro_drum": 2,
+    "pro_keys": 3,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": " \u00bfViva la Gloria? (Little Girl)",
+  "shortname": "littlegirl",
+  "song_length": 232727,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": null,
+  "artist": "The Cars",
+  "diff": {
+    "band": 2,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 1,
+    "pro_drum": 4,
+    "pro_keys": 2,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "You're All I've Got Tonight",
+  "shortname": "yourealligot",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

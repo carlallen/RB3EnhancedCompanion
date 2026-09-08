@@ -1,0 +1,18 @@
+{
+  "album_name": "Swoon",
+  "artist": "Silversun Pickups",
+  "diff": {
+    "band": 5,
+    "bass": 1,
+    "drum": 5,
+    "guitar": 4,
+    "pro_drum": 5,
+    "vocals": 3
+  },
+  "genre": "indierock",
+  "name": "Panic Switch",
+  "shortname": "panicswitch",
+  "song_length": 349090,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

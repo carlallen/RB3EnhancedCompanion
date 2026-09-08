@@ -1,0 +1,18 @@
+{
+  "album_name": "Wisconsin Death Trip",
+  "artist": "Static-X",
+  "diff": {
+    "band": 4,
+    "bass": 0,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 1
+  },
+  "genre": "metal",
+  "name": "Push It",
+  "shortname": "pushit",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1999
+}

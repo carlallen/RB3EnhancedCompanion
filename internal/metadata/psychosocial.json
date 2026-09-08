@@ -1,0 +1,18 @@
+{
+  "album_name": "All Hope Is Gone",
+  "artist": "Slipknot",
+  "diff": {
+    "band": 6,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 6,
+    "pro_drum": 5,
+    "vocals": 2
+  },
+  "genre": "numetal",
+  "name": "Psychosocial",
+  "shortname": "psychosocial",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "Lovely",
+  "artist": "The Primitives",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 1
+  },
+  "genre": "poprock",
+  "name": "Crash",
+  "shortname": "crash",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1988
+}

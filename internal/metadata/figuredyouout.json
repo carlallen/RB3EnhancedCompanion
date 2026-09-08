@@ -1,0 +1,18 @@
+{
+  "album_name": "The Long Road",
+  "artist": "Nickelback",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Figured You Out",
+  "shortname": "figuredyouout",
+  "song_length": 232914,
+  "vocal_parts": 3,
+  "year_released": 2003
+}

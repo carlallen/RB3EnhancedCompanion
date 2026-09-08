@@ -1,0 +1,20 @@
+{
+  "album_name": "Collective Soul Rock Band Re-Record",
+  "artist": "Collective Soul",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 2,
+    "guitar": 2,
+    "pro_bass": 1,
+    "pro_drum": 2,
+    "pro_guitar": 5,
+    "vocals": 4
+  },
+  "genre": "rock",
+  "name": "Shine",
+  "shortname": "shine",
+  "song_length": 323692,
+  "vocal_parts": 3,
+  "year_released": 1994
+}

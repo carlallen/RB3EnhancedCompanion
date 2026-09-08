@@ -1,0 +1,20 @@
+{
+  "album_name": "Duran Duran",
+  "artist": "Duran Duran",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 5,
+    "guitar": 1,
+    "keys": 1,
+    "pro_drum": 5,
+    "pro_keys": 1,
+    "vocals": 1
+  },
+  "genre": "poprock",
+  "name": "Girls on Film",
+  "shortname": "girlsonfilm",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1981
+}

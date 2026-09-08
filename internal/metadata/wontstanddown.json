@@ -1,0 +1,22 @@
+{
+  "album_name": "Will of the People",
+  "artist": "Muse",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 2,
+    "pro_bass": 3,
+    "pro_drum": 4,
+    "pro_guitar": 3,
+    "pro_keys": 2,
+    "vocals": 4
+  },
+  "genre": "alternative",
+  "name": "Won't Stand Down",
+  "shortname": "wontstanddown",
+  "song_length": 212564,
+  "vocal_parts": 3,
+  "year_released": 2022
+}

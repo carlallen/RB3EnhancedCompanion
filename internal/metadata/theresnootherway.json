@@ -1,0 +1,20 @@
+{
+  "album_name": "Leisure",
+  "artist": "Blur",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 4,
+    "keys": 1,
+    "pro_drum": 4,
+    "pro_keys": 1,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "There's No Other Way",
+  "shortname": "theresnootherway",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1991
+}

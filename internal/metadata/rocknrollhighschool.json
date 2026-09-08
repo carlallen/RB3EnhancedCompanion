@@ -1,0 +1,18 @@
+{
+  "album_name": "Road to Ruin (Expanded Edition)",
+  "artist": "Ramones",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 1
+  },
+  "genre": "punk",
+  "name": "Rock 'n' Roll High School",
+  "shortname": "rocknrollhighschool",
+  "song_length": 143181,
+  "vocal_parts": 3,
+  "year_released": 2001
+}

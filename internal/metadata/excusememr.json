@@ -1,0 +1,18 @@
+{
+  "album_name": "The Singles 1992-2003",
+  "artist": "No Doubt",
+  "diff": {
+    "band": 6,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 4,
+    "pro_drum": 5,
+    "vocals": 3
+  },
+  "genre": "poprock",
+  "name": "Excuse Me Mr.",
+  "shortname": "excusememr",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2003
+}

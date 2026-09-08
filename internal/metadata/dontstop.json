@@ -1,0 +1,20 @@
+{
+  "album_name": "Rumours",
+  "artist": "Fleetwood Mac",
+  "diff": {
+    "band": 1,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 1,
+    "keys": 4,
+    "pro_drum": 3,
+    "pro_keys": 4,
+    "vocals": 4
+  },
+  "genre": "classicrock",
+  "name": "Don't Stop",
+  "shortname": "dontstop",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1977
+}

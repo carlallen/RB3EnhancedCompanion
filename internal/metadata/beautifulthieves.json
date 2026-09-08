@@ -1,0 +1,20 @@
+{
+  "album_name": "Crash Love",
+  "artist": "AFI",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 2,
+    "pro_drum": 4,
+    "pro_keys": 2,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Beautiful Thieves",
+  "shortname": "beautifulthieves",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

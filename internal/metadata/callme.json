@@ -1,0 +1,20 @@
+{
+  "album_name": null,
+  "artist": "Blondie",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 1,
+    "keys": 3,
+    "pro_drum": 3,
+    "pro_keys": 5,
+    "vocals": 1
+  },
+  "genre": "poprock",
+  "name": "Call Me",
+  "shortname": "callme",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

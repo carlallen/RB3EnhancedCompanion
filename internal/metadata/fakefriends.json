@@ -1,0 +1,20 @@
+{
+  "album_name": "Album",
+  "artist": "Joan Jett & The Blackhearts",
+  "diff": {
+    "band": 5,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 4,
+    "keys": 1,
+    "pro_drum": 4,
+    "pro_keys": 1,
+    "vocals": 1
+  },
+  "genre": "punk",
+  "name": "Fake Friends",
+  "shortname": "fakefriends",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1983
+}

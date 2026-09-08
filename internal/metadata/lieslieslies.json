@@ -1,0 +1,18 @@
+{
+  "album_name": "Rio Grande Blood",
+  "artist": "Ministry",
+  "diff": {
+    "band": 6,
+    "bass": 5,
+    "drum": 5,
+    "guitar": 5,
+    "pro_drum": 5,
+    "vocals": 1
+  },
+  "genre": "metal",
+  "name": "LiesLiesLies",
+  "shortname": "lieslieslies",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2006
+}

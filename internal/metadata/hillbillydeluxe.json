@@ -1,0 +1,18 @@
+{
+  "album_name": "Hillbilly Deluxe",
+  "artist": "Brooks & Dunn",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 1,
+    "guitar": 4,
+    "pro_drum": 1,
+    "vocals": 2
+  },
+  "genre": "country",
+  "name": "Hillbilly Deluxe",
+  "shortname": "hillbillydeluxe",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2005
+}

@@ -1,0 +1,22 @@
+{
+  "album_name": "Crimes of Passion",
+  "artist": "Pat Benatar",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 3,
+    "keys": 2,
+    "pro_bass": 0,
+    "pro_drum": 3,
+    "pro_guitar": 1,
+    "pro_keys": 2,
+    "vocals": 1
+  },
+  "genre": "classicrock",
+  "name": "Hit Me With Your Best Shot",
+  "shortname": "hitmewithyourbestshot",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1980
+}

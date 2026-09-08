@@ -1,0 +1,18 @@
+{
+  "album_name": "The Young and the Hopeless",
+  "artist": "Good Charlotte",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 2,
+    "guitar": 2,
+    "pro_drum": 2,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "Girls & Boys",
+  "shortname": "girlsandboys",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 2002
+}

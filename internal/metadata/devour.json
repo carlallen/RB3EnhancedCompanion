@@ -1,0 +1,20 @@
+{
+  "album_name": "The Sound of Madness",
+  "artist": "Shinedown",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 2,
+    "keys": 3,
+    "pro_drum": 4,
+    "pro_keys": 3,
+    "vocals": 0
+  },
+  "genre": "numetal",
+  "name": "Devour",
+  "shortname": "devour",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

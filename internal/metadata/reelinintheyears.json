@@ -1,0 +1,20 @@
+{
+  "album_name": "Can't Buy a Thrill",
+  "artist": "Steely Dan",
+  "diff": {
+    "band": 4,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 5,
+    "keys": 3,
+    "pro_drum": 4,
+    "pro_keys": 3,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "Reelin' in the Years",
+  "shortname": "reelinintheyears",
+  "song_length": 267716,
+  "vocal_parts": 3,
+  "year_released": 1972
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "Greatest Hits",
+  "artist": "Social Distortion",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 2,
+    "pro_drum": 2,
+    "vocals": 0
+  },
+  "genre": "punk",
+  "name": "Story of My Life",
+  "shortname": "storyofmylife",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

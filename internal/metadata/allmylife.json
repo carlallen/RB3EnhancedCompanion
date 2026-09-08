@@ -1,0 +1,18 @@
+{
+  "album_name": "One by One",
+  "artist": "Foo Fighters",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "All My Life",
+  "shortname": "allmylife",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 2002
+}

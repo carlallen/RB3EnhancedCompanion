@@ -1,0 +1,18 @@
+{
+  "album_name": "Don't Make Me Wait",
+  "artist": "Locksley",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "All Over Again",
+  "shortname": "alloveragain",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

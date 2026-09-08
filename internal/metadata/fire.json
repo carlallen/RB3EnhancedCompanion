@@ -1,0 +1,20 @@
+{
+  "album_name": "Are You Experienced",
+  "artist": "The Jimi Hendrix Experience",
+  "diff": {
+    "band": 6,
+    "bass": 3,
+    "drum": 5,
+    "guitar": 4,
+    "pro_bass": 2,
+    "pro_drum": 5,
+    "pro_guitar": 3,
+    "vocals": 4
+  },
+  "genre": "classicrock",
+  "name": "Fire",
+  "shortname": "fire",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1967
+}

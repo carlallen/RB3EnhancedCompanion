@@ -1,0 +1,17 @@
+{
+  "album_name": "Bang Camaro",
+  "artist": "Bang Camaro",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 1,
+    "guitar": 5,
+    "vocals": 0
+  },
+  "genre": "rock",
+  "name": "Bang Camaro",
+  "shortname": "UGC_5002884",
+  "song_length": 291390,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

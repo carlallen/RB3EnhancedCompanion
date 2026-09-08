@@ -1,0 +1,18 @@
+{
+  "album_name": "We Love You",
+  "artist": "Semi Precious Weapons",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 0
+  },
+  "genre": "glam",
+  "name": "Magnetic Baby",
+  "shortname": "magneticbaby",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

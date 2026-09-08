@@ -1,0 +1,18 @@
+{
+  "album_name": "Can't Be Tamed",
+  "artist": "Miley Cyrus",
+  "diff": {
+    "band": 5,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 6,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "poprock",
+  "name": "Can't Be Tamed",
+  "shortname": "cantbetamed",
+  "song_length": 174367,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": "11",
+  "artist": "The Smithereens",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 1,
+    "guitar": 4,
+    "keys": 0,
+    "pro_drum": 1,
+    "pro_keys": 0,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "A Girl Like You",
+  "shortname": "agirllikeyou",
+  "song_length": 292277,
+  "vocal_parts": 2,
+  "year_released": 1989
+}

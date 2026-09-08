@@ -51,10 +51,40 @@
   </div>
 
   <div class="card">
-    <input id="searchbox" type="text" placeholder="Search songs, artists, albums...">
+    <div class="search-row">
+      <input id="searchbox" type="text" placeholder="Search songs, artists, albums...">
+      <button class="icon-button" id="filters-button" type="button" title="Filters" aria-label="Filters">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"></path>
+        </svg>
+      </button>
+    </div>
     <ul id="songlist">
       <li class="song-message">Waiting for the song list&hellip; enter the Music Library to load it.</li>
     </ul>
+  </div>
+
+  <div class="modal-overlay" id="filters-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="filters-title">
+      <div class="modal-header">
+        <h2 id="filters-title">Filters</h2>
+        <button class="icon-button" id="filters-close" type="button" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="filter-section">
+          <label class="filter-section-label" for="sort-order-select">Sort Order</label>
+          <select id="sort-order-select">
+            <option value="title">Song Name</option>
+            <option value="artist">Artist</option>
+          </select>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="/static/js/app.js"></script>

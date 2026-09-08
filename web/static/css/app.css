@@ -190,11 +190,32 @@ input[type="text"]:focus {
 	.add-device-form .button { flex: 1 1 100%; }
 }
 
+.search-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+
 #searchbox {
-	width: 100%;
+	flex: 1;
+	min-width: 0;
 	font-size: 1rem;
-	margin-bottom: 0.75rem;
+	margin-bottom: 0;
 }
+
+.icon-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.75rem;
+	height: 1.75rem;
+	flex-shrink: 0;
+	border-radius: 50%;
+	border: none;
+	background: transparent;
+	color: inherit;
+	opacity: 0.75;
+	cursor: pointer;
+	padding: 0;
+}
+.icon-button:hover { opacity: 1; background: var(--card-hover); }
+.icon-button svg { width: 1.15rem; height: 1.15rem; }
 
 #songlist { list-style: none; margin: 0; padding: 0; }
 
@@ -338,4 +359,48 @@ body:not(.on-song-select) .play-button { display: none; }
    this still get the full single row, as before. */
 @media (max-width: 640px) {
 	.stagekit { grid-template-columns: repeat(4, auto); gap: 0.5rem; }
+}
+
+.modal-overlay {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	background: #0009;
+	z-index: 10;
+}
+.modal-overlay[hidden] { display: none; }
+
+.modal {
+	width: 100%;
+	max-width: 420px;
+	max-height: 100%;
+	overflow-y: auto;
+	background: var(--bg);
+	border: 1px solid var(--border);
+	border-radius: 0.6rem;
+	padding: 1.25rem;
+}
+
+.modal-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.modal-header h2 { margin: 0; font-size: 1.1rem; }
+
+.filter-section { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.25rem; }
+.filter-section:first-child { margin-top: 0; }
+.filter-section-label { font-weight: 600; }
+
+.filter-section select {
+	flex: 1;
+	min-width: 0;
+	max-width: 60%;
+	box-sizing: border-box;
+	padding: 0.5rem 0.75rem;
+	border-radius: 0.5rem;
+	border: 1px solid var(--border);
+	background: var(--card-hover);
+	color: inherit;
+	font-family: inherit;
+	font-size: 0.95rem;
 }

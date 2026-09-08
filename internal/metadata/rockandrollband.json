@@ -1,0 +1,20 @@
+{
+  "album_name": null,
+  "artist": "Boston",
+  "diff": {
+    "band": 2,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 3,
+    "pro_drum": 4,
+    "pro_keys": 4,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "Rock and Roll Band",
+  "shortname": "rockandrollband",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

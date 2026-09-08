@@ -1,0 +1,18 @@
+{
+  "album_name": "Are You Gonna Go My Way",
+  "artist": "Lenny Kravitz",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 4,
+    "pro_drum": 2,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Are You Gonna Go My Way",
+  "shortname": "areyougonnagomyway",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1993
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": "Doolittle",
+  "artist": "Pixies",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 0,
+    "guitar": 1,
+    "pro_bass": 2,
+    "pro_drum": 0,
+    "pro_guitar": 2,
+    "vocals": 1
+  },
+  "genre": "alternative",
+  "name": "Here Comes Your Man",
+  "shortname": "herecomesyourman",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1989
+}

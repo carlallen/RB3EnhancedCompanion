@@ -1,0 +1,17 @@
+{
+  "album_name": "Live at the Greek Theatre",
+  "artist": "Flogging Molly",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 4,
+    "vocals": 2
+  },
+  "genre": "punk",
+  "name": "Drunken Lullabies (Live)",
+  "shortname": "UGC_5001319",
+  "song_length": 230882,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

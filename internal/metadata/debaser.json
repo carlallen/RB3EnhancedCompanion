@@ -1,0 +1,18 @@
+{
+  "album_name": "Doolittle",
+  "artist": "Pixies",
+  "diff": {
+    "band": 1,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 0
+  },
+  "genre": "alternative",
+  "name": "Debaser",
+  "shortname": "debaser",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1989
+}

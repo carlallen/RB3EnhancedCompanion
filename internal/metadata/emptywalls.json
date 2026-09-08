@@ -1,0 +1,18 @@
+{
+  "album_name": "Elect The Dead",
+  "artist": "Serj Tankian",
+  "diff": {
+    "band": 5,
+    "bass": 3,
+    "drum": 5,
+    "guitar": 4,
+    "pro_drum": 5,
+    "vocals": 4
+  },
+  "genre": "rock",
+  "name": "Empty Walls",
+  "shortname": "emptywalls",
+  "song_length": 233083,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

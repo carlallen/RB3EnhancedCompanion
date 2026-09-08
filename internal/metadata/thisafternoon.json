@@ -1,0 +1,18 @@
+{
+  "album_name": "Dark Horse",
+  "artist": "Nickelback",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "This Afternoon",
+  "shortname": "thisafternoon",
+  "song_length": 274282,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

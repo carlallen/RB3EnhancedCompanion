@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Jimmy Buffett",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 1,
+    "pro_drum": 3,
+    "vocals": 0
+  },
+  "genre": "rock",
+  "name": "Cheeseburger in Paradise",
+  "shortname": "cheeseburgerinparadise",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

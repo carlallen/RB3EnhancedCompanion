@@ -1,0 +1,17 @@
+{
+  "album_name": "River of Tuoni",
+  "artist": "Amberian Dawn",
+  "diff": {
+    "band": 5,
+    "bass": 2,
+    "drum": 5,
+    "guitar": 5,
+    "vocals": 1
+  },
+  "genre": "metal",
+  "name": "River of Tuoni",
+  "shortname": "UGC_5000345",
+  "song_length": 184617,
+  "vocal_parts": 3,
+  "year_released": 2006
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": "AWB",
+  "artist": "Average White Band",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 4,
+    "guitar": 1,
+    "keys": 3,
+    "pro_drum": 4,
+    "pro_keys": 4,
+    "vocals": 1
+  },
+  "genre": "Funk",
+  "name": "Pick Up the Pieces",
+  "shortname": "pickupthepieces",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1974
+}

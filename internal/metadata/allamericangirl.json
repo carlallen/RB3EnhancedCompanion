@@ -1,0 +1,18 @@
+{
+  "album_name": "Carnival Ride",
+  "artist": "Carrie Underwood",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "country",
+  "name": "All-American Girl",
+  "shortname": "allamericangirl",
+  "song_length": 217272,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

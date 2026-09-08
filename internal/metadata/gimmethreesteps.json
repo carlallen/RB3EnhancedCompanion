@@ -1,0 +1,17 @@
+{
+  "album_name": null,
+  "artist": "Lynyrd Skynyrd",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 0,
+    "guitar": 4,
+    "vocals": 0
+  },
+  "genre": "southernrock",
+  "name": "Gimme Three Steps",
+  "shortname": "gimmethreesteps",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": "In The Dark",
+  "artist": "The Grateful Dead",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 1,
+    "pro_drum": 4,
+    "pro_keys": 1,
+    "vocals": 2
+  },
+  "genre": "classicrock",
+  "name": "Touch of Grey",
+  "shortname": "touchofgrey",
+  "song_length": 376409,
+  "vocal_parts": 3,
+  "year_released": 1987
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "New Wave",
+  "artist": "Against Me!",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 1,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "punk",
+  "name": "Thrash Unreal",
+  "shortname": "thrashunreal",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

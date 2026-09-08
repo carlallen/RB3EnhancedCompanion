@@ -1,0 +1,20 @@
+{
+  "album_name": "Rebel Yell",
+  "artist": "Billy Idol",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 4,
+    "keys": 2,
+    "pro_drum": 3,
+    "pro_keys": 3,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "Rebel Yell",
+  "shortname": "rebelyell",
+  "song_length": null,
+  "vocal_parts": 1,
+  "year_released": 1983
+}

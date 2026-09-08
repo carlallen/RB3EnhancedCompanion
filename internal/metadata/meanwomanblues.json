@@ -1,0 +1,18 @@
+{
+  "album_name": "In Dreams: The Greatest Hits",
+  "artist": "Roy Orbison",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "Mean Woman Blues",
+  "shortname": "meanwomanblues",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1987
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "Janis Joplin's Greatest Hits",
+  "artist": "Janis Joplin",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 4
+  },
+  "genre": "classicrock",
+  "name": "Piece of My Heart",
+  "shortname": "pieceofmyheart",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1973
+}

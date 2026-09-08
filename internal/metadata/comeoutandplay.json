@@ -1,0 +1,20 @@
+{
+  "album_name": "Smash",
+  "artist": "The Offspring",
+  "diff": {
+    "band": 5,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 4,
+    "pro_bass": 0,
+    "pro_drum": 3,
+    "pro_guitar": 3,
+    "vocals": 4
+  },
+  "genre": "punk",
+  "name": "Come Out and Play (Keep 'Em Separated)",
+  "shortname": "comeoutandplay",
+  "song_length": 198636,
+  "vocal_parts": 3,
+  "year_released": 1994
+}

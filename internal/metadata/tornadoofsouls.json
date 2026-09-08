@@ -1,0 +1,18 @@
+{
+  "album_name": "Rust in Peace",
+  "artist": "Megadeth",
+  "diff": {
+    "band": 6,
+    "bass": 5,
+    "drum": 5,
+    "guitar": 6,
+    "pro_drum": 5,
+    "vocals": 2
+  },
+  "genre": "metal",
+  "name": "Tornado of Souls",
+  "shortname": "tornadoofsouls",
+  "song_length": 321858,
+  "vocal_parts": 3,
+  "year_released": 1990
+}

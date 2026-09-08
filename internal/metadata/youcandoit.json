@@ -1,0 +1,18 @@
+{
+  "album_name": "Tragic Kingdom",
+  "artist": "No Doubt",
+  "diff": {
+    "band": 5,
+    "bass": 3,
+    "drum": 5,
+    "guitar": 4,
+    "pro_drum": 5,
+    "vocals": 3
+  },
+  "genre": "poprock",
+  "name": "You Can Do It",
+  "shortname": "youcandoit",
+  "song_length": 260000,
+  "vocal_parts": 3,
+  "year_released": 1995
+}

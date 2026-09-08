@@ -1,0 +1,22 @@
+{
+  "album_name": "The Trap",
+  "artist": "Hushpuppies",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 3,
+    "pro_bass": 2,
+    "pro_drum": 4,
+    "pro_guitar": 1,
+    "pro_keys": 4,
+    "vocals": 1
+  },
+  "genre": "rock",
+  "name": "You're Gonna Say Yeah!",
+  "shortname": "UGC_5011488",
+  "song_length": 206170,
+  "vocal_parts": 3,
+  "year_released": 2005
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "Live at Hammersmith Odeon",
+  "artist": "Anthrax",
+  "diff": {
+    "band": 6,
+    "bass": 5,
+    "drum": 5,
+    "guitar": 4,
+    "pro_drum": 5,
+    "vocals": 4
+  },
+  "genre": "metal",
+  "name": "Madhouse (Live)",
+  "shortname": "madhouselive",
+  "song_length": 226363,
+  "vocal_parts": 2,
+  "year_released": 1987
+}

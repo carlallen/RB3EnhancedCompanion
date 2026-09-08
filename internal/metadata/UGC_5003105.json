@@ -1,0 +1,17 @@
+{
+  "album_name": "Trash Candy",
+  "artist": "Tijuana Sweetheart",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 4,
+    "vocals": 3
+  },
+  "genre": "punk",
+  "name": "No Mercy",
+  "shortname": "UGC_5003105",
+  "song_length": 163490,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

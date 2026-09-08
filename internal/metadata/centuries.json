@@ -1,0 +1,20 @@
+{
+  "album_name": "American Beauty/American Psycho",
+  "artist": "Fall Out Boy",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 0,
+    "guitar": 0,
+    "keys": 1,
+    "pro_drum": 0,
+    "pro_keys": 1,
+    "vocals": 4
+  },
+  "genre": "poprock",
+  "name": "Centuries",
+  "shortname": "centuries",
+  "song_length": 242783,
+  "vocal_parts": 3,
+  "year_released": 2015
+}

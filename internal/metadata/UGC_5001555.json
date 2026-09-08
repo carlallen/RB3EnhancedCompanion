@@ -1,0 +1,17 @@
+{
+  "album_name": "I Told You I Was Freaky",
+  "artist": "Flight of the Conchords",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 2,
+    "vocals": 3
+  },
+  "genre": "novelty",
+  "name": "Demon Woman",
+  "shortname": "UGC_5001555",
+  "song_length": 125405,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

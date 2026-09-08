@@ -1,0 +1,20 @@
+{
+  "album_name": "Bachman-Turner Overdrive II",
+  "artist": "Bachman-Turner Overdrive",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 2,
+    "guitar": 4,
+    "keys": 4,
+    "pro_drum": 2,
+    "pro_keys": 5,
+    "vocals": 2
+  },
+  "genre": "classicrock",
+  "name": "Takin' Care of Business",
+  "shortname": "takincareofbusiness",
+  "song_length": 280444,
+  "vocal_parts": 3,
+  "year_released": 1974
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "How Do You Like Me Now?!",
+  "artist": "Toby Keith",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 1
+  },
+  "genre": "country",
+  "name": "How Do You Like Me Now?!",
+  "shortname": "howdoyoulikemenow",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1999
+}

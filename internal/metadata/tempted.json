@@ -1,0 +1,18 @@
+{
+  "album_name": "East Side Story",
+  "artist": "Squeeze",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 0,
+    "guitar": 0,
+    "pro_drum": 0,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Tempted",
+  "shortname": "tempted",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1981
+}

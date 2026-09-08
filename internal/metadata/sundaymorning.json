@@ -1,0 +1,20 @@
+{
+  "album_name": "The Singles 1992-2003",
+  "artist": "No Doubt",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 2,
+    "keys": 3,
+    "pro_drum": 4,
+    "pro_keys": 3,
+    "vocals": 1
+  },
+  "genre": "poprock",
+  "name": "Sunday Morning",
+  "shortname": "sundaymorning",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2003
+}

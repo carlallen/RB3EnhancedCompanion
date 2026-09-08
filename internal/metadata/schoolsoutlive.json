@@ -1,0 +1,20 @@
+{
+  "album_name": "Classicks",
+  "artist": "Alice Cooper",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 6,
+    "keys": 4,
+    "pro_drum": 4,
+    "pro_keys": 3,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "School's Out (Live)",
+  "shortname": "schoolsoutlive",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1995
+}

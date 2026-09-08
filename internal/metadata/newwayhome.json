@@ -1,0 +1,18 @@
+{
+  "album_name": "The Colour and the Shape",
+  "artist": "Foo Fighters",
+  "diff": {
+    "band": 4,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "New Way Home",
+  "shortname": "newwayhome",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1997
+}

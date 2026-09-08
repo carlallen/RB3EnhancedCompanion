@@ -1,0 +1,18 @@
+{
+  "album_name": "Little By Little...",
+  "artist": "Harvey Danger",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "Cream and Bastards Rise",
+  "shortname": "creamandbastards",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2005
+}

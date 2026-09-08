@@ -1,0 +1,18 @@
+{
+  "album_name": "Legend",
+  "artist": "Bob Marley and the Wailers",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "other",
+  "name": "No Woman No Cry",
+  "shortname": "nowomannocry",
+  "song_length": 431363,
+  "vocal_parts": 3,
+  "year_released": 1984
+}

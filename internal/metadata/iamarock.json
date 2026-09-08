@@ -1,0 +1,17 @@
+{
+  "album_name": "Sounds of Silence",
+  "artist": "Simon & Garfunkel",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 3,
+    "vocals": 2
+  },
+  "genre": "classicrock",
+  "name": "I Am a Rock",
+  "shortname": "iamarock",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1966
+}

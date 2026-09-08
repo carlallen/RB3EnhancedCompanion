@@ -1,0 +1,18 @@
+{
+  "album_name": "Core",
+  "artist": "Stone Temple Pilots",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 1,
+    "pro_drum": 2,
+    "vocals": 1
+  },
+  "genre": "alternative",
+  "name": "Creep",
+  "shortname": "creepstp",
+  "song_length": 333650,
+  "vocal_parts": 2,
+  "year_released": 1992
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": "Day & Age",
+  "artist": "The Killers",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 0,
+    "keys": 3,
+    "pro_drum": 4,
+    "pro_keys": 3,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "Spaceman",
+  "shortname": "spaceman",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

@@ -1,0 +1,17 @@
+{
+  "album_name": null,
+  "artist": "The Monkees",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 4,
+    "vocals": 3
+  },
+  "genre": "poprock",
+  "name": "Last Train to Clarksville",
+  "shortname": "lasttraintoclarksville",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

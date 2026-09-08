@@ -1,0 +1,20 @@
+{
+  "album_name": "Dr. Feelgood",
+  "artist": "M\u00f6tley Cr\u00fce",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 4,
+    "keys": 0,
+    "pro_drum": 4,
+    "pro_keys": 0,
+    "vocals": 4
+  },
+  "genre": "metal",
+  "name": "Slice of Your Pie",
+  "shortname": "sliceofyourpie",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1989
+}

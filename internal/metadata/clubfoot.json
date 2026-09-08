@@ -1,0 +1,19 @@
+{
+  "album_name": "Kasabian",
+  "artist": "Kasabian",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 1,
+    "keys": 0,
+    "pro_keys": 0,
+    "vocals": 1
+  },
+  "genre": "rock",
+  "name": "Club Foot",
+  "shortname": "clubfoot",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2004
+}

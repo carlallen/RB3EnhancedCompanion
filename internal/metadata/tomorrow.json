@@ -1,0 +1,18 @@
+{
+  "album_name": "Frogstomp",
+  "artist": "Silverchair",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Tomorrow",
+  "shortname": "tomorrow",
+  "song_length": 305909,
+  "vocal_parts": 2,
+  "year_released": 1995
+}

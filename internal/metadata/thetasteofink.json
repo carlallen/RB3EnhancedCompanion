@@ -1,0 +1,18 @@
+{
+  "album_name": "The Used",
+  "artist": "The Used",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "emo",
+  "name": "The Taste of Ink",
+  "shortname": "thetasteofink",
+  "song_length": 214821,
+  "vocal_parts": 2,
+  "year_released": 2002
+}

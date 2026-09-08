@@ -1,0 +1,22 @@
+{
+  "album_name": "Billy Idol",
+  "artist": "Billy Idol",
+  "diff": {
+    "band": 2,
+    "bass": 4,
+    "drum": 2,
+    "guitar": 2,
+    "keys": 0,
+    "pro_bass": 2,
+    "pro_drum": 2,
+    "pro_guitar": 2,
+    "pro_keys": 0,
+    "vocals": 4
+  },
+  "genre": "rock",
+  "name": "White Wedding (Part 1)",
+  "shortname": "whitewedding",
+  "song_length": 262727,
+  "vocal_parts": 3,
+  "year_released": 1982
+}

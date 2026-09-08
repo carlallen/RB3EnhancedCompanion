@@ -1,0 +1,18 @@
+{
+  "album_name": "Bleach",
+  "artist": "Nirvana",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "grunge",
+  "name": "About a Girl",
+  "shortname": "aboutagirl",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1989
+}

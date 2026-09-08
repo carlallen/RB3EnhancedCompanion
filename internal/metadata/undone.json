@@ -1,0 +1,20 @@
+{
+  "album_name": "Weezer (The Blue Album)",
+  "artist": "Weezer",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 1,
+    "pro_bass": 2,
+    "pro_drum": 4,
+    "pro_guitar": 2,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Undone - The Sweater Song",
+  "shortname": "undone",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1994
+}

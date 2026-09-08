@@ -1,0 +1,18 @@
+{
+  "album_name": "Only Through the Pain",
+  "artist": "Trapt",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 0
+  },
+  "genre": "numetal",
+  "name": "Who's Going Home with You Tonight?",
+  "shortname": "whosgoinghome",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

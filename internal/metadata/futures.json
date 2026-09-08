@@ -1,0 +1,20 @@
+{
+  "album_name": "Futures",
+  "artist": "Jimmy Eat World",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 2,
+    "keys": 3,
+    "pro_drum": 3,
+    "pro_keys": 1,
+    "vocals": 1
+  },
+  "genre": "poprock",
+  "name": "Futures",
+  "shortname": "futures",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2004
+}

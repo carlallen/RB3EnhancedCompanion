@@ -1,0 +1,18 @@
+{
+  "album_name": "My Generation (Deluxe Edition)",
+  "artist": "The Who",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 5,
+    "guitar": 3,
+    "pro_drum": 5,
+    "vocals": 0
+  },
+  "genre": "classicrock",
+  "name": "Leaving Here",
+  "shortname": "leavinghere",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1965
+}

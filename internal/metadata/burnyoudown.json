@@ -1,0 +1,20 @@
+{
+  "album_name": "Manifesto",
+  "artist": "Opiate for the Masses",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 2,
+    "keys": 2,
+    "pro_drum": 2,
+    "pro_keys": 2,
+    "vocals": 0
+  },
+  "genre": "rock",
+  "name": "Burn You Down",
+  "shortname": "burnyoudown",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

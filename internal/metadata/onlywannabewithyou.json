@@ -1,0 +1,20 @@
+{
+  "album_name": "Cracked Rear View",
+  "artist": "Hootie & the Blowfish",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 0,
+    "pro_drum": 4,
+    "pro_keys": 0,
+    "vocals": 1
+  },
+  "genre": "alternative",
+  "name": "Only Wanna Be with You",
+  "shortname": "onlywannabewithyou",
+  "song_length": 229357,
+  "vocal_parts": 2,
+  "year_released": 1994
+}

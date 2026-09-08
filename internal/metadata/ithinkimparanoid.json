@@ -6,13 +6,17 @@
     "bass": 1,
     "drum": 0,
     "guitar": 1,
+    "keys": 1,
+    "pro_bass": 0,
     "pro_drum": 0,
+    "pro_guitar": 1,
+    "pro_keys": 1,
     "vocals": 0
   },
   "genre": "poprock",
   "name": "I Think I'm Paranoid",
   "shortname": "ithinkimparanoid",
   "song_length": 226000,
-  "vocal_parts": 1,
+  "vocal_parts": 2,
   "year_released": 1998
 }

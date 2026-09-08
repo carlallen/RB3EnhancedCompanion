@@ -1,0 +1,18 @@
+{
+  "album_name": "No Rest for the Wicked",
+  "artist": "Ozzy Osbourne",
+  "diff": {
+    "band": 5,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 5,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "metal",
+  "name": "Crazy Babies",
+  "shortname": "crazybabies",
+  "song_length": 258826,
+  "vocal_parts": 3,
+  "year_released": 1988
+}

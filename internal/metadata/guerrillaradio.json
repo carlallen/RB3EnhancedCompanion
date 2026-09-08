@@ -1,0 +1,18 @@
+{
+  "album_name": "The Battle of Los Angeles",
+  "artist": "Rage Against the Machine",
+  "diff": {
+    "band": 2,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 0
+  },
+  "genre": "alternative",
+  "name": "Guerrilla Radio",
+  "shortname": "guerrillaradio",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1999
+}

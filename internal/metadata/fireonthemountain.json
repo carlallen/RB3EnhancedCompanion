@@ -1,0 +1,20 @@
+{
+  "album_name": "Shakedown Street",
+  "artist": "The Grateful Dead",
+  "diff": {
+    "band": 4,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 2,
+    "keys": 1,
+    "pro_drum": 4,
+    "pro_keys": 0,
+    "vocals": 1
+  },
+  "genre": "classicrock",
+  "name": "Fire on the Mountain",
+  "shortname": "fireonthemountain",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1978
+}

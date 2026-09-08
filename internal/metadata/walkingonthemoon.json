@@ -1,0 +1,20 @@
+{
+  "album_name": "Regatta de Blanc",
+  "artist": "The Police",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 0,
+    "keys": 0,
+    "pro_drum": 4,
+    "pro_keys": 0,
+    "vocals": 1
+  },
+  "genre": "poprock",
+  "name": "Walking on the Moon",
+  "shortname": "walkingonthemoon",
+  "song_length": 283636,
+  "vocal_parts": 3,
+  "year_released": 1979
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": "Screamworks: Love in Theory and Practice",
+  "artist": "HIM",
+  "diff": {
+    "band": 4,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "keys": 3,
+    "pro_drum": 3,
+    "pro_keys": 3,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "Heartkiller",
+  "shortname": "heartkiller",
+  "song_length": 208926,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

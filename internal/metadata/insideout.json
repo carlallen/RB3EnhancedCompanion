@@ -1,0 +1,18 @@
+{
+  "album_name": "Eve 6",
+  "artist": "Eve 6",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 1,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Inside Out",
+  "shortname": "insideout",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1998
+}

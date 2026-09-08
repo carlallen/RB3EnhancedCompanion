@@ -1,0 +1,18 @@
+{
+  "album_name": "Dirt",
+  "artist": "Alice In Chains",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 0,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "grunge",
+  "name": "Rooster",
+  "shortname": "rooster",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1992
+}

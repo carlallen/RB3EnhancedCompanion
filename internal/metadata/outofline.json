@@ -1,0 +1,18 @@
+{
+  "album_name": "15",
+  "artist": "Buckcherry",
+  "diff": {
+    "band": 1,
+    "bass": 3,
+    "drum": 2,
+    "guitar": 2,
+    "pro_drum": 2,
+    "vocals": 0
+  },
+  "genre": "rock",
+  "name": "Out of Line",
+  "shortname": "outofline",
+  "song_length": 264666,
+  "vocal_parts": 3,
+  "year_released": 2006
+}

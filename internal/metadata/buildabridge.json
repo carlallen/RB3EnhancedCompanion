@@ -1,0 +1,18 @@
+{
+  "album_name": "Results May Vary",
+  "artist": "Limp Bizkit",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 1
+  },
+  "genre": "numetal",
+  "name": "Build a Bridge",
+  "shortname": "buildabridge",
+  "song_length": 247272,
+  "vocal_parts": 2,
+  "year_released": 2003
+}

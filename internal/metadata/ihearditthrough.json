@@ -1,0 +1,20 @@
+{
+  "album_name": "Cosmo's Factory",
+  "artist": "Creedence Clearwater Revival",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 4,
+    "keys": 2,
+    "pro_drum": 4,
+    "pro_keys": 3,
+    "vocals": 3
+  },
+  "genre": "southernrock",
+  "name": "I Heard It Through the Grapevine",
+  "shortname": "ihearditthrough",
+  "song_length": 614736,
+  "vocal_parts": 3,
+  "year_released": 1970
+}

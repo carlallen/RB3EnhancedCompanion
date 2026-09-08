@@ -1,0 +1,19 @@
+{
+  "album_name": null,
+  "artist": "Katrina and the Waves",
+  "diff": {
+    "band": 1,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 2,
+    "keys": 2,
+    "pro_keys": 3,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "Walking on Sunshine",
+  "shortname": "walkingonsunshine",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 2004
+}

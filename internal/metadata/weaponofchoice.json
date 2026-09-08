@@ -1,0 +1,18 @@
+{
+  "album_name": "Baby 81",
+  "artist": "Black Rebel Motorcycle Club",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 4,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Weapon of Choice",
+  "shortname": "weaponofchoice",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

@@ -1,0 +1,17 @@
+{
+  "album_name": "Follow",
+  "artist": "Johnny Cooper",
+  "diff": {
+    "band": 4,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 3,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "Don't Feel Like That Anymore",
+  "shortname": "UGC_5002407",
+  "song_length": 242790,
+  "vocal_parts": 2,
+  "year_released": 2009
+}

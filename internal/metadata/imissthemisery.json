@@ -1,0 +1,20 @@
+{
+  "album_name": "The Strange Case Of...",
+  "artist": "Halestorm",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 2,
+    "keys": 1,
+    "pro_drum": 3,
+    "pro_keys": 1,
+    "vocals": 4
+  },
+  "genre": "rock",
+  "name": "I Miss the Misery",
+  "shortname": "imissthemisery",
+  "song_length": 188778,
+  "vocal_parts": 3,
+  "year_released": 2012
+}

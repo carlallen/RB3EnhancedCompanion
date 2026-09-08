@@ -1,0 +1,20 @@
+{
+  "album_name": "Siren Song of the Counter Culture",
+  "artist": "Rise Against",
+  "diff": {
+    "band": 6,
+    "bass": 4,
+    "drum": 6,
+    "guitar": 4,
+    "pro_bass": 4,
+    "pro_drum": 6,
+    "pro_guitar": 4,
+    "vocals": 4
+  },
+  "genre": "punk",
+  "name": "Give It All",
+  "shortname": "giveitall",
+  "song_length": 175454,
+  "vocal_parts": 2,
+  "year_released": 2004
+}

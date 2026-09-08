@@ -1,0 +1,20 @@
+{
+  "album_name": "Rise and Fall, Rage and Grace",
+  "artist": "The Offspring",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 2,
+    "keys": 1,
+    "pro_drum": 4,
+    "pro_keys": 1,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "A Lot Like Me",
+  "shortname": "alotlikeme",
+  "song_length": 257727,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

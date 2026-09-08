@@ -1,0 +1,20 @@
+{
+  "album_name": "Hail to the King",
+  "artist": "Avenged Sevenfold",
+  "diff": {
+    "band": 5,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 6,
+    "keys": 0,
+    "pro_drum": 4,
+    "pro_keys": 0,
+    "vocals": 3
+  },
+  "genre": "metal",
+  "name": "Shepherd of Fire",
+  "shortname": "shepherdoffire",
+  "song_length": 301281,
+  "vocal_parts": 2,
+  "year_released": 2013
+}

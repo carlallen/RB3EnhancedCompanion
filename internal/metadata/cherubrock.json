@@ -6,13 +6,15 @@
     "bass": 5,
     "drum": 5,
     "guitar": 5,
+    "pro_bass": 2,
     "pro_drum": 5,
+    "pro_guitar": 3,
     "vocals": 2
   },
   "genre": "alternative",
   "name": "Cherub Rock",
   "shortname": "cherubrock",
   "song_length": 305000,
-  "vocal_parts": 1,
+  "vocal_parts": 3,
   "year_released": 1993
 }

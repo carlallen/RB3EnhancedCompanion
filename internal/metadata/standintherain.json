@@ -1,0 +1,18 @@
+{
+  "album_name": "Beauty from Pain 1.1",
+  "artist": "Superchick",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "Stand in the Rain",
+  "shortname": "standintherain",
+  "song_length": 198000,
+  "vocal_parts": 3,
+  "year_released": 2006
+}

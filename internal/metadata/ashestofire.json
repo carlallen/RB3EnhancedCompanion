@@ -1,0 +1,20 @@
+{
+  "album_name": "Ghost Hounds",
+  "artist": "Ghost Hounds",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 1,
+    "keys": 3,
+    "pro_drum": 4,
+    "pro_keys": 3,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "Ashes to Fire",
+  "shortname": "ashestofire",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

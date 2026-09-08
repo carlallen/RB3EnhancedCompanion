@@ -1,0 +1,18 @@
+{
+  "album_name": "MTV Unplugged in New York",
+  "artist": "Nirvana",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 1
+  },
+  "genre": "grunge",
+  "name": "Come As You Are (Live from MTV Unplugged)",
+  "shortname": "comeasyouarelive",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1994
+}

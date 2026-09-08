@@ -1,0 +1,18 @@
+{
+  "album_name": "That's the Way of the World",
+  "artist": "Earth, Wind & Fire",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 4
+  },
+  "genre": "Funk",
+  "name": "Shining Star",
+  "shortname": "shiningstar",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1975
+}

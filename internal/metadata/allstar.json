@@ -1,0 +1,20 @@
+{
+  "album_name": "Astro Lounge",
+  "artist": "Smash Mouth",
+  "diff": {
+    "band": 2,
+    "bass": 0,
+    "drum": 4,
+    "guitar": 1,
+    "keys": 1,
+    "pro_drum": 4,
+    "pro_keys": 1,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "All Star",
+  "shortname": "allstar",
+  "song_length": 203999,
+  "vocal_parts": 3,
+  "year_released": 1999
+}

@@ -1,0 +1,20 @@
+{
+  "album_name": "Full Moon Fever",
+  "artist": "Tom Petty",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 1,
+    "guitar": 0,
+    "keys": 0,
+    "pro_drum": 1,
+    "pro_keys": 0,
+    "vocals": 2
+  },
+  "genre": "classicrock",
+  "name": "I Won't Back Down",
+  "shortname": "iwontbackdown",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1989
+}

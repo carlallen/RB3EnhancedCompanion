@@ -6,13 +6,15 @@
     "bass": 2,
     "drum": 3,
     "guitar": 1,
+    "pro_bass": 2,
     "pro_drum": 3,
+    "pro_guitar": 3,
     "vocals": 4
   },
   "genre": "rock",
   "name": "Day Late, Dollar Short",
   "shortname": "daylatedollarshort",
   "song_length": 152000,
-  "vocal_parts": 1,
+  "vocal_parts": 2,
   "year_released": 2006
 }

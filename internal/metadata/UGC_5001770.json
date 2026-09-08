@@ -1,0 +1,19 @@
+{
+  "album_name": "Sinner",
+  "artist": "Drowning Pool",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 2,
+    "keys": 2,
+    "pro_keys": 2,
+    "vocals": 3
+  },
+  "genre": "numetal",
+  "name": "Bodies",
+  "shortname": "UGC_5001770",
+  "song_length": 210646,
+  "vocal_parts": 3,
+  "year_released": 2001
+}

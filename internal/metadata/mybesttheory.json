@@ -1,0 +1,20 @@
+{
+  "album_name": "Invented",
+  "artist": "Jimmy Eat World",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 4,
+    "guitar": 1,
+    "keys": 0,
+    "pro_drum": 4,
+    "pro_keys": 0,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "My Best Theory",
+  "shortname": "mybesttheory",
+  "song_length": 205016,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

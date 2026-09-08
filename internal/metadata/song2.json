@@ -1,0 +1,20 @@
+{
+  "album_name": "Blur",
+  "artist": "Blur",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 1,
+    "pro_bass": 0,
+    "pro_drum": 3,
+    "pro_guitar": 0,
+    "vocals": 0
+  },
+  "genre": "alternative",
+  "name": "Song 2",
+  "shortname": "song2",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1997
+}

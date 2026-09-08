@@ -1,0 +1,22 @@
+{
+  "album_name": "X&Y",
+  "artist": "Coldplay",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 2,
+    "keys": 2,
+    "pro_bass": 0,
+    "pro_drum": 2,
+    "pro_guitar": 2,
+    "pro_keys": 2,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "Fix You",
+  "shortname": "fixyou",
+  "song_length": 300479,
+  "vocal_parts": 3,
+  "year_released": 2005
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "It Won't Be Soon Before Long",
+  "artist": "Maroon 5",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 1,
+    "pro_drum": 2,
+    "vocals": 3
+  },
+  "genre": "poprock",
+  "name": "Makes Me Wonder",
+  "shortname": "makesmewonder",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

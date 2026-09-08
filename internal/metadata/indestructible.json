@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Disturbed",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 4,
+    "pro_drum": 5,
+    "vocals": 1
+  },
+  "genre": "numetal",
+  "name": "Indestructible",
+  "shortname": "indestructible",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

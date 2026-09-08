@@ -1,0 +1,18 @@
+{
+  "album_name": "Go to Heaven",
+  "artist": "The Grateful Dead",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "classicrock",
+  "name": "Don't Ease Me In",
+  "shortname": "donteasemein",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1980
+}

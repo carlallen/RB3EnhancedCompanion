@@ -1,0 +1,22 @@
+{
+  "album_name": "Blink-182",
+  "artist": "Blink-182",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 2,
+    "pro_bass": 3,
+    "pro_drum": 4,
+    "pro_guitar": 2,
+    "pro_keys": 2,
+    "vocals": 3
+  },
+  "genre": "punk",
+  "name": "Always",
+  "shortname": "always",
+  "song_length": 251892,
+  "vocal_parts": 3,
+  "year_released": 2003
+}

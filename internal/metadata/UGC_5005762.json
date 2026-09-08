@@ -1,0 +1,22 @@
+{
+  "album_name": "Everything Under the Sun",
+  "artist": "Jukebox the Ghost",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 3,
+    "keys": 6,
+    "pro_bass": 3,
+    "pro_drum": 3,
+    "pro_guitar": 4,
+    "pro_keys": 6,
+    "vocals": 5
+  },
+  "genre": "poprock",
+  "name": "Half Crazy",
+  "shortname": "UGC_5005762",
+  "song_length": 184289,
+  "vocal_parts": 2,
+  "year_released": 2010
+}

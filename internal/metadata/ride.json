@@ -1,0 +1,18 @@
+{
+  "album_name": "Winning Days",
+  "artist": "The Vines",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "Ride",
+  "shortname": "ride",
+  "song_length": 158214,
+  "vocal_parts": 3,
+  "year_released": 2004
+}

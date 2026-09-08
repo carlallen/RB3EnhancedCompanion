@@ -1,0 +1,18 @@
+{
+  "album_name": "Chinese Democracy",
+  "artist": "Guns N' Roses",
+  "diff": {
+    "band": 5,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Catcher in the Rye",
+  "shortname": "catcherintherye",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

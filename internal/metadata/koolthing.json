@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Sonic Youth",
+  "diff": {
+    "band": 5,
+    "bass": 2,
+    "drum": 6,
+    "guitar": 2,
+    "pro_drum": 6,
+    "vocals": 1
+  },
+  "genre": "alternative",
+  "name": "Kool Thing",
+  "shortname": "koolthing",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

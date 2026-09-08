@@ -1,0 +1,18 @@
+{
+  "album_name": "Under the Big Black Sun",
+  "artist": "X",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "punk",
+  "name": "The Hungry Wolf",
+  "shortname": "hungrywolf",
+  "song_length": 230259,
+  "vocal_parts": 3,
+  "year_released": 1982
+}

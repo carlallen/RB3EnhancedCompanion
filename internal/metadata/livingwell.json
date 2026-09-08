@@ -1,0 +1,18 @@
+{
+  "album_name": "Accelerate",
+  "artist": "R.E.M.",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Living Well Is the Best Revenge",
+  "shortname": "livingwell",
+  "song_length": 195195,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

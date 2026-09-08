@@ -1,0 +1,17 @@
+{
+  "album_name": "Psalm 69: The Way to Succeed and the Way to Suck Eggs",
+  "artist": "Ministry",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 4,
+    "vocals": 1
+  },
+  "genre": "metal",
+  "name": "Jesus Built My Hotrod",
+  "shortname": "jesusbuiltmyhotrod",
+  "song_length": 294098,
+  "vocal_parts": 3,
+  "year_released": 1992
+}

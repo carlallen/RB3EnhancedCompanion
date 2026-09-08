@@ -1,0 +1,20 @@
+{
+  "album_name": "Foreigner",
+  "artist": "Foreigner",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 5,
+    "keys": 1,
+    "pro_drum": 3,
+    "pro_keys": 1,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "Feels Like the First Time",
+  "shortname": "feelslikethefirsttime",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1977
+}

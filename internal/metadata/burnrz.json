@@ -1,0 +1,18 @@
+{
+  "album_name": "Hellbilly Deluxe 2",
+  "artist": "Rob Zombie",
+  "diff": {
+    "band": 3,
+    "bass": 4,
+    "drum": 3,
+    "guitar": 4,
+    "pro_drum": 3,
+    "vocals": 1
+  },
+  "genre": "numetal",
+  "name": "Burn",
+  "shortname": "burnrz",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

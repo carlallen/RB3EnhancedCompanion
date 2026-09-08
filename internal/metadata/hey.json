@@ -1,0 +1,18 @@
+{
+  "album_name": "Doolittle",
+  "artist": "Pixies",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 0,
+    "guitar": 1,
+    "pro_drum": 0,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "Hey",
+  "shortname": "hey",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1989
+}

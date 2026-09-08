@@ -1,0 +1,18 @@
+{
+  "album_name": "Peace Sells... but Who's Buying?",
+  "artist": "Megadeth",
+  "diff": {
+    "band": 6,
+    "bass": 5,
+    "drum": 6,
+    "guitar": 5,
+    "pro_drum": 6,
+    "vocals": 2
+  },
+  "genre": "metal",
+  "name": "My Last Words",
+  "shortname": "mylastwords",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1986
+}

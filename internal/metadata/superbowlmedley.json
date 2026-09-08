@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "The Who",
+  "diff": {
+    "band": 6,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 5,
+    "pro_drum": 5,
+    "vocals": 3
+  },
+  "genre": "classicrock",
+  "name": "The Who Super Bowl S-mashup",
+  "shortname": "superbowlmedley",
+  "song_length": 768518,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

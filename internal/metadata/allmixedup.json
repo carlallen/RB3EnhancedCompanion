@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "The Cars",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 1,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "All Mixed Up",
+  "shortname": "allmixedup",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

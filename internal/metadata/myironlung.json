@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Radiohead",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 2,
+    "pro_drum": 2,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "My Iron Lung",
+  "shortname": "myironlung",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": null
+}

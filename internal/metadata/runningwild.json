@@ -1,0 +1,18 @@
+{
+  "album_name": "Runnin' Wild",
+  "artist": "Airbourne",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 1,
+    "pro_drum": 3,
+    "vocals": 0
+  },
+  "genre": "rock",
+  "name": "Runnin' Wild",
+  "shortname": "runningwild",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

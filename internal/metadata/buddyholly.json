@@ -1,0 +1,22 @@
+{
+  "album_name": null,
+  "artist": "Weezer",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 1,
+    "guitar": 1,
+    "keys": 0,
+    "pro_bass": 0,
+    "pro_drum": 1,
+    "pro_guitar": 2,
+    "pro_keys": 0,
+    "vocals": 0
+  },
+  "genre": "alternative",
+  "name": "Buddy Holly",
+  "shortname": "buddyholly",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

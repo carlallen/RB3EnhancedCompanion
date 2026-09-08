@@ -1,0 +1,18 @@
+{
+  "album_name": "Folie \u00e0 Deux",
+  "artist": "Fall Out Boy",
+  "diff": {
+    "band": 2,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 1,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "poprock",
+  "name": "I Don't Care",
+  "shortname": "idontcare",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

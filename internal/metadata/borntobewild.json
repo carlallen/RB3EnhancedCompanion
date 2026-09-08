@@ -1,0 +1,20 @@
+{
+  "album_name": "Steppenwolf",
+  "artist": "Steppenwolf",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 6,
+    "pro_drum": 4,
+    "pro_keys": 6,
+    "vocals": 4
+  },
+  "genre": "classicrock",
+  "name": "Born to Be Wild",
+  "shortname": "borntobewild",
+  "song_length": 210626,
+  "vocal_parts": 1,
+  "year_released": 1968
+}

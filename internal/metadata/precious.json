@@ -1,0 +1,18 @@
+{
+  "album_name": "Pretenders",
+  "artist": "The Pretenders",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 4,
+    "pro_drum": 3,
+    "vocals": 5
+  },
+  "genre": "punk",
+  "name": "Precious",
+  "shortname": "precious",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1980
+}

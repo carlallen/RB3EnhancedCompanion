@@ -1,0 +1,20 @@
+{
+  "album_name": "Gala",
+  "artist": "Lush",
+  "diff": {
+    "band": 2,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 3,
+    "pro_bass": 0,
+    "pro_drum": 3,
+    "pro_guitar": 3,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "De-Luxe",
+  "shortname": "deluxe",
+  "song_length": 213636,
+  "vocal_parts": 2,
+  "year_released": 1990
+}

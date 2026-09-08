@@ -1,0 +1,18 @@
+{
+  "album_name": "Back From The Dead",
+  "artist": "Spinal Tap",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "metal",
+  "name": "Rock 'n' Roll Creation",
+  "shortname": "rockandrollcreation",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

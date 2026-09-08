@@ -1,0 +1,17 @@
+{
+  "album_name": "Doolittle",
+  "artist": "Pixies",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 1,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Gouge Away",
+  "shortname": "gougeaway",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1989
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "Live at Leeds",
+  "artist": "The Who",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 5,
+    "guitar": 2,
+    "pro_drum": 5,
+    "vocals": 1
+  },
+  "genre": "classicrock",
+  "name": "Summertime Blues (Live at Leeds)",
+  "shortname": "summertimeblues",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1970
+}

@@ -1,0 +1,18 @@
+{
+  "album_name": "Fight With Tools",
+  "artist": "Flobots",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 1
+  },
+  "genre": "alternative",
+  "name": "Handlebars",
+  "shortname": "handlebars",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

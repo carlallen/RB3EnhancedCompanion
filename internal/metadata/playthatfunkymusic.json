@@ -1,0 +1,20 @@
+{
+  "album_name": "Wild Cherry",
+  "artist": "Wild Cherry",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 2,
+    "guitar": 4,
+    "keys": 0,
+    "pro_drum": 2,
+    "pro_keys": 0,
+    "vocals": 6
+  },
+  "genre": "rbsoulfunk",
+  "name": "Play That Funky Music",
+  "shortname": "playthatfunkymusic",
+  "song_length": 304684,
+  "vocal_parts": 3,
+  "year_released": 1976
+}

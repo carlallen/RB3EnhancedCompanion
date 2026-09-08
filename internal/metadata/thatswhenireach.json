@@ -1,0 +1,18 @@
+{
+  "album_name": "Signals, Calls and Marches",
+  "artist": "Mission of Burma",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 1
+  },
+  "genre": "punk",
+  "name": "That's When I Reach for My Revolver",
+  "shortname": "thatswhenireach",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1981
+}

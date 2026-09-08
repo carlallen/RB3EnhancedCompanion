@@ -1,0 +1,19 @@
+{
+  "album_name": "Baby Darling Doll Face Honey",
+  "artist": "Band of Skulls",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 1,
+    "guitar": 2,
+    "pro_bass": 0,
+    "pro_guitar": 2,
+    "vocals": 3
+  },
+  "genre": "indierock",
+  "name": "I Know What I Am",
+  "shortname": "UGC_5001804",
+  "song_length": 202547,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

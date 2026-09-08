@@ -1,0 +1,18 @@
+{
+  "album_name": "Nothing's Shocking",
+  "artist": "Jane's Addiction",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 5,
+    "pro_drum": 4,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "Standing in the Shower... Thinking",
+  "shortname": "standingintheshower",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1988
+}

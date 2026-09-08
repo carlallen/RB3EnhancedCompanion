@@ -1,0 +1,18 @@
+{
+  "album_name": "Busted",
+  "artist": "Busted",
+  "diff": {
+    "band": 3,
+    "bass": 4,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "Thunderbirds Are Go!",
+  "shortname": "thunderbirdsarego",
+  "song_length": 190454,
+  "vocal_parts": 3,
+  "year_released": 2004
+}

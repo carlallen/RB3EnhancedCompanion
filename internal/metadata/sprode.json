@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Freezepop",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "Sprode",
+  "shortname": "sprode",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

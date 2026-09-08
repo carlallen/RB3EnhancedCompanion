@@ -1,0 +1,17 @@
+{
+  "album_name": "Bolan Boogie",
+  "artist": "T. Rex",
+  "diff": {
+    "band": 0,
+    "bass": 0,
+    "drum": 0,
+    "guitar": 3,
+    "vocals": 0
+  },
+  "genre": "glam",
+  "name": "Ride a White Swan",
+  "shortname": "rideawhiteswan",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1972
+}

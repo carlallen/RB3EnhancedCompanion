@@ -1,0 +1,18 @@
+{
+  "album_name": "Crash Love",
+  "artist": "AFI",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "alternative",
+  "name": "End Transmission",
+  "shortname": "endtransmission",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 2009
+}

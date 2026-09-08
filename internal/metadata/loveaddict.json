@@ -1,0 +1,20 @@
+{
+  "album_name": "Business Up Front/Party in the Back",
+  "artist": "Family Force 5",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 1,
+    "keys": 0,
+    "pro_drum": 3,
+    "pro_keys": 0,
+    "vocals": 3
+  },
+  "genre": "rock",
+  "name": "Love Addict",
+  "shortname": "loveaddict",
+  "song_length": 176000,
+  "vocal_parts": 3,
+  "year_released": 2006
+}

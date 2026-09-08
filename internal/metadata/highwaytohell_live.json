@@ -1,0 +1,18 @@
+{
+  "album_name": "Live",
+  "artist": "AC/DC",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 0,
+    "guitar": 4,
+    "pro_drum": 0,
+    "vocals": 2
+  },
+  "genre": "classicrock",
+  "name": "Highway to Hell (Live)",
+  "shortname": "highwaytohell_live",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1992
+}

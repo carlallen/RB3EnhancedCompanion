@@ -1,0 +1,18 @@
+{
+  "album_name": "Doolittle",
+  "artist": "Pixies",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "There Goes My Gun",
+  "shortname": "theregoesmygun",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1989
+}

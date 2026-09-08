@@ -1,0 +1,18 @@
+{
+  "album_name": "Legend",
+  "artist": "Bob Marley and the Wailers",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 3
+  },
+  "genre": "other",
+  "name": "Waiting in Vain",
+  "shortname": "waitinginvain",
+  "song_length": 274285,
+  "vocal_parts": 3,
+  "year_released": 1984
+}

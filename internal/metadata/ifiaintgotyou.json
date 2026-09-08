@@ -1,0 +1,18 @@
+{
+  "album_name": "Rentacrowd",
+  "artist": "The Len Price 3",
+  "diff": {
+    "band": 1,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 1,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "If I Ain't Got You",
+  "shortname": "ifiaintgotyou",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2007
+}

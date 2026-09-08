@@ -1,0 +1,18 @@
+{
+  "album_name": "The Colour and the Shape",
+  "artist": "Foo Fighters",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 0
+  },
+  "genre": "alternative",
+  "name": "Monkey Wrench",
+  "shortname": "monkeywrench",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1997
+}

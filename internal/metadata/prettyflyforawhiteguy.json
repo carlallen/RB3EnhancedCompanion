@@ -1,0 +1,18 @@
+{
+  "album_name": "Americana",
+  "artist": "The Offspring",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 3,
+    "pro_drum": 3,
+    "vocals": 1
+  },
+  "genre": "rock",
+  "name": "Pretty Fly (For a White Guy)",
+  "shortname": "prettyflyforawhiteguy",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1998
+}

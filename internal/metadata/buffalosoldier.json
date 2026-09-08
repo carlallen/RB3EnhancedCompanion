@@ -1,0 +1,18 @@
+{
+  "album_name": "Legend",
+  "artist": "Bob Marley and the Wailers",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 1,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "other",
+  "name": "Buffalo Soldier",
+  "shortname": "buffalosoldier",
+  "song_length": 262380,
+  "vocal_parts": 3,
+  "year_released": 1984
+}

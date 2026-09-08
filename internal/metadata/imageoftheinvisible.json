@@ -1,0 +1,18 @@
+{
+  "album_name": "Vheissu",
+  "artist": "Thrice",
+  "diff": {
+    "band": 5,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 4,
+    "pro_drum": 5,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "Image of the Invisible",
+  "shortname": "imageoftheinvisible",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2005
+}

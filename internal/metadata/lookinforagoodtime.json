@@ -1,0 +1,18 @@
+{
+  "album_name": "Lady Antebellum",
+  "artist": "Lady Antebellum",
+  "diff": {
+    "band": 1,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 4
+  },
+  "genre": "country",
+  "name": "Lookin' for a Good Time",
+  "shortname": "lookinforagoodtime",
+  "song_length": 187286,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

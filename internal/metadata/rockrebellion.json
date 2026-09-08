@@ -1,0 +1,18 @@
+{
+  "album_name": null,
+  "artist": "Bang Camaro",
+  "diff": {
+    "band": 5,
+    "bass": 5,
+    "drum": 4,
+    "guitar": 6,
+    "pro_drum": 4,
+    "vocals": 1
+  },
+  "genre": "rock",
+  "name": "Rock Rebellion",
+  "shortname": "rockrebellion",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

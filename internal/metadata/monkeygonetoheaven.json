@@ -1,0 +1,20 @@
+{
+  "album_name": "Doolittle",
+  "artist": "Pixies",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 0,
+    "guitar": 1,
+    "keys": 1,
+    "pro_drum": 0,
+    "pro_keys": 1,
+    "vocals": 0
+  },
+  "genre": "alternative",
+  "name": "Monkey Gone to Heaven",
+  "shortname": "monkeygonetoheaven",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1989
+}

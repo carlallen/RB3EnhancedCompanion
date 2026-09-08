@@ -1,0 +1,20 @@
+{
+  "album_name": "Scream Aim Fire",
+  "artist": "Bullet For My Valentine",
+  "diff": {
+    "band": 6,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 6,
+    "pro_bass": 4,
+    "pro_drum": 5,
+    "pro_guitar": 5,
+    "vocals": 1
+  },
+  "genre": "metal",
+  "name": "Waking the Demon",
+  "shortname": "wakingthedemon",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

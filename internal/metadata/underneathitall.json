@@ -1,0 +1,20 @@
+{
+  "album_name": "The Singles 1992-2003",
+  "artist": "No Doubt",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 2,
+    "keys": 2,
+    "pro_drum": 3,
+    "pro_keys": 3,
+    "vocals": 1
+  },
+  "genre": "poprock",
+  "name": "Underneath It All",
+  "shortname": "underneathitall",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2003
+}

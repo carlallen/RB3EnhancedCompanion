@@ -1,0 +1,17 @@
+{
+  "album_name": "The Clouds of Northland Thunder",
+  "artist": "Amberian Dawn",
+  "diff": {
+    "band": 6,
+    "bass": 4,
+    "drum": 5,
+    "guitar": 5,
+    "vocals": 3
+  },
+  "genre": "metal",
+  "name": "He Sleeps in a Grove",
+  "shortname": "UGC_5000492",
+  "song_length": 208005,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

@@ -1,0 +1,17 @@
+{
+  "album_name": "I'm Not Dead",
+  "artist": "P!nk",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 0,
+    "guitar": 2,
+    "vocals": 4
+  },
+  "genre": "poprock",
+  "name": "Who Knew",
+  "shortname": "whoknew",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 2006
+}

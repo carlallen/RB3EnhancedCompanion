@@ -1,0 +1,18 @@
+{
+  "album_name": "Tonight: Franz Ferdinand",
+  "artist": "Franz Ferdinand",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "pro_drum": 4,
+    "vocals": 4
+  },
+  "genre": "alternative",
+  "name": "Lucid Dreams",
+  "shortname": "luciddreams",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

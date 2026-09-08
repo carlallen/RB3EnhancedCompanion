@@ -1,0 +1,18 @@
+{
+  "album_name": "This War Is Ours",
+  "artist": "Escape the Fate",
+  "diff": {
+    "band": 4,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 4,
+    "pro_drum": 4,
+    "vocals": 2
+  },
+  "genre": "emo",
+  "name": "The Flood",
+  "shortname": "theflood",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2008
+}

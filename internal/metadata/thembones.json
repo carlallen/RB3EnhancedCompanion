@@ -1,0 +1,20 @@
+{
+  "album_name": "Dirt",
+  "artist": "Alice in Chains",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 4,
+    "pro_bass": 3,
+    "pro_drum": 3,
+    "pro_guitar": 4,
+    "vocals": 3
+  },
+  "genre": "grunge",
+  "name": "Them Bones",
+  "shortname": "thembones",
+  "song_length": 153333,
+  "vocal_parts": 2,
+  "year_released": 1992
+}

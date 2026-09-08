@@ -1,0 +1,18 @@
+{
+  "album_name": "The Better Life",
+  "artist": "3 Doors Down",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 0
+  },
+  "genre": "rock",
+  "name": "Kryptonite",
+  "shortname": "kryptonite",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 2000
+}

@@ -1,0 +1,17 @@
+{
+  "album_name": null,
+  "artist": "Sweet",
+  "diff": {
+    "band": 3,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 5,
+    "vocals": 3
+  },
+  "genre": "glam",
+  "name": "Action",
+  "shortname": "action",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

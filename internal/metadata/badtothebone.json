@@ -1,0 +1,20 @@
+{
+  "album_name": "Bad to the Bone",
+  "artist": "George Thorogood & the Destroyers",
+  "diff": {
+    "band": 2,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 3,
+    "keys": 6,
+    "pro_drum": 3,
+    "pro_keys": 6,
+    "vocals": 2
+  },
+  "genre": "rock",
+  "name": "Bad to the Bone",
+  "shortname": "badtothebone",
+  "song_length": null,
+  "vocal_parts": 1,
+  "year_released": 1982
+}

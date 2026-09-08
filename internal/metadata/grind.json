@@ -1,0 +1,18 @@
+{
+  "album_name": "Alice In Chains",
+  "artist": "Alice In Chains",
+  "diff": {
+    "band": 3,
+    "bass": 1,
+    "drum": 1,
+    "guitar": 4,
+    "pro_drum": 1,
+    "vocals": 2
+  },
+  "genre": "grunge",
+  "name": "Grind",
+  "shortname": "grind",
+  "song_length": 290000,
+  "vocal_parts": 3,
+  "year_released": 1995
+}

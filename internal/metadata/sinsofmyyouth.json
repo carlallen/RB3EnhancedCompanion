@@ -1,0 +1,20 @@
+{
+  "album_name": "Habits",
+  "artist": "Neon Trees",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "keys": 0,
+    "pro_drum": 3,
+    "pro_keys": 0,
+    "vocals": 3
+  },
+  "genre": "poprock",
+  "name": "Sins of My Youth",
+  "shortname": "sinsofmyyouth",
+  "song_length": 222041,
+  "vocal_parts": 3,
+  "year_released": 2010
+}

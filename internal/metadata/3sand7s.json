@@ -1,0 +1,22 @@
+{
+  "album_name": null,
+  "artist": "Queens of the Stone Age",
+  "diff": {
+    "band": 2,
+    "bass": 3,
+    "drum": 4,
+    "guitar": 3,
+    "keys": 1,
+    "pro_bass": 4,
+    "pro_drum": 4,
+    "pro_guitar": 5,
+    "pro_keys": 0,
+    "vocals": 1
+  },
+  "genre": "alternative",
+  "name": "3's & 7's",
+  "shortname": "3sand7s",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": null
+}

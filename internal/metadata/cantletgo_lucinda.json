@@ -1,0 +1,18 @@
+{
+  "album_name": "Car Wheels on a Gravel Road",
+  "artist": "Lucinda Williams",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 3,
+    "guitar": 2,
+    "pro_drum": 3,
+    "vocals": 2
+  },
+  "genre": "country",
+  "name": "Can't Let Go",
+  "shortname": "cantletgo_lucinda",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1998
+}

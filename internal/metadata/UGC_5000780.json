@@ -1,0 +1,17 @@
+{
+  "album_name": "Whatever Happened to You - Single",
+  "artist": "Cate Sparks",
+  "diff": {
+    "band": 2,
+    "bass": 1,
+    "drum": 3,
+    "guitar": 2,
+    "vocals": 2
+  },
+  "genre": "poprock",
+  "name": "Whatever Happened to You",
+  "shortname": "UGC_5000780",
+  "song_length": 184186,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

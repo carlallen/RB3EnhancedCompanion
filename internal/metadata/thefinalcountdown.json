@@ -1,0 +1,22 @@
+{
+  "album_name": "The Final Countdown",
+  "artist": "Europe",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 5,
+    "keys": 3,
+    "pro_bass": 3,
+    "pro_drum": 4,
+    "pro_guitar": 6,
+    "pro_keys": 4,
+    "vocals": 2
+  },
+  "genre": "metal",
+  "name": "The Final Countdown",
+  "shortname": "thefinalcountdown",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1986
+}

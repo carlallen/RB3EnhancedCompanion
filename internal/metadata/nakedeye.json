@@ -1,0 +1,20 @@
+{
+  "album_name": "Fever In Fever Out",
+  "artist": "Luscious Jackson",
+  "diff": {
+    "band": 1,
+    "bass": 0,
+    "drum": 4,
+    "guitar": 0,
+    "keys": 0,
+    "pro_drum": 4,
+    "pro_keys": 0,
+    "vocals": 1
+  },
+  "genre": "alternative",
+  "name": "Naked Eye",
+  "shortname": "nakedeye",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1996
+}

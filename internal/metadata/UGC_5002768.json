@@ -1,0 +1,17 @@
+{
+  "album_name": "Somewhere Down the Road",
+  "artist": "Twintapes",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 3,
+    "guitar": 2,
+    "vocals": 2
+  },
+  "genre": "indierock",
+  "name": "Young",
+  "shortname": "UGC_5002768",
+  "song_length": 276785,
+  "vocal_parts": 2,
+  "year_released": 2009
+}

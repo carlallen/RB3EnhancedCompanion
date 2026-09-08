@@ -1,0 +1,18 @@
+{
+  "album_name": "Moving Pictures",
+  "artist": "Rush",
+  "diff": {
+    "band": 2,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 2,
+    "pro_drum": 4,
+    "vocals": 1
+  },
+  "genre": "prog",
+  "name": "Limelight (Original Version)",
+  "shortname": "limelight2",
+  "song_length": null,
+  "vocal_parts": 2,
+  "year_released": 1981
+}

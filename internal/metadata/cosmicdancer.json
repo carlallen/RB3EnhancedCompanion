@@ -1,0 +1,18 @@
+{
+  "album_name": "Electric Warrior",
+  "artist": "T. Rex",
+  "diff": {
+    "band": 1,
+    "bass": 3,
+    "drum": 3,
+    "guitar": 1,
+    "pro_drum": 3,
+    "vocals": 1
+  },
+  "genre": "classicrock",
+  "name": "Cosmic Dancer",
+  "shortname": "cosmicdancer",
+  "song_length": 273541,
+  "vocal_parts": 3,
+  "year_released": 1971
+}

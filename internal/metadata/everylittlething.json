@@ -1,0 +1,20 @@
+{
+  "album_name": "Ghost in the Machine",
+  "artist": "The Police",
+  "diff": {
+    "band": 3,
+    "bass": 2,
+    "drum": 4,
+    "guitar": 2,
+    "keys": 3,
+    "pro_drum": 4,
+    "pro_keys": 4,
+    "vocals": 3
+  },
+  "genre": "poprock",
+  "name": "Every Little Thing She Does Is Magic",
+  "shortname": "everylittlething",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 1981
+}

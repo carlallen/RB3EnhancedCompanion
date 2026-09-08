@@ -1,0 +1,20 @@
+{
+  "album_name": "SpongeBob's Greatest Hits",
+  "artist": "SpongeBob SquarePants",
+  "diff": {
+    "band": 0,
+    "bass": 1,
+    "drum": 2,
+    "guitar": 2,
+    "pro_bass": 2,
+    "pro_drum": 2,
+    "pro_guitar": 4,
+    "vocals": 1
+  },
+  "genre": "other",
+  "name": "The Best Day Ever",
+  "shortname": "bestdayever",
+  "song_length": null,
+  "vocal_parts": 3,
+  "year_released": 2009
+}

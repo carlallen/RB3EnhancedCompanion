@@ -1,0 +1,17 @@
+{
+  "album_name": null,
+  "artist": "Symbion Project",
+  "diff": {
+    "band": 5,
+    "bass": 2,
+    "drum": 5,
+    "guitar": 2,
+    "vocals": 2
+  },
+  "genre": "other",
+  "name": "Synthesized",
+  "shortname": "UGC_5001871",
+  "song_length": 200000,
+  "vocal_parts": 3,
+  "year_released": 2003
+}

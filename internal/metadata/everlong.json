@@ -1,0 +1,20 @@
+{
+  "album_name": "The Colour and the Shape",
+  "artist": "Foo Fighters",
+  "diff": {
+    "band": 6,
+    "bass": 4,
+    "drum": 6,
+    "guitar": 4,
+    "pro_bass": 1,
+    "pro_drum": 6,
+    "pro_guitar": 3,
+    "vocals": 2
+  },
+  "genre": "alternative",
+  "name": "Everlong",
+  "shortname": "everlong",
+  "song_length": 262727,
+  "vocal_parts": 2,
+  "year_released": 1997
+}

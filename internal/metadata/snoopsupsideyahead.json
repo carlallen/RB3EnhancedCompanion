@@ -1,0 +1,20 @@
+{
+  "album_name": "Snoop Dogg Rock Band Re-Records",
+  "artist": "Snoop Dogg",
+  "diff": {
+    "band": 1,
+    "bass": 1,
+    "drum": 1,
+    "guitar": 3,
+    "keys": 0,
+    "pro_drum": 1,
+    "pro_keys": 0,
+    "vocals": 2
+  },
+  "genre": "urban",
+  "name": "Snoop's Upside Ya Head",
+  "shortname": "snoopsupsideyahead",
+  "song_length": 274592,
+  "vocal_parts": 3,
+  "year_released": 2010
+}
