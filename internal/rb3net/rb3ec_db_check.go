@@ -132,8 +132,19 @@ func (w *RB3ECDBCheckWatcher) check(ctx context.Context) {
 		return
 	}
 
+	// changed tracks whether this pass wrote any art or metadata that the
+	// Hub's in-memory SongList doesn't yet reflect - both go straight to
+	// disk/DB, bypassing the Hub, so without a refresh afterwards a server
+	// left running (as opposed to restarted, which loads fresh from the
+	// database at startup) would keep serving connected clients the song
+	// list it already had in memory.
+	changed := false
+
 	for _, s := range pending {
 		if ctx.Err() != nil {
+			if changed {
+				w.refreshHub()
+			}
 			return
 		}
 
@@ -143,16 +154,22 @@ func (w *RB3ECDBCheckWatcher) check(ctx context.Context) {
 		ok := true
 
 		if !hasLocalArt(artDir, s.Shortname) {
-			if err := downloadArt(ctx, artDir, s.Shortname, s.Origin); err != nil {
+			downloaded, err := downloadArt(ctx, artDir, s.Shortname, s.Origin)
+			if err != nil {
 				log.Printf("rb3net: art check: %s: %v", s.Shortname, err)
 				ok = false
+			} else if downloaded {
+				changed = true
 			}
 		}
 
 		if !hasLocalMetadata(s.Shortname, w.MetadataDirs) {
-			if err := importRemoteMetadata(ctx, w.DB, s.Shortname, s.Origin); err != nil {
+			imported, err := importRemoteMetadata(ctx, w.DB, s.Shortname, s.Origin)
+			if err != nil {
 				log.Printf("rb3net: metadata check: %s: %v", s.Shortname, err)
 				ok = false
+			} else if imported {
+				changed = true
 			}
 		}
 
@@ -164,6 +181,30 @@ func (w *RB3ECDBCheckWatcher) check(ctx context.Context) {
 			log.Printf("rb3net: RB3EC db check: failed to mark %s checked: %v", s.Shortname, err)
 		}
 	}
+
+	if changed {
+		w.refreshHub()
+	}
+}
+
+// refreshHub reloads every song from the database and publishes it to the
+// Hub, so clients connected to a server that's been running (rather than
+// restarted) see art/metadata this check() pass just wrote straight to
+// disk/DB.
+func (w *RB3ECDBCheckWatcher) refreshHub() {
+	saved, err := db.LoadSongs(w.DB)
+	if err != nil {
+		log.Printf("rb3net: RB3EC db check: failed to reload songs: %v", err)
+		return
+	}
+	songList := make([]Song, len(saved))
+	for i, s := range saved {
+		songList[i] = Song(s)
+	}
+	w.Hub.Mutate(func(s *GameState) {
+		s.SongList = songList
+		s.SongListVersion++
+	})
 }
 
 // hasLocalArt reports whether shortname's custom album art has already been
@@ -190,76 +231,83 @@ func hasLocalMetadata(shortname string, metadataDirs []string) bool {
 
 // downloadArt checks the RB3EC-db repository for shortname's art and, if
 // present, downloads it into artDir. A 404 (no art for this song) is not an
-// error - err is only set for a failed check.
-func downloadArt(ctx context.Context, artDir, shortname, origin string) error {
+// error and reports downloaded false - err is only set for a failed check.
+func downloadArt(ctx context.Context, artDir, shortname, origin string) (downloaded bool, err error) {
 	ctx, cancel := context.WithTimeout(ctx, 30*time.Second)
 	defer cancel()
 
 	target := fmt.Sprintf(artURLTemplate, url.PathEscape(origin), url.PathEscape(shortname))
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, target, nil)
 	if err != nil {
-		return err
+		return false, err
 	}
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
-		return err
+		return false, err
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode == http.StatusNotFound {
-		return nil
+		return false, nil
 	}
 	if resp.StatusCode != http.StatusOK {
-		return fmt.Errorf("unexpected status %s", resp.Status)
+		return false, fmt.Errorf("unexpected status %s", resp.Status)
 	}
 
 	dest := filepath.Join(artDir, shortname+"_keep.png")
 	tmp := dest + ".tmp"
 	f, err := os.Create(tmp)
 	if err != nil {
-		return err
+		return false, err
 	}
 	if _, err := io.Copy(f, resp.Body); err != nil {
 		f.Close()
 		os.Remove(tmp)
-		return err
+		return false, err
 	}
 	if err := f.Close(); err != nil {
 		os.Remove(tmp)
-		return err
+		return false, err
 	}
-	return os.Rename(tmp, dest)
+	if err := os.Rename(tmp, dest); err != nil {
+		return false, err
+	}
+	return true, nil
 }
 
 // importRemoteMetadata checks the RB3EC-db repository for shortname's
 // metadata and, if present, imports it directly into the song's row (see
 // db.ImportMetadata) - it's never written to disk. A 404 (no metadata for
-// this song) is not an error - err is only set for a failed check.
-func importRemoteMetadata(ctx context.Context, sqlDB *sql.DB, shortname, origin string) error {
+// this song) is not an error and reports imported false - err is only set
+// for a failed check.
+func importRemoteMetadata(ctx context.Context, sqlDB *sql.DB, shortname, origin string) (imported bool, err error) {
 	ctx, cancel := context.WithTimeout(ctx, 30*time.Second)
 	defer cancel()
 
 	target := fmt.Sprintf(metadataURLTemplate, url.PathEscape(origin), url.PathEscape(shortname))
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, target, nil)
 	if err != nil {
-		return err
+		return false, err
 	}
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
-		return err
+		return false, err
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode == http.StatusNotFound {
-		return nil
+		return false, nil
 	}
 	if resp.StatusCode != http.StatusOK {
-		return fmt.Errorf("unexpected status %s", resp.Status)
+		return false, fmt.Errorf("unexpected status %s", resp.Status)
 	}
 
 	data, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return err
+		return false, err
 	}
-	return db.ImportMetadata(sqlDB, shortname, data)
+	if err := db.ImportMetadata(sqlDB, shortname, data); err != nil {
+		return false, err
+	}
+	return true, nil
 }
