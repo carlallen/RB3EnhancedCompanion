@@ -453,6 +453,11 @@ func loadStoredSongMetadata(tx *sql.Tx) (map[string]SongRecord, error) {
 // updated, so the table always mirrors the Music Library as of the most
 // recent fetch.
 //
+// As a safety net against wiping a populated table from a bad fetch (e.g. a
+// transient empty or malformed response from the console), an empty songs
+// list is only allowed to clear the table if the table was already empty;
+// otherwise the existing rows are left untouched and a warning is logged.
+//
 // For each song, metadataDirs is checked in order for a <shortname>.yml
 // metadata file. If the file found is newer than the metadata the song last
 // used, it's (re)parsed and applied; otherwise the song's previously stored
@@ -521,6 +526,17 @@ func SaveSongs(sqlDB *sql.DB, songs []SongRecord, metadataDirs ...string) error 
 		}
 		shortnames[i] = s.Shortname
 		placeholders[i] = "?"
+	}
+
+	if len(shortnames) == 0 {
+		var existing int
+		if err := tx.QueryRow(`SELECT COUNT(*) FROM songs`).Scan(&existing); err != nil {
+			return err
+		}
+		if existing > 0 {
+			log.Printf("db: SaveSongs got an empty song list but %d songs are already stored; skipping the wipe", existing)
+			return tx.Commit()
+		}
 	}
 
 	deleteQuery := "DELETE FROM songs"

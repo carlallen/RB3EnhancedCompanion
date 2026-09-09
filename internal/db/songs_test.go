@@ -48,11 +48,27 @@ func TestSaveSongsReplacesTable(t *testing.T) {
 		t.Fatalf("song3 should be present, loaded=%+v", loaded)
 	}
 
-	// An empty fetch (e.g. an emptied Music Library) should clear the table.
+	// An empty fetch against a populated table (e.g. a transient bad
+	// response from the console) should NOT wipe the table.
+	if err := SaveSongs(sqlDB, nil); err != nil {
+		t.Fatal(err)
+	}
+	if loaded, err := LoadSongs(sqlDB); err != nil || len(loaded) != 2 {
+		t.Fatalf("after empty save against populated table: loaded=%+v err=%v", loaded, err)
+	}
+}
+
+func TestSaveSongsEmptyIsNoopOnEmptyTable(t *testing.T) {
+	sqlDB, err := Open(t.TempDir() + "/test.sql")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer sqlDB.Close()
+
 	if err := SaveSongs(sqlDB, nil); err != nil {
 		t.Fatal(err)
 	}
 	if loaded, err := LoadSongs(sqlDB); err != nil || len(loaded) != 0 {
-		t.Fatalf("after empty save: loaded=%+v err=%v", loaded, err)
+		t.Fatalf("after empty save on empty table: loaded=%+v err=%v", loaded, err)
 	}
 }
