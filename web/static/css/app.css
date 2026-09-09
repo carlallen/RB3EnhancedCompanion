@@ -242,6 +242,7 @@ input[type="text"]:focus {
 .song-title { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .song-artist { opacity: 0.7; font-size: 0.85rem; }
 .song-count, .song-message { text-align: center; opacity: 0.7; font-size: 0.85rem; padding: 0.5rem 0; }
+.song-sentinel { height: 1px; margin: 0; padding: 0; }
 .song-actions { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
 .origin-icon { width: 28px; height: 28px; object-fit: contain; flex-shrink: 0; }
 .album-art {
@@ -389,6 +390,8 @@ body:not(.on-song-select) .play-button { display: none; }
 
 .filter-section { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.25rem; }
 .filter-section:first-child { margin-top: 0; }
+
+.clear-filters-row { justify-content: flex-end; }
 .filter-section-label { font-weight: 600; }
 
 .filter-section select {
@@ -404,3 +407,34 @@ body:not(.on-song-select) .play-button { display: none; }
 	font-family: inherit;
 	font-size: 0.95rem;
 }
+
+.filter-value-button {
+	flex: 1;
+	min-width: 0;
+	max-width: 60%;
+	box-sizing: border-box;
+	padding: 0.5rem 0.75rem;
+	border-radius: 0.5rem;
+	border: 1px solid var(--border);
+	background: var(--card-hover);
+	color: inherit;
+	font-family: inherit;
+	font-size: 0.95rem;
+	text-align: right;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.filter-value-button:hover { background: var(--border-soft); }
+
+.filter-option-row {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	padding: 0.5rem 0.1rem;
+	border-bottom: 1px solid var(--border-soft);
+	cursor: pointer;
+}
+.filter-option-row:last-child { border-bottom: none; }
+.filter-option-row input[type="checkbox"] { flex: none; }

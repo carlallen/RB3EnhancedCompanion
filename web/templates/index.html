@@ -76,14 +76,61 @@
         </button>
       </div>
       <div class="modal-body">
+        <div class="filter-section clear-filters-row">
+          <button class="button" id="clear-filters-button" type="button">Clear Filters</button>
+        </div>
         <div class="filter-section">
-          <label class="filter-section-label" for="sort-order-select">Sort Order</label>
+          <label class="filter-section-label" for="sort-order-select">Sorted By</label>
           <select id="sort-order-select">
             <option value="title">Song Name</option>
             <option value="artist">Artist</option>
+            <option value="source">Source</option>
+            <optgroup label="Difficulty">
+              <option value="difficultyBand">Band</option>
+              <option value="difficultyGuitar">Guitar</option>
+              <option value="difficultyBass">Bass</option>
+              <option value="difficultyDrum">Drums</option>
+              <option value="difficultyKeys">Keys</option>
+              <option value="difficultyVocals">Vocals</option>
+              <option value="difficultyProGuitar">Pro Guitar</option>
+              <option value="difficultyProBass">Pro Bass</option>
+              <option value="difficultyProDrum">Pro Drums</option>
+              <option value="difficultyProKeys">Pro Keys</option>
+            </optgroup>
           </select>
         </div>
+        <div class="filter-section">
+          <label class="filter-section-label">Genre</label>
+          <button class="filter-value-button" id="filter-genre-button" type="button">All</button>
+        </div>
+        <div class="filter-section">
+          <label class="filter-section-label">Decade</label>
+          <button class="filter-value-button" id="filter-decade-button" type="button">All</button>
+        </div>
+        <div class="filter-section">
+          <label class="filter-section-label">Keys Support</label>
+          <button class="filter-value-button" id="filter-keysSupport-button" type="button">All</button>
+        </div>
+        <div class="filter-section">
+          <label class="filter-section-label">Song Source</label>
+          <button class="filter-value-button" id="filter-source-button" type="button">All</button>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="filter-options-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="filter-options-title">
+      <div class="modal-header">
+        <h2 id="filter-options-title">Filter</h2>
+        <button class="icon-button" id="filter-options-close" type="button" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" id="filter-options-list"></div>
     </div>
   </div>
 

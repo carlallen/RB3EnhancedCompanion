@@ -22,6 +22,11 @@
 	var filtersButton = document.getElementById('filters-button');
 	var filtersModal = document.getElementById('filters-modal');
 	var filtersClose = document.getElementById('filters-close');
+	var filterOptionsModal = document.getElementById('filter-options-modal');
+	var filterOptionsTitle = document.getElementById('filter-options-title');
+	var filterOptionsList = document.getElementById('filter-options-list');
+	var filterOptionsClose = document.getElementById('filter-options-close');
+	var clearFiltersButton = document.getElementById('clear-filters-button');
 
 	var stagekitDots = buildStagekit();
 	var strobeEl = document.getElementById('sk-strobe');
@@ -89,7 +94,7 @@
 				var song = findSong(state.songShortName);
 				if (song) {
 					currentSongOrigin.src = originIconURL(song.origin);
-					currentSongOrigin.title = song.origin || '';
+					currentSongOrigin.title = song.source || '';
 				}
 				if (state.songShortName !== lastAlbumArtShortname) {
 					lastAlbumArtShortname = state.songShortName;
@@ -317,37 +322,165 @@
 	}
 
 	// sortOrder is which field the song list is sorted by - changed via the
-	// filters modal. The list from the server already comes sorted by
-	// title, so re-sorting only actually reorders anything when this is
-	// 'artist'.
+	// filters modal. It's either 'title', 'artist', 'source', or one of the
+	// difficultyX song fields (see DIFFICULTY_PARTS). The list from the
+	// server already comes sorted by title, so re-sorting only actually
+	// reorders anything when this is something else.
 	var sortOrder = 'title';
+
+	// SORT_STRING_FIELDS lists the sortOrder values that compare as
+	// case-insensitive strings - everything else is a numeric difficultyX
+	// field, sorted lowest-first with title as a tiebreaker.
+	var SORT_STRING_FIELDS = { title: true, artist: true, source: true };
 
 	function sortedSongList() {
 		var list = currentSongList.slice();
+		var isString = !!SORT_STRING_FIELDS[sortOrder];
 		list.sort(function (a, b) {
-			var av = ((sortOrder === 'artist' ? a.artist : a.title) || '').toLowerCase();
-			var bv = ((sortOrder === 'artist' ? b.artist : b.title) || '').toLowerCase();
-			if (av < bv) return -1;
-			if (av > bv) return 1;
+			if (isString) {
+				var av = (a[sortOrder] || '').toLowerCase();
+				var bv = (b[sortOrder] || '').toLowerCase();
+				if (av < bv) return -1;
+				if (av > bv) return 1;
+				return 0;
+			}
+			var diff = (a[sortOrder] || 0) - (b[sortOrder] || 0);
+			if (diff !== 0) return diff;
+			var at = (a.title || '').toLowerCase();
+			var bt = (b.title || '').toLowerCase();
+			if (at < bt) return -1;
+			if (at > bt) return 1;
 			return 0;
 		});
 		return list;
 	}
 
 	// renderSongList records the latest song list from the server and
-	// (re)renders it in the current sort order. Call renderSongRows
-	// directly instead when only the sort order changed, since
-	// currentSongList itself hasn't.
+	// (re)renders it in the current sort/filter/search state. Call
+	// recomputeFilteredSongs directly instead when only the sort order,
+	// search box, or filter selections changed, since currentSongList
+	// itself hasn't.
 	function renderSongList(songs) {
 		currentSongList = songs;
-		renderSongRows(sortedSongList());
+		recomputeFilteredSongs();
 	}
 
-	function renderSongRows(songs) {
+	// buildSongRow creates one song-list <li>, wired up the same way
+	// regardless of whether it's part of the initial page or a later batch
+	// appended while scrolling (see appendSongBatch).
+	function buildSongRow(song) {
+		var li = document.createElement('li');
+		li.className = 'song-row';
+		// Stashed so expandRow can build this row's panel/extra elements
+		// without needing its own closure over song.
+		li._song = song;
+		li.innerHTML =
+			'<div class="song-info">' +
+			'<img class="album-art" src="' + albumArtURL(song) + '" alt="" loading="lazy">' +
+			'<div class="song-details">' +
+			'<span class="song-title">' + escapeHTML(song.title || '(untitled)') + '</span>' +
+			'<span class="song-artist">' + escapeHTML(song.artist) + '</span>' +
+			'</div>' +
+			'</div>' +
+			'<div class="song-actions">' +
+			'<img class="origin-icon" src="' + originIconURL(song.origin) + '" alt="' + escapeHTML(song.source) + '" title="' + escapeHTML(song.source) + '" loading="lazy">' +
+			'<button class="button play-button">Play</button>' +
+			'</div>';
+		li.querySelector('.album-art').addEventListener('error', function () {
+			this.onerror = null;
+			this.src = BLANK_ALBUM_ART;
+		});
+		li.querySelector('.play-button').addEventListener('click', function (ev) {
+			ev.stopPropagation();
+			jumpToSong(song.shortname);
+		});
+
+		li.querySelector('.song-info').addEventListener('click', function () {
+			if (li === expandedRow) {
+				collapseExpandedRow();
+			} else {
+				expandRow(li);
+			}
+		});
+
+		return li;
+	}
+
+	// SONG_PAGE_SIZE is how many song rows are rendered up front, and how
+	// many more get appended each time the scroll sentinel comes into view -
+	// the DOM only ever holds as many rows as have actually been scrolled
+	// to, rather than the whole (possibly huge) matching list at once.
+	var SONG_PAGE_SIZE = 10;
+
+	// filteredSongs is currentSongList, sorted per sortOrder and narrowed by
+	// the search box and filter modal - recomputed by recomputeFilteredSongs
+	// whenever any of those change. renderedSongCount is how many of its
+	// entries currently have a rendered <li>.
+	var filteredSongs = [];
+	var renderedSongCount = 0;
+
+	// SONG_LOAD_MARGIN_PX is how far below the viewport the sentinel can be
+	// and still count as "near the bottom" - both as songScrollObserver's
+	// rootMargin and, below, as a manual re-check after each batch.
+	var SONG_LOAD_MARGIN_PX = 600;
+
+	// songSentinel is an always-present, invisible row whose only job is to
+	// tell songScrollObserver when the user has scrolled near the bottom of
+	// what's rendered so far, so the next batch can be appended before they
+	// actually hit the end of the list.
+	var songSentinel = document.createElement('li');
+	songSentinel.className = 'song-sentinel';
+	var songScrollObserver = new IntersectionObserver(function (entries) {
+		if (entries[0].isIntersecting) appendSongBatch();
+	}, { rootMargin: SONG_LOAD_MARGIN_PX + 'px 0px' });
+
+	// appendSongBatch renders the next SONG_PAGE_SIZE not-yet-rendered
+	// songs from filteredSongs (if any) and moves the sentinel/count row
+	// back to the end, past what was just added.
+	//
+	// IntersectionObserver only notifies on enter/exit transitions, not on
+	// every check - so if the sentinel is still within SONG_LOAD_MARGIN_PX
+	// of the viewport after this batch (a tall viewport, or short rows,
+	// versus a small SONG_PAGE_SIZE), it never "re-enters" and no further
+	// notification would ever fire, silently stalling the list well short
+	// of its full length. Checking its position directly and looping keeps
+	// loading until it's actually out of range or everything's rendered.
+	function appendSongBatch() {
+		var next = filteredSongs.slice(renderedSongCount, renderedSongCount + SONG_PAGE_SIZE);
+		next.forEach(function (song) {
+			songlist.insertBefore(buildSongRow(song), songSentinel);
+		});
+		renderedSongCount += next.length;
+		if (renderedSongCount >= filteredSongs.length) {
+			songScrollObserver.unobserve(songSentinel);
+			return;
+		}
+		if (songSentinel.getBoundingClientRect().top <= window.innerHeight + SONG_LOAD_MARGIN_PX) {
+			appendSongBatch();
+		}
+	}
+
+	function updateSongCountRow() {
+		var countRow = songlist.querySelector('.song-count');
+		if (!countRow) return;
+		var total = currentSongList.length;
+		var matches = filteredSongs.length;
+		countRow.textContent = matches === total
+			? 'Showing ' + total + ' songs'
+			: 'Showing ' + matches + ' of ' + total + ' songs';
+	}
+
+	// resetSongListView rebuilds #songlist from scratch against the current
+	// filteredSongs: the waiting message if there's no song list at all yet,
+	// otherwise the first page of rows plus the scroll sentinel and count
+	// row, ready for appendSongBatch to add more as the user scrolls.
+	function resetSongListView() {
 		songlist.innerHTML = '';
 		expandedRow = null;
+		renderedSongCount = 0;
+		songScrollObserver.unobserve(songSentinel);
 
-		if (songs.length === 0) {
+		if (currentSongList.length === 0) {
 			var msg = document.createElement('li');
 			msg.className = 'song-message';
 			msg.textContent = 'Waiting for the song list… enter the Music Library to load it.';
@@ -355,88 +488,205 @@
 			return;
 		}
 
-		songs.forEach(function (song) {
-			var li = document.createElement('li');
-			li.className = 'song-row';
-			li.dataset.search = (song.title + ' ' + song.artist + ' ' + song.album).toLowerCase();
-			// Stashed so expandRow can build this row's panel/extra elements
-			// without needing its own closure over song (it's also used by
-			// the search box to auto-expand a single remaining result).
-			li._song = song;
-			li.innerHTML =
-				'<div class="song-info">' +
-				'<img class="album-art" src="' + albumArtURL(song) + '" alt="" loading="lazy">' +
-				'<div class="song-details">' +
-				'<span class="song-title">' + escapeHTML(song.title || '(untitled)') + '</span>' +
-				'<span class="song-artist">' + escapeHTML(song.artist) + '</span>' +
-				'</div>' +
-				'</div>' +
-				'<div class="song-actions">' +
-				'<img class="origin-icon" src="' + originIconURL(song.origin) + '" alt="' + escapeHTML(song.origin) + '" title="' + escapeHTML(song.origin) + '" loading="lazy">' +
-				'<button class="button play-button">Play</button>' +
-				'</div>';
-			li.querySelector('.album-art').addEventListener('error', function () {
-				this.onerror = null;
-				this.src = BLANK_ALBUM_ART;
-			});
-			li.querySelector('.play-button').addEventListener('click', function (ev) {
-				ev.stopPropagation();
-				jumpToSong(song.shortname);
-			});
-
-			li.querySelector('.song-info').addEventListener('click', function () {
-				if (li === expandedRow) {
-					collapseExpandedRow();
-				} else {
-					expandRow(li);
-				}
-			});
-
-			songlist.appendChild(li);
-		});
-
+		songlist.appendChild(songSentinel);
 		var countRow = document.createElement('li');
 		countRow.className = 'song-count';
 		songlist.appendChild(countRow);
 
-		applyFilter();
+		appendSongBatch();
+		updateSongCountRow();
+		if (renderedSongCount < filteredSongs.length) songScrollObserver.observe(songSentinel);
 	}
 
 	function jumpToSong(shortname) {
 		fetch('/jump?shortname=' + encodeURIComponent(shortname));
 	}
 
-	// applyFilter shows/hides rows matching the search box, and returns the
-	// sole matching row if exactly one matched (null otherwise).
-	function applyFilter() {
-		var term = searchbox.value.trim().toLowerCase();
-		var rows = songlist.querySelectorAll('.song-row');
-		var visible = 0;
-		var soleMatch = null;
-		rows.forEach(function (row) {
-			var match = term.length < 3 || (row.dataset.search || '').indexOf(term) !== -1;
-			row.style.display = match ? '' : 'none';
-			if (match) {
-				visible++;
-				soleMatch = row;
-			}
-		});
-		var countRow = songlist.querySelector('.song-count');
-		if (countRow) {
-			countRow.textContent = term.length < 3
-				? 'Showing ' + rows.length + ' songs'
-				: 'Showing ' + visible + ' of ' + rows.length + ' songs';
+	// songDecade buckets song.year into a two-digit decade label ("90s",
+	// "00s", "10s", ...), or null if the song has no known year.
+	function songDecade(song) {
+		if (!song.year) return null;
+		var twoDigit = Math.floor(song.year / 10) * 10 % 100;
+		return (twoDigit < 10 ? '0' : '') + twoDigit + 's';
+	}
+
+	// decadeSortKey orders decade labels chronologically (50s, 60s, ..., 90s,
+	// 00s, 10s, 20s) rather than alphabetically, treating any two-digit
+	// value under 50 as 2000+ and the rest as 1900+ - the range RB3 songs
+	// actually span.
+	function decadeSortKey(label) {
+		var n = parseInt(label, 10);
+		return n < 50 ? n + 100 : n;
+	}
+
+	// keysSupport reports whether song has a keys chart at all (difficultyKeys
+	// 1-7), rather than being uncharted for that part (0).
+	function keysSupport(song) {
+		return song.difficultyKeys ? 'Yes' : 'No';
+	}
+
+	var KEYS_SUPPORT_ORDER = { Yes: 0, No: 1 };
+	function keysSupportSortKey(label) {
+		return KEYS_SUPPORT_ORDER[label];
+	}
+
+	// FILTER_DEFS lists the filter categories shown in the filters modal, in
+	// display order. Each has a getter returning the song's value for that
+	// category (null/undefined if the song has none), used both to build
+	// the option list (from currentSongList) and to test a song against the
+	// user's selections. sortKey, if set, orders that category's values by
+	// the key it returns instead of alphabetically.
+	var FILTER_DEFS = [
+		{ key: 'genre', label: 'Genre', get: function (song) { return song.genre || null; } },
+		{ key: 'decade', label: 'Decade', get: songDecade, sortKey: decadeSortKey },
+		{ key: 'keysSupport', label: 'Keys Support', get: keysSupport, sortKey: keysSupportSortKey },
+		{ key: 'source', label: 'Song Source', get: function (song) { return song.source || null; } }
+	];
+
+	// filterSelections holds the set of values selected for each filter
+	// category (value -> true); an empty set means "All" (no filtering on
+	// that category).
+	var filterSelections = {};
+	FILTER_DEFS.forEach(function (def) { filterSelections[def.key] = {}; });
+
+	var currentFilterDef = null;
+
+	// sortFilterValues orders values per def.sortKey if it has one,
+	// alphabetically otherwise.
+	function sortFilterValues(def, values) {
+		if (def.sortKey) {
+			return values.slice().sort(function (a, b) { return def.sortKey(a) - def.sortKey(b); });
 		}
-		return visible === 1 ? soleMatch : null;
+		return values.slice().sort();
+	}
+
+	// distinctFilterValues returns the de-duplicated values def.get finds
+	// across the current song list, in display order - the option list
+	// shown when the user opens that filter category.
+	function distinctFilterValues(def) {
+		var seen = {};
+		currentSongList.forEach(function (song) {
+			var value = def.get(song);
+			if (value) seen[value] = true;
+		});
+		return sortFilterValues(def, Object.keys(seen));
+	}
+
+	function filterButtonLabel(def) {
+		var selected = sortFilterValues(def, Object.keys(filterSelections[def.key]));
+		return selected.length ? selected.join(', ') : 'All';
+	}
+
+	function updateFilterButton(def) {
+		var btn = document.getElementById('filter-' + def.key + '-button');
+		if (btn) btn.textContent = filterButtonLabel(def);
+	}
+
+	// songPassesFilters reports whether song matches every filter category's
+	// selection (categories left as "All" always match).
+	function songPassesFilters(song) {
+		return FILTER_DEFS.every(function (def) {
+			var selected = filterSelections[def.key];
+			if (Object.keys(selected).length === 0) return true;
+			var value = def.get(song);
+			return value != null && !!selected[value];
+		});
+	}
+
+	function openFilterOptionsModal(def) {
+		currentFilterDef = def;
+		filterOptionsTitle.textContent = def.label;
+		var values = distinctFilterValues(def);
+		var selected = filterSelections[def.key];
+		filterOptionsList.innerHTML = '';
+		if (values.length === 0) {
+			var empty = document.createElement('p');
+			empty.className = 'muted';
+			empty.textContent = 'No ' + def.label.toLowerCase() + ' values found in the song list.';
+			filterOptionsList.appendChild(empty);
+		} else {
+			values.forEach(function (value) {
+				var row = document.createElement('label');
+				row.className = 'filter-option-row';
+				var checkbox = document.createElement('input');
+				checkbox.type = 'checkbox';
+				checkbox.checked = !!selected[value];
+				checkbox.addEventListener('change', function () {
+					if (checkbox.checked) {
+						selected[value] = true;
+					} else {
+						delete selected[value];
+					}
+				});
+				row.appendChild(checkbox);
+				row.appendChild(document.createTextNode(' ' + value));
+				filterOptionsList.appendChild(row);
+			});
+		}
+		filtersModal.hidden = true;
+		filterOptionsModal.hidden = false;
+	}
+
+	function closeFilterOptionsModal() {
+		filterOptionsModal.hidden = true;
+		filtersModal.hidden = false;
+		if (currentFilterDef) {
+			updateFilterButton(currentFilterDef);
+			currentFilterDef = null;
+		}
+		collapseExpandedRow();
+		recomputeFilteredSongs();
+	}
+
+	FILTER_DEFS.forEach(function (def) {
+		var btn = document.getElementById('filter-' + def.key + '-button');
+		if (btn) btn.addEventListener('click', function () { openFilterOptionsModal(def); });
+	});
+
+	// clearFiltersButton resets every filter category back to "All" without
+	// touching sortOrder, which isn't itself a filter.
+	clearFiltersButton.addEventListener('click', function () {
+		FILTER_DEFS.forEach(function (def) {
+			filterSelections[def.key] = {};
+			updateFilterButton(def);
+		});
+		collapseExpandedRow();
+		recomputeFilteredSongs();
+	});
+
+	filterOptionsClose.addEventListener('click', closeFilterOptionsModal);
+	filterOptionsModal.addEventListener('click', function (ev) {
+		if (ev.target === filterOptionsModal) closeFilterOptionsModal();
+	});
+
+	// computeFilteredSongs returns currentSongList, sorted per sortOrder and
+	// narrowed to whatever matches both the search box and the filter
+	// modal's category selections.
+	function computeFilteredSongs() {
+		var term = searchbox.value.trim().toLowerCase();
+		return sortedSongList().filter(function (song) {
+			var searchMatch = term.length < 3 ||
+				(song.title + ' ' + song.artist + ' ' + song.album).toLowerCase().indexOf(term) !== -1;
+			return searchMatch && songPassesFilters(song);
+		});
+	}
+
+	// recomputeFilteredSongs re-runs the search/sort/filter pipeline and
+	// resets the rendered list back down to the first page - called
+	// whenever sortOrder, the search box, or a filter selection changes.
+	function recomputeFilteredSongs() {
+		filteredSongs = computeFilteredSongs();
+		resetSongListView();
 	}
 
 	// Searching closes whatever song is currently open, then re-opens it
 	// automatically if the search now narrows the list down to exactly one
-	// song.
+	// song (which, being the only rendered row, is always songlist's first
+	// .song-row after recomputeFilteredSongs resets the view).
 	searchbox.addEventListener('input', function () {
 		collapseExpandedRow();
-		var soleMatch = applyFilter();
-		if (soleMatch) expandRow(soleMatch);
+		recomputeFilteredSongs();
+		if (filteredSongs.length === 1) expandRow(songlist.querySelector('.song-row'));
 	});
 
 	function openFiltersModal() {
@@ -453,7 +703,12 @@
 		if (ev.target === filtersModal) closeFiltersModal();
 	});
 	document.addEventListener('keydown', function (ev) {
-		if (ev.key === 'Escape' && !filtersModal.hidden) closeFiltersModal();
+		if (ev.key !== 'Escape') return;
+		if (!filterOptionsModal.hidden) {
+			closeFilterOptionsModal();
+		} else if (!filtersModal.hidden) {
+			closeFiltersModal();
+		}
 	});
 
 	// Sort order applies immediately (no separate "Apply" step) and
@@ -461,7 +716,7 @@
 	// server.
 	document.getElementById('sort-order-select').addEventListener('change', function (ev) {
 		sortOrder = ev.target.value;
-		renderSongRows(sortedSongList());
+		recomputeFilteredSongs();
 	});
 
 	function connect() {

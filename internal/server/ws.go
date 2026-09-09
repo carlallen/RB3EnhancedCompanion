@@ -60,6 +60,10 @@ type songDTO struct {
 	Artist    string `json:"artist"`
 	Album     string `json:"album"`
 	Origin    string `json:"origin"`
+	// Source is Origin's human-readable name (see sourceDisplayName) - Origin
+	// itself is kept for picking the origin icon file, which is keyed by the
+	// raw symbol.
+	Source string `json:"source"`
 
 	// Difficulty fields are always sent, even when 0 (no chart for that
 	// part) - unlike the nullable fields below, so no omitempty.
@@ -106,6 +110,7 @@ func newSongDTO(song rb3net.Song, hasArt bool) songDTO {
 		Artist:    song.Artist,
 		Album:     song.Album,
 		Origin:    song.Origin,
+		Source:    sourceDisplayName(song.Origin),
 
 		DifficultyBand:      song.DifficultyBand,
 		DifficultyGuitar:    song.DifficultyGuitar,
