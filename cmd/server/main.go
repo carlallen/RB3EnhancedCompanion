@@ -71,17 +71,15 @@ func main() {
 		}
 	}()
 
-	// Checked in order: a custom override in the store dir, then the
-	// metadata bundled with the app.
-	metadataDirs := []string{filepath.Join(storeDir, "metadata"), "internal/metadata"}
+	metadataDirs := []string{filepath.Join(storeDir, "metadata")}
 	songs := &rb3net.SongListWatcher{Hub: hub, DB: database, MetadataDirs: metadataDirs}
 	go songs.Run(ctx)
 
 	wled := &rb3net.WLEDWatcher{Hub: hub, DB: database}
 	go wled.Run(ctx)
 
-	artCheck := &rb3net.ArtCheckWatcher{Hub: hub, DB: database, StoreDir: storeDir}
-	go artCheck.Run(ctx)
+	dbCheck := &rb3net.RB3ECDBCheckWatcher{Hub: hub, DB: database, StoreDir: storeDir, MetadataDirs: metadataDirs}
+	go dbCheck.Run(ctx)
 
 	srv := &http.Server{
 		Addr:    addr,

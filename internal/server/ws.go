@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"os"
+	"path/filepath"
 	"strconv"
 	"time"
 
@@ -59,16 +61,18 @@ type songDTO struct {
 	Album     string `json:"album"`
 	Origin    string `json:"origin"`
 
-	DifficultyBand      *int `json:"difficultyBand,omitempty"`
-	DifficultyGuitar    *int `json:"difficultyGuitar,omitempty"`
-	DifficultyBass      *int `json:"difficultyBass,omitempty"`
-	DifficultyDrum      *int `json:"difficultyDrum,omitempty"`
-	DifficultyKeys      *int `json:"difficultyKeys,omitempty"`
-	DifficultyVocals    *int `json:"difficultyVocals,omitempty"`
-	DifficultyProGuitar *int `json:"difficultyProGuitar,omitempty"`
-	DifficultyProBass   *int `json:"difficultyProBass,omitempty"`
-	DifficultyProDrum   *int `json:"difficultyProDrum,omitempty"`
-	DifficultyProKeys   *int `json:"difficultyProKeys,omitempty"`
+	// Difficulty fields are always sent, even when 0 (no chart for that
+	// part) - unlike the nullable fields below, so no omitempty.
+	DifficultyBand      int `json:"difficultyBand"`
+	DifficultyGuitar    int `json:"difficultyGuitar"`
+	DifficultyBass      int `json:"difficultyBass"`
+	DifficultyDrum      int `json:"difficultyDrum"`
+	DifficultyKeys      int `json:"difficultyKeys"`
+	DifficultyVocals    int `json:"difficultyVocals"`
+	DifficultyProGuitar int `json:"difficultyProGuitar"`
+	DifficultyProBass   int `json:"difficultyProBass"`
+	DifficultyProDrum   int `json:"difficultyProDrum"`
+	DifficultyProKeys   int `json:"difficultyProKeys"`
 
 	Genre      *string `json:"genre,omitempty"`
 	VocalParts *int    `json:"vocalParts,omitempty"`
@@ -76,11 +80,57 @@ type songDTO struct {
 	Length     *int    `json:"lengthMs,omitempty"`
 
 	MetadataDatetime *time.Time `json:"metadataDatetime,omitempty"`
+
+	// HasArt tells the dashboard whether to request this song's custom art
+	// (at /static/art/<shortname>_keep.png) or just use its own default
+	// image, rather than the server guessing via a fallback chain - see
+	// hasArtFile.
+	HasArt bool `json:"hasArt"`
+}
+
+// hasArtFile reports whether custom album art has been downloaded for
+// shortname into artDir (see RB3ECDBCheckWatcher). Checked directly against
+// disk on every song list push rather than cached, since that's cheap
+// enough and keeps this the single source of truth for HasArt.
+func hasArtFile(artDir, shortname string) bool {
+	info, err := os.Stat(filepath.Join(artDir, shortname+"_keep.png"))
+	return err == nil && !info.IsDir()
+}
+
+// newSongDTO converts one rb3net.Song to the JSON shape sent to the
+// browser, filling in HasArt from disk (song itself doesn't carry it).
+func newSongDTO(song rb3net.Song, hasArt bool) songDTO {
+	return songDTO{
+		Shortname: song.Shortname,
+		Title:     song.Title,
+		Artist:    song.Artist,
+		Album:     song.Album,
+		Origin:    song.Origin,
+
+		DifficultyBand:      song.DifficultyBand,
+		DifficultyGuitar:    song.DifficultyGuitar,
+		DifficultyBass:      song.DifficultyBass,
+		DifficultyDrum:      song.DifficultyDrum,
+		DifficultyKeys:      song.DifficultyKeys,
+		DifficultyVocals:    song.DifficultyVocals,
+		DifficultyProGuitar: song.DifficultyProGuitar,
+		DifficultyProBass:   song.DifficultyProBass,
+		DifficultyProDrum:   song.DifficultyProDrum,
+		DifficultyProKeys:   song.DifficultyProKeys,
+
+		Genre:      song.Genre,
+		VocalParts: song.VocalParts,
+		Year:       song.Year,
+		Length:     song.Length,
+
+		MetadataDatetime: song.MetadataDatetime,
+		HasArt:           hasArt,
+	}
 }
 
 // toDashboardState converts a rb3net.GameState to the JSON shape sent to
 // the browser, including the song list only when includeSongs is set.
-func toDashboardState(s rb3net.GameState, includeSongs bool) dashboardState {
+func toDashboardState(s rb3net.GameState, includeSongs bool, artDir string) dashboardState {
 	d := dashboardState{
 		Connected:     s.Connected,
 		Platform:      s.Platform,
@@ -103,7 +153,7 @@ func toDashboardState(s rb3net.GameState, includeSongs bool) dashboardState {
 	if includeSongs {
 		d.SongList = make([]songDTO, len(s.SongList))
 		for i, song := range s.SongList {
-			d.SongList[i] = songDTO(song)
+			d.SongList[i] = newSongDTO(song, hasArtFile(artDir, song.Shortname))
 		}
 		d.SongListVersion = s.SongListVersion
 	}
@@ -118,7 +168,7 @@ func toDashboardState(s rb3net.GameState, includeSongs bool) dashboardState {
 // wifi/cellular handoff - and without this a reconnect would otherwise
 // mean re-fetching and re-rendering the whole (possibly large) song list,
 // images included, even though nothing about it changed.
-func handleWS(hub *rb3net.Hub) http.HandlerFunc {
+func handleWS(hub *rb3net.Hub, artDir string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		conn, err := websocket.Accept(w, r, nil)
 		if err != nil {
@@ -137,7 +187,7 @@ func handleWS(hub *rb3net.Hub) http.HandlerFunc {
 		initial := hub.State()
 		lastSongVersion := initial.SongListVersion
 		includeSongs := clientSongVersion != initial.SongListVersion
-		if err := writeState(ctx, conn, toDashboardState(initial, includeSongs)); err != nil {
+		if err := writeState(ctx, conn, toDashboardState(initial, includeSongs, artDir)); err != nil {
 			return
 		}
 
@@ -152,7 +202,7 @@ func handleWS(hub *rb3net.Hub) http.HandlerFunc {
 				}
 				includeSongs := state.SongListVersion != lastSongVersion
 				lastSongVersion = state.SongListVersion
-				if err := writeState(ctx, conn, toDashboardState(state, includeSongs)); err != nil {
+				if err := writeState(ctx, conn, toDashboardState(state, includeSongs, artDir)); err != nil {
 					return
 				}
 			}

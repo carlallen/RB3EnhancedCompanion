@@ -51,8 +51,12 @@
 
 	var BLANK_ALBUM_ART = '/static/images/blank_album_art_keep.png';
 
-	function albumArtURL(shortname) {
-		return '/static/art/' + encodeURIComponent(shortname || '') + '_keep.png';
+	// albumArtURL picks song's art URL from the data the server pushed:
+	// its own default image unless the song list said this song has custom
+	// art downloaded (song.hasArt) - the server doesn't guess/fall back.
+	function albumArtURL(song) {
+		if (!song || !song.hasArt) return BLANK_ALBUM_ART;
+		return '/static/art/' + encodeURIComponent(song.shortname) + '_keep.png';
 	}
 
 	var lastAlbumArtShortname = null;
@@ -89,7 +93,7 @@
 				}
 				if (state.songShortName !== lastAlbumArtShortname) {
 					lastAlbumArtShortname = state.songShortName;
-					currentSongArt.src = albumArtURL(state.songShortName);
+					currentSongArt.src = albumArtURL(song);
 				}
 			}
 		} else {
@@ -177,11 +181,12 @@
 	var INSTRUMENT_ICON_DIR = '/static/icons/instruments/';
 	var RING_ICON_DIR = '/static/icons/rings/';
 
-	// DIFFICULTY_PARTS lists the song-level difficulty fields (each 0-6,
-	// from the song's metadata file), in display order: two rows of five,
-	// each identified by its instrument icon rather than a text label.
-	// vocals is special-cased (see vocalsIconName) since its icon depends
-	// on the song's vocal part count.
+	// DIFFICULTY_PARTS lists the song-level difficulty fields (each 0-7,
+	// from the song's metadata file - 0 means the song has no chart for
+	// that part), in display order: two rows of five, each identified by
+	// its instrument icon rather than a text label. vocals is
+	// special-cased (see vocalsIconName) since its icon depends on the
+	// song's vocal part count.
 	var DIFFICULTY_PARTS = [
 		{ key: 'difficultyGuitar', icon: 'guitar', label: 'Guitar' },
 		{ key: 'difficultyBass', icon: 'bass', label: 'Bass' },
@@ -205,21 +210,23 @@
 
 	// diffCellHTML renders one difficulty-grid cell: the part's instrument
 	// icon, sized to sit inside the ring_0.png-ring_6.png image matching
-	// its difficulty (0-6). If the song's metadata didn't chart that part
-	// at all (value is null/undefined), there's no difficulty to show a
-	// ring for, so it's just the icon on its own, dimmed.
+	// its difficulty. Difficulty values are 0-7, with 0 meaning the song
+	// has no chart for that part at all - shown as just the icon on its
+	// own, dimmed, with no ring. Any other value (1-7) maps to a ring
+	// image one lower (0-6), since ring_0.png is the lowest chart tier,
+	// not "not charted".
 	function diffCellHTML(song, part) {
 		var value = song[part.key];
 		var iconName = part.icon || vocalsIconName(song);
-		if (value == null) {
+		if (!value) {
 			return '<div class="diff-cell"><div class="diff-ring">' +
 				'<img class="diff-icon diff-icon-dim" src="' + INSTRUMENT_ICON_DIR + iconName + '.png" alt="' + escapeHTML(part.label) + '" title="' + escapeHTML(part.label) + ' - not charted">' +
 				'</div></div>';
 		}
-		var ring = Math.max(0, Math.min(6, value));
+		var ring = Math.max(0, Math.min(6, value - 1));
 		return '<div class="diff-cell"><div class="diff-ring">' +
 			'<img class="diff-ring-bg" src="' + RING_ICON_DIR + 'ring_' + ring + '.png" alt="">' +
-			'<img class="diff-icon" src="' + INSTRUMENT_ICON_DIR + iconName + '.png" alt="' + escapeHTML(part.label) + '" title="' + escapeHTML(part.label) + ' - ' + ring + '/6">' +
+			'<img class="diff-icon" src="' + INSTRUMENT_ICON_DIR + iconName + '.png" alt="' + escapeHTML(part.label) + '" title="' + escapeHTML(part.label) + ' - ' + value + '/7">' +
 			'</div></div>';
 	}
 
@@ -358,7 +365,7 @@
 			li._song = song;
 			li.innerHTML =
 				'<div class="song-info">' +
-				'<img class="album-art" src="' + albumArtURL(song.shortname) + '" alt="" loading="lazy">' +
+				'<img class="album-art" src="' + albumArtURL(song) + '" alt="" loading="lazy">' +
 				'<div class="song-details">' +
 				'<span class="song-title">' + escapeHTML(song.title || '(untitled)') + '</span>' +
 				'<span class="song-artist">' + escapeHTML(song.artist) + '</span>' +

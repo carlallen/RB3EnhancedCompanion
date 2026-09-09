@@ -2,20 +2,21 @@ package db
 
 import (
 	"database/sql"
-	"encoding/json"
 	"fmt"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
 	"time"
+
+	"gopkg.in/yaml.v3"
 )
 
 // SongRecord mirrors rb3net.Song. It's a separate type so this package
 // doesn't need to import rb3net. The DifficultyX fields are chart
-// difficulty ratings from 0-6; like Genre/VocalParts/Year/Length below,
-// they're nullable - nil when no metadata file supplied that part's
-// difficulty, rather than a possibly-misleading 0.
+// difficulty ratings from 0-7, NOT NULL DEFAULT 0, where 0 means the song
+// has no chart for that part at all (unlike Genre/VocalParts/Year/Length
+// below, which stay nullable - nil when unknown).
 type SongRecord struct {
 	Shortname string
 	Title     string
@@ -23,16 +24,16 @@ type SongRecord struct {
 	Album     string
 	Origin    string
 
-	DifficultyBand      *int
-	DifficultyGuitar    *int
-	DifficultyBass      *int
-	DifficultyDrum      *int
-	DifficultyKeys      *int
-	DifficultyVocals    *int
-	DifficultyProGuitar *int
-	DifficultyProBass   *int
-	DifficultyProDrum   *int
-	DifficultyProKeys   *int
+	DifficultyBand      int
+	DifficultyGuitar    int
+	DifficultyBass      int
+	DifficultyDrum      int
+	DifficultyKeys      int
+	DifficultyVocals    int
+	DifficultyProGuitar int
+	DifficultyProBass   int
+	DifficultyProDrum   int
+	DifficultyProKeys   int
 
 	// Genre, VocalParts, Year and Length are nullable - nil when unknown.
 	Genre      *string
@@ -56,30 +57,30 @@ const songsTableColumns = `
 	artist                  TEXT NOT NULL,
 	album                   TEXT NOT NULL,
 	origin                  TEXT NOT NULL,
-	difficulty_band         INTEGER,
-	difficulty_guitar       INTEGER,
-	difficulty_bass         INTEGER,
-	difficulty_drum         INTEGER,
-	difficulty_keys         INTEGER,
-	difficulty_vocals       INTEGER,
-	difficulty_pro_guitar   INTEGER,
-	difficulty_pro_bass     INTEGER,
-	difficulty_pro_drum     INTEGER,
-	difficulty_pro_keys     INTEGER,
+	difficulty_band         INTEGER NOT NULL DEFAULT 0,
+	difficulty_guitar       INTEGER NOT NULL DEFAULT 0,
+	difficulty_bass         INTEGER NOT NULL DEFAULT 0,
+	difficulty_drum         INTEGER NOT NULL DEFAULT 0,
+	difficulty_keys         INTEGER NOT NULL DEFAULT 0,
+	difficulty_vocals       INTEGER NOT NULL DEFAULT 0,
+	difficulty_pro_guitar   INTEGER NOT NULL DEFAULT 0,
+	difficulty_pro_bass     INTEGER NOT NULL DEFAULT 0,
+	difficulty_pro_drum     INTEGER NOT NULL DEFAULT 0,
+	difficulty_pro_keys     INTEGER NOT NULL DEFAULT 0,
 	genre                   TEXT,
 	vocal_parts             INTEGER,
 	year                    INTEGER,
 	length                  INTEGER,
 	metadata_datetime       DATETIME,
-	db_art_check            INTEGER NOT NULL DEFAULT 0
+	RB3EC_db_check          INTEGER NOT NULL DEFAULT 0
 `
 
 var createSongsTable = "CREATE TABLE IF NOT EXISTS songs (" + songsTableColumns + ")"
 
-// songNullableIntColumns are the songs columns that must allow NULL -
-// checked by rebuildSongsTableNullable, since SQLite can't just ALTER a
-// column to drop its NOT NULL constraint.
-var songNullableIntColumns = []string{
+// songDifficultyColumns are the songs table's difficulty columns, which must
+// be NOT NULL DEFAULT 0 - checked by rebuildSongsTableDifficultyNotNull,
+// since SQLite can't just ALTER a column to add a NOT NULL constraint.
+var songDifficultyColumns = []string{
 	"difficulty_band", "difficulty_guitar", "difficulty_bass", "difficulty_drum", "difficulty_keys",
 	"difficulty_vocals", "difficulty_pro_guitar", "difficulty_pro_bass", "difficulty_pro_drum", "difficulty_pro_keys",
 }
@@ -89,33 +90,44 @@ var songNullableIntColumns = []string{
 // adds any of these missing from an existing database so upgrades don't
 // need to drop it.
 var songMigrationColumns = []string{
-	"difficulty_band INTEGER",
-	"difficulty_guitar INTEGER",
-	"difficulty_bass INTEGER",
-	"difficulty_drum INTEGER",
-	"difficulty_keys INTEGER",
-	"difficulty_vocals INTEGER",
-	"difficulty_pro_guitar INTEGER",
-	"difficulty_pro_bass INTEGER",
-	"difficulty_pro_drum INTEGER",
-	"difficulty_pro_keys INTEGER",
+	"difficulty_band INTEGER NOT NULL DEFAULT 0",
+	"difficulty_guitar INTEGER NOT NULL DEFAULT 0",
+	"difficulty_bass INTEGER NOT NULL DEFAULT 0",
+	"difficulty_drum INTEGER NOT NULL DEFAULT 0",
+	"difficulty_keys INTEGER NOT NULL DEFAULT 0",
+	"difficulty_vocals INTEGER NOT NULL DEFAULT 0",
+	"difficulty_pro_guitar INTEGER NOT NULL DEFAULT 0",
+	"difficulty_pro_bass INTEGER NOT NULL DEFAULT 0",
+	"difficulty_pro_drum INTEGER NOT NULL DEFAULT 0",
+	"difficulty_pro_keys INTEGER NOT NULL DEFAULT 0",
 	"genre TEXT",
 	"vocal_parts INTEGER",
 	"year INTEGER",
 	"length INTEGER",
 	"metadata_datetime DATETIME",
-	"db_art_check INTEGER NOT NULL DEFAULT 0",
+	"RB3EC_db_check INTEGER NOT NULL DEFAULT 0",
 }
 
 // migrateSongsTable brings an already-existing songs table up to
-// songsTableColumns: it adds any songMigrationColumns that are missing
-// entirely, then, if needed, rebuilds the table to drop the NOT NULL
-// constraint an older version of this schema put on the difficulty
-// columns.
+// songsTableColumns: it renames the old db_art_check column if present, adds
+// any songMigrationColumns that are missing entirely, then, if needed,
+// rebuilds the table to restore the NOT NULL DEFAULT 0 constraint an earlier
+// version of this schema dropped from the difficulty columns, coalescing any
+// existing NULLs there to 0 along the way.
 func migrateSongsTable(sqlDB *sql.DB) error {
 	columns, err := songsColumnInfo(sqlDB)
 	if err != nil {
 		return err
+	}
+
+	if _, hasOld := columns["db_art_check"]; hasOld {
+		if _, hasNew := columns["RB3EC_db_check"]; !hasNew {
+			if _, err := sqlDB.Exec(`ALTER TABLE songs RENAME COLUMN db_art_check TO RB3EC_db_check`); err != nil {
+				return err
+			}
+			columns["RB3EC_db_check"] = columns["db_art_check"]
+		}
+		delete(columns, "db_art_check")
 	}
 
 	for _, colDef := range songMigrationColumns {
@@ -126,18 +138,18 @@ func migrateSongsTable(sqlDB *sql.DB) error {
 		if _, err := sqlDB.Exec(fmt.Sprintf(`ALTER TABLE songs ADD COLUMN %s`, colDef)); err != nil {
 			return err
 		}
-		columns[name] = false
+		columns[name] = strings.Contains(colDef, "NOT NULL")
 	}
 
 	needsRebuild := false
-	for _, name := range songNullableIntColumns {
-		if columns[name] {
+	for _, name := range songDifficultyColumns {
+		if !columns[name] {
 			needsRebuild = true
 			break
 		}
 	}
 	if needsRebuild {
-		return rebuildSongsTableNullable(sqlDB)
+		return rebuildSongsTableDifficultyNotNull(sqlDB)
 	}
 	return nil
 }
@@ -169,14 +181,14 @@ func songsColumnInfo(sqlDB *sql.DB) (map[string]bool, error) {
 	return columns, rows.Err()
 }
 
-// rebuildSongsTableNullable recreates the songs table under the current
-// songsTableColumns definition and copies the existing rows across.
-// SQLite has no ALTER TABLE form for dropping a column's NOT NULL
-// constraint, so this is the only way to lift the NOT NULL DEFAULT 0 an
-// older version of this schema put on the difficulty columns - existing
-// rows keep whatever 0s they already had until SaveSongs next reprocesses
-// them with real metadata.
-func rebuildSongsTableNullable(sqlDB *sql.DB) error {
+// rebuildSongsTableDifficultyNotNull recreates the songs table under the
+// current songsTableColumns definition and copies the existing rows across,
+// coalescing any existing NULLs in the difficulty columns to 0. SQLite has
+// no ALTER TABLE form for adding a NOT NULL constraint to a column that may
+// already hold NULLs, so this is the only way to restore the NOT NULL
+// DEFAULT 0 constraint an earlier version of this schema dropped from the
+// difficulty columns.
+func rebuildSongsTableDifficultyNotNull(sqlDB *sql.DB) error {
 	tx, err := sqlDB.Begin()
 	if err != nil {
 		return err
@@ -189,9 +201,11 @@ func rebuildSongsTableNullable(sqlDB *sql.DB) error {
 	if _, err := tx.Exec(`
 		INSERT INTO songs_new SELECT
 			shortname, title, artist, album, origin,
-			difficulty_band, difficulty_guitar, difficulty_bass, difficulty_drum, difficulty_keys,
-			difficulty_vocals, difficulty_pro_guitar, difficulty_pro_bass, difficulty_pro_drum, difficulty_pro_keys,
-			genre, vocal_parts, year, length, metadata_datetime, db_art_check
+			COALESCE(difficulty_band, 0), COALESCE(difficulty_guitar, 0), COALESCE(difficulty_bass, 0),
+			COALESCE(difficulty_drum, 0), COALESCE(difficulty_keys, 0), COALESCE(difficulty_vocals, 0),
+			COALESCE(difficulty_pro_guitar, 0), COALESCE(difficulty_pro_bass, 0), COALESCE(difficulty_pro_drum, 0),
+			COALESCE(difficulty_pro_keys, 0),
+			genre, vocal_parts, year, length, metadata_datetime, RB3EC_db_check
 		FROM songs`); err != nil {
 		return err
 	}
@@ -204,41 +218,41 @@ func rebuildSongsTableNullable(sqlDB *sql.DB) error {
 	return tx.Commit()
 }
 
-// songMetadataFile is the JSON shape of a <shortname>.json metadata file.
+// songMetadataFile is the YAML shape of a <shortname>.yml metadata file.
 // Title/artist/album/shortname aren't read from it - the live console fetch
 // is the source of truth for those.
 type songMetadataFile struct {
 	// All fields are pointers: several metadata files explicitly set some
-	// of these to JSON null rather than omitting them, and the diff object
+	// of these to null rather than omitting them, and the diff object
 	// omits keys for instruments the song has no chart for entirely - both
 	// must come through as "unknown"/"not charted" (nil), never silently
 	// become 0 or "".
-	Genre *string `json:"genre"`
+	Genre *string `yaml:"genre"`
 	Diff  struct {
-		Band      *int `json:"band"`
-		Guitar    *int `json:"guitar"`
-		Bass      *int `json:"bass"`
-		Drum      *int `json:"drum"`
-		Keys      *int `json:"keys"`
-		Vocals    *int `json:"vocals"`
-		ProGuitar *int `json:"pro_guitar"`
-		ProBass   *int `json:"pro_bass"`
-		ProDrum   *int `json:"pro_drum"`
-		ProKeys   *int `json:"pro_keys"`
-	} `json:"diff"`
-	VocalParts   *int `json:"vocal_parts"`
-	YearReleased *int `json:"year_released"`
-	SongLength   *int `json:"song_length"`
+		Band      *int `yaml:"band"`
+		Guitar    *int `yaml:"guitar"`
+		Bass      *int `yaml:"bass"`
+		Drum      *int `yaml:"drum"`
+		Keys      *int `yaml:"keys"`
+		Vocals    *int `yaml:"vocals"`
+		ProGuitar *int `yaml:"pro_guitar"`
+		ProBass   *int `yaml:"pro_bass"`
+		ProDrum   *int `yaml:"pro_drum"`
+		ProKeys   *int `yaml:"pro_keys"`
+	} `yaml:"diff"`
+	VocalParts   *int `yaml:"vocal_parts"`
+	YearReleased *int `yaml:"year_released"`
+	SongLength   *int `yaml:"song_length"`
 }
 
 // findMetadataFile returns the path and modification time of the first
-// <shortname>.json found across metadataDirs, checked in order.
+// <shortname>.yml found across metadataDirs, checked in order.
 func findMetadataFile(shortname string, metadataDirs []string) (path string, modTime time.Time, found bool) {
 	for _, dir := range metadataDirs {
 		if dir == "" {
 			continue
 		}
-		p := filepath.Join(dir, shortname+".json")
+		p := filepath.Join(dir, shortname+".yml")
 		info, err := os.Stat(p)
 		if err != nil || info.IsDir() {
 			continue
@@ -267,28 +281,73 @@ func applySongMetadata(s *SongRecord, metadataDirs []string, stored SongRecord) 
 		return
 	}
 	var meta songMetadataFile
-	if err := json.Unmarshal(data, &meta); err != nil {
+	if err := yaml.Unmarshal(data, &meta); err != nil {
 		log.Printf("db: failed to parse metadata file %s: %v", path, err)
 		copySongMetadata(s, stored)
 		return
 	}
+	applyParsedMetadata(s, meta, modTime)
+}
 
-	s.DifficultyBand = meta.Diff.Band
-	s.DifficultyGuitar = meta.Diff.Guitar
-	s.DifficultyBass = meta.Diff.Bass
-	s.DifficultyDrum = meta.Diff.Drum
-	s.DifficultyKeys = meta.Diff.Keys
-	s.DifficultyVocals = meta.Diff.Vocals
-	s.DifficultyProGuitar = meta.Diff.ProGuitar
-	s.DifficultyProBass = meta.Diff.ProBass
-	s.DifficultyProDrum = meta.Diff.ProDrum
-	s.DifficultyProKeys = meta.Diff.ProKeys
+// applyParsedMetadata copies meta's fields onto s and stamps
+// s.MetadataDatetime with datetime. meta's diff fields come through as nil
+// when the metadata file omitted that part entirely (not charted) or
+// explicitly nulled it out - either way it becomes 0 on s, same as an
+// explicit 0 in the file, since the songs table's difficulty columns are
+// NOT NULL.
+func applyParsedMetadata(s *SongRecord, meta songMetadataFile, datetime time.Time) {
+	s.DifficultyBand = diffOrZero(meta.Diff.Band)
+	s.DifficultyGuitar = diffOrZero(meta.Diff.Guitar)
+	s.DifficultyBass = diffOrZero(meta.Diff.Bass)
+	s.DifficultyDrum = diffOrZero(meta.Diff.Drum)
+	s.DifficultyKeys = diffOrZero(meta.Diff.Keys)
+	s.DifficultyVocals = diffOrZero(meta.Diff.Vocals)
+	s.DifficultyProGuitar = diffOrZero(meta.Diff.ProGuitar)
+	s.DifficultyProBass = diffOrZero(meta.Diff.ProBass)
+	s.DifficultyProDrum = diffOrZero(meta.Diff.ProDrum)
+	s.DifficultyProKeys = diffOrZero(meta.Diff.ProKeys)
 	s.Genre = meta.Genre
 	s.VocalParts = meta.VocalParts
 	s.Year = meta.YearReleased
 	s.Length = meta.SongLength
-	t := modTime
+	t := datetime
 	s.MetadataDatetime = &t
+}
+
+// diffOrZero returns 0 for a nil difficulty pointer, or the pointed-to
+// value otherwise.
+func diffOrZero(p *int) int {
+	if p == nil {
+		return 0
+	}
+	return *p
+}
+
+// ImportMetadata parses YAML-formatted song metadata and applies it directly
+// to shortname's row in the songs table, stamping metadata_datetime with the
+// current time since there's no backing file to take a modification time
+// from. It's a no-op if shortname isn't already present in the table.
+func ImportMetadata(sqlDB *sql.DB, shortname string, data []byte) error {
+	var meta songMetadataFile
+	if err := yaml.Unmarshal(data, &meta); err != nil {
+		return err
+	}
+
+	s := SongRecord{Shortname: shortname}
+	applyParsedMetadata(&s, meta, time.Now())
+
+	_, err := sqlDB.Exec(`
+		UPDATE songs SET
+			difficulty_band = ?, difficulty_guitar = ?, difficulty_bass = ?, difficulty_drum = ?, difficulty_keys = ?,
+			difficulty_vocals = ?, difficulty_pro_guitar = ?, difficulty_pro_bass = ?, difficulty_pro_drum = ?, difficulty_pro_keys = ?,
+			genre = ?, vocal_parts = ?, year = ?, length = ?, metadata_datetime = ?
+		WHERE shortname = ?`,
+		s.DifficultyBand, s.DifficultyGuitar, s.DifficultyBass, s.DifficultyDrum, s.DifficultyKeys,
+		s.DifficultyVocals, s.DifficultyProGuitar, s.DifficultyProBass, s.DifficultyProDrum, s.DifficultyProKeys,
+		s.Genre, s.VocalParts, s.Year, s.Length, s.MetadataDatetime,
+		shortname,
+	)
+	return err
 }
 
 // copySongMetadata copies stored's difficulty/genre/vocal-parts/year/
@@ -312,50 +371,27 @@ func copySongMetadata(s *SongRecord, stored SongRecord) {
 	s.MetadataDatetime = stored.MetadataDatetime
 }
 
-// nullableSongMetadata holds sql.Scan destinations for every nullable
-// songs column (the ten difficulties plus genre/vocal-parts/year/length/
-// metadata-datetime), in the column order shared by loadStoredSongMetadata
+// nullableSongMetadata holds sql.Scan destinations for every nullable songs
+// column (genre/vocal-parts/year/length/metadata-datetime - the difficulty
+// columns are NOT NULL, so they're scanned directly into SongRecord's plain
+// int fields instead), in the column order shared by loadStoredSongMetadata
 // and LoadSongs's queries.
 type nullableSongMetadata struct {
-	difficultyBand      sql.NullInt64
-	difficultyGuitar    sql.NullInt64
-	difficultyBass      sql.NullInt64
-	difficultyDrum      sql.NullInt64
-	difficultyKeys      sql.NullInt64
-	difficultyVocals    sql.NullInt64
-	difficultyProGuitar sql.NullInt64
-	difficultyProBass   sql.NullInt64
-	difficultyProDrum   sql.NullInt64
-	difficultyProKeys   sql.NullInt64
-	genre               sql.NullString
-	vocalParts          sql.NullInt64
-	year                sql.NullInt64
-	length              sql.NullInt64
-	metadataDatetime    sql.NullTime
+	genre            sql.NullString
+	vocalParts       sql.NullInt64
+	year             sql.NullInt64
+	length           sql.NullInt64
+	metadataDatetime sql.NullTime
 }
 
 // dests returns Scan destinations for n's fields, in column order.
 func (n *nullableSongMetadata) dests() []interface{} {
-	return []interface{}{
-		&n.difficultyBand, &n.difficultyGuitar, &n.difficultyBass, &n.difficultyDrum, &n.difficultyKeys,
-		&n.difficultyVocals, &n.difficultyProGuitar, &n.difficultyProBass, &n.difficultyProDrum, &n.difficultyProKeys,
-		&n.genre, &n.vocalParts, &n.year, &n.length, &n.metadataDatetime,
-	}
+	return []interface{}{&n.genre, &n.vocalParts, &n.year, &n.length, &n.metadataDatetime}
 }
 
 // applyTo sets s's corresponding fields to nil, or a pointer to the scanned
 // value, for each of n's columns that came back non-NULL.
 func (n nullableSongMetadata) applyTo(s *SongRecord) {
-	s.DifficultyBand = nullIntPtr(n.difficultyBand)
-	s.DifficultyGuitar = nullIntPtr(n.difficultyGuitar)
-	s.DifficultyBass = nullIntPtr(n.difficultyBass)
-	s.DifficultyDrum = nullIntPtr(n.difficultyDrum)
-	s.DifficultyKeys = nullIntPtr(n.difficultyKeys)
-	s.DifficultyVocals = nullIntPtr(n.difficultyVocals)
-	s.DifficultyProGuitar = nullIntPtr(n.difficultyProGuitar)
-	s.DifficultyProBass = nullIntPtr(n.difficultyProBass)
-	s.DifficultyProDrum = nullIntPtr(n.difficultyProDrum)
-	s.DifficultyProKeys = nullIntPtr(n.difficultyProKeys)
 	if n.genre.Valid {
 		g := n.genre.String
 		s.Genre = &g
@@ -398,7 +434,11 @@ func loadStoredSongMetadata(tx *sql.Tx) (map[string]SongRecord, error) {
 	for rows.Next() {
 		var s SongRecord
 		var n nullableSongMetadata
-		dest := append([]interface{}{&s.Shortname}, n.dests()...)
+		dest := append([]interface{}{
+			&s.Shortname,
+			&s.DifficultyBand, &s.DifficultyGuitar, &s.DifficultyBass, &s.DifficultyDrum, &s.DifficultyKeys,
+			&s.DifficultyVocals, &s.DifficultyProGuitar, &s.DifficultyProBass, &s.DifficultyProDrum, &s.DifficultyProKeys,
+		}, n.dests()...)
 		if err := rows.Scan(dest...); err != nil {
 			return nil, err
 		}
@@ -413,7 +453,7 @@ func loadStoredSongMetadata(tx *sql.Tx) (map[string]SongRecord, error) {
 // updated, so the table always mirrors the Music Library as of the most
 // recent fetch.
 //
-// For each song, metadataDirs is checked in order for a <shortname>.json
+// For each song, metadataDirs is checked in order for a <shortname>.yml
 // metadata file. If the file found is newer than the metadata the song last
 // used, it's (re)parsed and applied; otherwise the song's previously stored
 // metadata is kept as-is. This is done here, rather than by the caller, so
@@ -494,25 +534,25 @@ func SaveSongs(sqlDB *sql.DB, songs []SongRecord, metadataDirs ...string) error 
 	return tx.Commit()
 }
 
-// ArtCheckSong is a song not yet checked against the bundled art database -
-// see PendingArtCheckSongs.
-type ArtCheckSong struct {
+// RB3ECDBCheckSong is a song not yet checked against the RB3EC-db repository
+// - see PendingRB3ECDBCheckSongs.
+type RB3ECDBCheckSong struct {
 	Shortname string
 	Origin    string
 }
 
-// PendingArtCheckSongs returns the shortname and origin of every song whose
-// db_art_check flag is still false, i.e. hasn't been checked yet.
-func PendingArtCheckSongs(sqlDB *sql.DB) ([]ArtCheckSong, error) {
-	rows, err := sqlDB.Query(`SELECT shortname, origin FROM songs WHERE db_art_check = 0`)
+// PendingRB3ECDBCheckSongs returns the shortname and origin of every song
+// whose RB3EC_db_check flag is still false, i.e. hasn't been checked yet.
+func PendingRB3ECDBCheckSongs(sqlDB *sql.DB) ([]RB3ECDBCheckSong, error) {
+	rows, err := sqlDB.Query(`SELECT shortname, origin FROM songs WHERE RB3EC_db_check = 0`)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
 
-	var pending []ArtCheckSong
+	var pending []RB3ECDBCheckSong
 	for rows.Next() {
-		var s ArtCheckSong
+		var s RB3ECDBCheckSong
 		if err := rows.Scan(&s.Shortname, &s.Origin); err != nil {
 			return nil, err
 		}
@@ -521,10 +561,10 @@ func PendingArtCheckSongs(sqlDB *sql.DB) ([]ArtCheckSong, error) {
 	return pending, rows.Err()
 }
 
-// MarkArtChecked sets shortname's db_art_check flag so PendingArtCheckSongs
-// won't return it again.
-func MarkArtChecked(sqlDB *sql.DB, shortname string) error {
-	_, err := sqlDB.Exec(`UPDATE songs SET db_art_check = 1 WHERE shortname = ?`, shortname)
+// MarkRB3ECDBChecked sets shortname's RB3EC_db_check flag so
+// PendingRB3ECDBCheckSongs won't return it again.
+func MarkRB3ECDBChecked(sqlDB *sql.DB, shortname string) error {
+	_, err := sqlDB.Exec(`UPDATE songs SET RB3EC_db_check = 1 WHERE shortname = ?`, shortname)
 	return err
 }
 
@@ -546,7 +586,11 @@ func LoadSongs(sqlDB *sql.DB) ([]SongRecord, error) {
 	for rows.Next() {
 		var s SongRecord
 		var n nullableSongMetadata
-		dest := append([]interface{}{&s.Shortname, &s.Title, &s.Artist, &s.Album, &s.Origin}, n.dests()...)
+		dest := append([]interface{}{
+			&s.Shortname, &s.Title, &s.Artist, &s.Album, &s.Origin,
+			&s.DifficultyBand, &s.DifficultyGuitar, &s.DifficultyBass, &s.DifficultyDrum, &s.DifficultyKeys,
+			&s.DifficultyVocals, &s.DifficultyProGuitar, &s.DifficultyProBass, &s.DifficultyProDrum, &s.DifficultyProKeys,
+		}, n.dests()...)
 		if err := rows.Scan(dest...); err != nil {
 			return nil, err
 		}

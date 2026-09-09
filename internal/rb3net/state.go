@@ -39,10 +39,10 @@ func (sk *StageKit) applyColour(colourIdx int, ledMask byte) {
 }
 
 // Song is one entry from RB3Enhanced's console-side /list_songs response.
-// The DifficultyX fields are chart difficulty ratings from 0-6, nil when
-// the song's metadata file didn't supply that part's difficulty (which
-// includes every field here until db.SaveSongs fills them in - the
-// console's own song list doesn't report them).
+// The DifficultyX fields are chart difficulty ratings from 0-7, where 0
+// means the song has no chart for that part - including every field here
+// until db.SaveSongs fills them in from a metadata file, since the
+// console's own song list doesn't report them.
 type Song struct {
 	Shortname string
 	Title     string
@@ -50,16 +50,16 @@ type Song struct {
 	Album     string
 	Origin    string
 
-	DifficultyBand      *int
-	DifficultyGuitar    *int
-	DifficultyBass      *int
-	DifficultyDrum      *int
-	DifficultyKeys      *int
-	DifficultyVocals    *int
-	DifficultyProGuitar *int
-	DifficultyProBass   *int
-	DifficultyProDrum   *int
-	DifficultyProKeys   *int
+	DifficultyBand      int
+	DifficultyGuitar    int
+	DifficultyBass      int
+	DifficultyDrum      int
+	DifficultyKeys      int
+	DifficultyVocals    int
+	DifficultyProGuitar int
+	DifficultyProBass   int
+	DifficultyProDrum   int
+	DifficultyProKeys   int
 
 	// Genre, VocalParts, Year and Length are nullable - nil when unknown.
 	Genre      *string

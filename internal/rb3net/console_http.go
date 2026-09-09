@@ -118,7 +118,7 @@ func Jump(ctx context.Context, ip, shortname string) error {
 type SongListWatcher struct {
 	Hub *Hub
 	DB  *sql.DB
-	// MetadataDirs is checked, in order, for a <shortname>.json metadata
+	// MetadataDirs is checked, in order, for a <shortname>.yml metadata
 	// file for each song on every save - see db.SaveSongs.
 	MetadataDirs []string
 }
