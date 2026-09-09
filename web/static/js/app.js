@@ -13,10 +13,8 @@
 	var currentSongArtist = document.getElementById('current-song-artist');
 	var currentSongOrigin = document.getElementById('current-song-origin');
 	var currentSongArt = document.getElementById('current-song-art');
-	var venueInfo = document.getElementById('venue-info');
 	var venueName = document.getElementById('venue-name');
-	var bandTable = document.getElementById('band-table');
-	var bandRows = document.getElementById('band-rows');
+	var bandRings = document.getElementById('band-rings');
 	var songlist = document.getElementById('songlist');
 	var searchbox = document.getElementById('searchbox');
 	var filtersButton = document.getElementById('filters-button');
@@ -106,26 +104,20 @@
 		}
 
 		if (inGame && state.venueName) {
-			venueInfo.hidden = false;
-			venueName.textContent = state.venueName;
+			venueName.hidden = false;
+			venueName.textContent = 'Venue: ' + state.venueName;
 		} else {
-			venueInfo.hidden = true;
+			venueName.hidden = true;
 		}
 
 		if (inGame) {
-			bandTable.hidden = false;
-			bandRows.innerHTML = '';
-			state.band.forEach(function (member, i) {
-				if (!member.exists) return;
-				var row = document.createElement('tr');
-				row.innerHTML =
-					'<td>' + (i + 1) + '</td>' +
-					'<td>' + escapeHTML(member.trackType) + '</td>' +
-					'<td>' + escapeHTML(member.difficulty) + '</td>';
-				bandRows.appendChild(row);
-			});
+			bandRings.hidden = false;
+			var html = state.band.map(bandCellHTML).join('');
+			var bandSong = findSong(state.songShortName);
+			if (bandSong) html += diffCellHTML(bandSong, BAND_DIFFICULTY_PART);
+			bandRings.innerHTML = html;
 		} else {
-			bandTable.hidden = true;
+			bandRings.hidden = true;
 		}
 
 		applyStagekit(state.stageKit);
@@ -205,6 +197,11 @@
 		{ key: 'difficultyBand', icon: 'band', label: 'Band' }
 	];
 
+	// BAND_DIFFICULTY_PART is DIFFICULTY_PARTS' Band entry, pulled out so
+	// applyState can render it (via diffCellHTML) after the live per-player
+	// rings in #band-rings, rather than only in the song list's own panel.
+	var BAND_DIFFICULTY_PART = DIFFICULTY_PARTS[DIFFICULTY_PARTS.length - 1];
+
 	// vocalsIconName picks the vocals icon variant matching how many vocal
 	// parts (1-3) the song's metadata reported harmony parts for.
 	function vocalsIconName(song) {
@@ -233,6 +230,48 @@
 			'<img class="diff-ring-bg" src="' + RING_ICON_DIR + 'ring_' + ring + '.png" alt="">' +
 			'<img class="diff-icon" src="' + INSTRUMENT_ICON_DIR + iconName + '.png" alt="' + escapeHTML(part.label) + '" title="' + escapeHTML(part.label) + ' - ' + value + '/7">' +
 			'</div></div>';
+	}
+
+	// TRACK_TYPE_ICON maps a live band member's trackType (from ws.go's
+	// TrackType.String()) to its instrument icon, reusing the same icon set
+	// as DIFFICULTY_PARTS. Harmonies has no dedicated icon, so it shares
+	// vocals' plain (non-numbered) variant.
+	var TRACK_TYPE_ICON = {
+		Drums: 'drums',
+		Guitar: 'guitar',
+		Bass: 'bass',
+		Vocals: 'vocals',
+		Harmonies: 'vocals',
+		Keys: 'keys',
+		'Pro Keys': 'real_keys',
+		'Pro Guitar': 'real_guitar',
+		'Pro Bass': 'real_bass'
+	};
+
+	// BAND_DIFFICULTY_RING maps a band member's chosen difficulty (Easy-
+	// Expert, from ws.go's Difficulty.String()) to one of the ring_0-6
+	// images, spread evenly across the range for visual distinction from
+	// the song-chart ring cells built by diffCellHTML.
+	var BAND_DIFFICULTY_RING = { Easy: 0, Medium: 2, Hard: 4, Expert: 6 };
+
+	// bandCellHTML renders one ring/icon cell for a live band member slot,
+	// the #band-rings equivalent of diffCellHTML for the song panel. Called
+	// for all 4 slots (not just the ones in use), so #band-rings always
+	// lays out as 5 equal columns - one per slot plus the band difficulty -
+	// with an empty slot shown dimmed and ringless, same treatment as an
+	// uncharted part in diffCellHTML.
+	function bandCellHTML(member) {
+		if (!member.exists) {
+			return '<div class="diff-cell"><div class="diff-ring">' +
+				'<img class="diff-icon diff-icon-empty" src="' + INSTRUMENT_ICON_DIR + 'blank.png" alt="Empty slot" title="Empty slot">' +
+				'</div></div>';
+		}
+		var iconName = TRACK_TYPE_ICON[member.trackType] || 'band';
+		var ring = BAND_DIFFICULTY_RING[member.difficulty] || 0;
+		return '<div class="diff-cell"><div class="diff-ring">' +
+			'<img class="diff-ring-bg" src="' + RING_ICON_DIR + 'ring_' + ring + '.png" alt="">' +
+			'<img class="diff-icon" src="' + INSTRUMENT_ICON_DIR + iconName + '.png" alt="' + escapeHTML(member.trackType) + '" title="' + escapeHTML(member.trackType) + ' - ' + escapeHTML(member.difficulty) + '">' +
+			'</div><span class="diff-cell-label">' + escapeHTML(member.difficulty) + '</span></div>';
 	}
 
 	// buildSongExtra renders the album/year+length/genre lines shown next
@@ -308,7 +347,7 @@
 		if (li === expandedRow) return;
 		if (!li.querySelector('.song-panel')) {
 			li.appendChild(buildSongPanel(li._song));
-			li.querySelector('.song-details').appendChild(buildSongExtra(li._song));
+			li.querySelector('.song-main').appendChild(buildSongExtra(li._song));
 		}
 		if (expandedRow) setRowExpanded(expandedRow, false);
 		setRowExpanded(li, true);
@@ -375,16 +414,18 @@
 		// without needing its own closure over song.
 		li._song = song;
 		li.innerHTML =
-			'<div class="song-info">' +
 			'<img class="album-art" src="' + albumArtURL(song) + '" alt="" loading="lazy">' +
+			'<div class="song-main">' +
+			'<div class="song-top">' +
 			'<div class="song-details">' +
 			'<span class="song-title">' + escapeHTML(song.title || '(untitled)') + '</span>' +
 			'<span class="song-artist">' + escapeHTML(song.artist) + '</span>' +
 			'</div>' +
-			'</div>' +
 			'<div class="song-actions">' +
 			'<img class="origin-icon" src="' + originIconURL(song.origin) + '" alt="' + escapeHTML(song.source) + '" title="' + escapeHTML(song.source) + '" loading="lazy">' +
 			'<button class="button play-button">Play</button>' +
+			'</div>' +
+			'</div>' +
 			'</div>';
 		li.querySelector('.album-art').addEventListener('error', function () {
 			this.onerror = null;
@@ -395,7 +436,11 @@
 			jumpToSong(song.shortname);
 		});
 
-		li.querySelector('.song-info').addEventListener('click', function () {
+		// Anywhere in the row expands/collapses it except .song-actions
+		// (origin icon, Play button), which the listener above already
+		// stops from bubbling for the button but not the icon.
+		li.addEventListener('click', function (ev) {
+			if (ev.target.closest('.song-actions')) return;
 			if (li === expandedRow) {
 				collapseExpandedRow();
 			} else {

@@ -30,24 +30,21 @@
     </div>
 
     <div id="current-song" class="song-row current-song" hidden>
-      <div class="song-info">
-        <img class="album-art album-art-lg" id="current-song-art" alt="" hidden>
-        <div class="song-details">
-          <span class="song-title" id="current-song-title"></span>
-          <span class="song-artist" id="current-song-artist"></span>
+      <img class="album-art album-art-lg" id="current-song-art" alt="" hidden>
+      <div class="song-main">
+        <div class="song-top">
+          <div class="song-details">
+            <span class="song-title" id="current-song-title"></span>
+            <span class="song-artist" id="current-song-artist"></span>
+          </div>
+          <div class="song-actions">
+            <img class="origin-icon" id="current-song-origin" alt="" hidden>
+          </div>
         </div>
+        <span class="song-venue" id="venue-name" hidden></span>
+        <div id="band-rings" class="diff-grid" hidden></div>
       </div>
-      <img class="origin-icon" id="current-song-origin" alt="" hidden>
     </div>
-
-    <dl id="venue-info" hidden>
-      <dt>Venue</dt><dd id="venue-name"></dd>
-    </dl>
-
-    <table id="band-table" hidden>
-      <thead><tr><th>Slot</th><th>Track</th><th>Difficulty</th></tr></thead>
-      <tbody id="band-rows"></tbody>
-    </table>
   </div>
 
   <div class="card">

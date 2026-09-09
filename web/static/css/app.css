@@ -21,6 +21,7 @@
 body {
 	font-family: system-ui, sans-serif;
 	max-width: 640px;
+	min-width: 400px;
 	margin: 3rem auto;
 	padding: 0 1rem;
 	background: var(--bg);
@@ -236,11 +237,41 @@ input[type="text"]:focus {
 }
 .song-row:last-child { border-bottom: none; }
 
-.song-info { display: flex; align-items: center; gap: 0.5rem; overflow: hidden; text-align: left; }
-#songlist .song-info { cursor: pointer; }
-.song-details { display: flex; flex-direction: column; overflow: hidden; text-align: left; }
+/* Both song-list rows and #current-song share this: a two-column grid,
+   album art on the left and everything else - .song-main - on the right.
+   In #songlist, .song-panel still spans both columns (grid-column below)
+   to wrap onto its own row below them, the grid equivalent of the
+   flex-basis: 100% trick the comment above describes; the same no-row-gap
+   reasoning applies here too. */
+#songlist .song-row, #current-song.song-row { display: grid; grid-template-columns: auto 1fr; }
+#songlist .song-row { cursor: pointer; }
+/* Stretch .song-main to the album art's full height (overriding the base
+   .song-row's align-items: center above) so #band-rings' own margin-top:
+   auto has room to push it down to the art's bottom edge, title/artist/
+   venue staying put at the top. */
+#current-song.song-row { align-items: stretch; }
+
+.song-main { display: flex; flex-direction: column; overflow: hidden; min-width: 0; }
+/* #current-song's .song-main won't shrink below this, so the 200px album
+   art can't squeeze it illegibly narrow - below the width that requires,
+   the stacking rule below takes over instead of letting the row overflow. */
+#current-song .song-main { min-width: 350px; }
+
+/* Below this, the page (max-width: 640px) can no longer fit the 200px
+   album art plus .song-main's 350px minimum side-by-side - stack them
+   instead, art above details, so #current-song never overflows the card. */
+@media (max-width: 640px) {
+	#current-song.song-row { grid-template-columns: 1fr; }
+}
+/* Second column, split into its own two columns: title/artist (.song-details,
+   1fr so it's the one that shrinks/ellipsizes) and the origin icon/Play
+   button (.song-actions, auto-width). */
+.song-top { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0.5rem; height: 40px; }
+
+.song-details { display: flex; flex-direction: column; overflow: hidden; text-align: left; min-width: 0; }
 .song-title { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .song-artist { opacity: 0.7; font-size: 0.85rem; }
+.song-venue { margin-top: 0.4rem; opacity: 0.6; font-size: 0.8rem; }
 .song-count, .song-message { text-align: center; opacity: 0.7; font-size: 0.85rem; padding: 0.5rem 0; }
 .song-sentinel { height: 1px; margin: 0; padding: 0; }
 .song-actions { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
@@ -254,15 +285,14 @@ input[type="text"]:focus {
 	background: var(--border-soft);
 	transition: width 0.2s ease, height 0.2s ease;
 }
-.album-art-lg { width: 56px; height: 56px; border-radius: 4px; }
+.album-art-lg { width: 200px; height: 200px; border-radius: 8px; }
 
 /* The row's own album art grows in place when expanded, rather than the
    panel showing a second, larger copy of it. Top-align everything in the
    row - title/artist next to the art, and the origin icon/Play button on
    the right - instead of centering it all against the now-tall image. */
 #songlist .song-row.expanded { align-items: flex-start; }
-#songlist .song-row.expanded .song-info { align-items: flex-start; }
-#songlist .song-row.expanded .song-info .album-art { width: 110px; height: 110px; border-radius: 6px; }
+#songlist .song-row.expanded .album-art { width: 110px; height: 110px; border-radius: 6px; }
 
 /* .song-panel and .song-extra slide open/closed by animating max-height to
    their actual measured content height (app.js's setRowExpanded sets this
@@ -272,7 +302,7 @@ input[type="text"]:focus {
    minimum size" fought the collapse. Opening is delayed until the art's
    own resize transition above has finished, so the art grows first and
    the details slide open after; closing happens immediately, in step with
-   the art shrinking back. .song-extra's parent (.song-details) is a
+   the art shrinking back. .song-extra's parent (.song-main) is a
    column-direction flex container, making height its flex main axis - so
    without min-height: 0 here, the default min-height: auto would win over
    max-height: 0 (min overrides max when they conflict) and keep it at its
@@ -289,7 +319,7 @@ input[type="text"]:focus {
 	opacity: 1;
 	transition-delay: 0.2s;
 }
-.song-panel { flex-basis: 100%; }
+.song-panel { grid-column: 1 / -1; }
 
 .song-meta { display: flex; flex-direction: column; gap: 0.6rem; padding: 0.75rem 0 0.25rem; }
 .song-extra-inner { display: flex; flex-direction: column; gap: 0.1rem; margin-top: 0.35rem; }
@@ -299,8 +329,20 @@ input[type="text"]:focus {
    instruments and band. Each cell layers the instrument icon over the
    ring_0.png-ring_6.png image matching its difficulty, so the ring itself
    shows the tier. */
-.diff-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.3rem 0.15rem; }
-.diff-cell { display: flex; align-items: center; justify-content: center; }
+.diff-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.3rem 0.15rem; width: 326px; margin: 0 auto; }
+/* Overrides .diff-grid's fixed 326px/centered sizing (tuned for spanning
+   the full card width in #songlist's expanded panel) - nested in
+   #current-song's second column alongside the art, #band-rings only has
+   that column's width to work with. */
+#band-rings { width: 100%; margin: auto 0 0; }
+/* justify-content: flex-start (not center) so a cell without a
+   .diff-cell-label (the song panel's cells, and #band-rings' own Band
+   cell) still tops out its ring at the same height as cells that do have
+   one below it - centering would otherwise pull the label-less ring down
+   into the label's empty space, dropping it out of alignment with the rest
+   of the row. */
+.diff-cell { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 0.2rem; }
+.diff-cell-label { font-size: 0.7rem; opacity: 0.7; }
 .diff-ring { position: relative; width: 60px; height: 60px; flex-shrink: 0; }
 .diff-ring-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .diff-icon {
@@ -313,11 +355,7 @@ input[type="text"]:focus {
 	transform: translate(-50%, -50%);
 }
 .diff-icon.diff-icon-dim { width: 100%; height: 100%; opacity: 0.35; }
-
-@media (max-width: 480px) {
-	.diff-grid { gap: 0.25rem 0.1rem; }
-	.diff-ring { width: 48px; height: 48px; }
-}
+.diff-icon.diff-icon-empty { opacity: 0.35; }
 
 .current-song .song-title { font-size: 1.1rem; }
 .current-song .song-artist { font-size: 0.95rem; }
