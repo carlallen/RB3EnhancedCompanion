@@ -50,15 +50,15 @@ func main() {
 
 	hub := rb3net.NewHub()
 
-	if saved, err := db.LoadSongs(database); err != nil {
-		log.Fatalf("db: failed to load songs: %v", err)
-	} else if len(saved) > 0 {
-		songList := make([]rb3net.Song, len(saved))
-		for i, s := range saved {
-			songList[i] = rb3net.Song(s)
-		}
+	if count, err := db.CountSongs(database); err != nil {
+		log.Fatalf("db: failed to count songs: %v", err)
+	} else if count > 0 {
+		// Bump SongListVersion so a client connecting fresh (no songVersion
+		// query param, which defaults to 0) is sent the song list - which
+		// is loaded from the database on demand, not cached here - rather
+		// than the version mismatch check treating the default as already
+		// up to date.
 		hub.Mutate(func(s *rb3net.GameState) {
-			s.SongList = songList
 			s.SongListVersion++
 		})
 	}

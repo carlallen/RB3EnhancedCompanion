@@ -2,6 +2,7 @@ package server
 
 import (
 	"context"
+	"database/sql"
 	"encoding/json"
 	"log"
 	"net/http"
@@ -12,6 +13,7 @@ import (
 
 	"nhooyr.io/websocket"
 
+	"github.com/carlallen/RB3EnhancedCompanion/internal/db"
 	"github.com/carlallen/RB3EnhancedCompanion/internal/rb3net"
 )
 
@@ -134,8 +136,12 @@ func newSongDTO(song rb3net.Song, hasArt bool) songDTO {
 }
 
 // toDashboardState converts a rb3net.GameState to the JSON shape sent to
-// the browser, including the song list only when includeSongs is set.
-func toDashboardState(s rb3net.GameState, includeSongs bool, artDir string) dashboardState {
+// the browser, loading the song list fresh from sqlDB - rather than from
+// any in-memory copy - only when includeSongs is set. Returns an error if
+// that load fails; d is still otherwise fully populated in that case, just
+// without SongList/SongListVersion, so the caller can still send the rest
+// of the state.
+func toDashboardState(s rb3net.GameState, includeSongs bool, artDir string, sqlDB *sql.DB) (dashboardState, error) {
 	d := dashboardState{
 		Connected:     s.Connected,
 		Platform:      s.Platform,
@@ -156,13 +162,17 @@ func toDashboardState(s rb3net.GameState, includeSongs bool, artDir string) dash
 		}
 	}
 	if includeSongs {
-		d.SongList = make([]songDTO, len(s.SongList))
-		for i, song := range s.SongList {
-			d.SongList[i] = newSongDTO(song, hasArtFile(artDir, song.Shortname))
+		songs, err := db.LoadSongs(sqlDB)
+		if err != nil {
+			return d, err
+		}
+		d.SongList = make([]songDTO, len(songs))
+		for i, song := range songs {
+			d.SongList[i] = newSongDTO(rb3net.Song(song), hasArtFile(artDir, song.Shortname))
 		}
 		d.SongListVersion = s.SongListVersion
 	}
-	return d
+	return d, nil
 }
 
 // handleWS streams the game state, and the song list whenever the client
@@ -173,7 +183,7 @@ func toDashboardState(s rb3net.GameState, includeSongs bool, artDir string) dash
 // wifi/cellular handoff - and without this a reconnect would otherwise
 // mean re-fetching and re-rendering the whole (possibly large) song list,
 // images included, even though nothing about it changed.
-func handleWS(hub *rb3net.Hub, artDir string) http.HandlerFunc {
+func handleWS(hub *rb3net.Hub, artDir string, sqlDB *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		conn, err := websocket.Accept(w, r, nil)
 		if err != nil {
@@ -189,10 +199,22 @@ func handleWS(hub *rb3net.Hub, artDir string) http.HandlerFunc {
 
 		clientSongVersion, _ := strconv.Atoi(r.URL.Query().Get("songVersion"))
 
+		// sentSongVersion tracks the song list version this connection has
+		// actually sent the client so far, which only advances on a
+		// successful db.LoadSongs - if that fails, it's left as-is so the
+		// next state change retries the load rather than the client being
+		// silently left on a stale version.
+		sentSongVersion := clientSongVersion
+
 		initial := hub.State()
-		lastSongVersion := initial.SongListVersion
 		includeSongs := clientSongVersion != initial.SongListVersion
-		if err := writeState(ctx, conn, toDashboardState(initial, includeSongs, artDir)); err != nil {
+		d, err := toDashboardState(initial, includeSongs, artDir, sqlDB)
+		if err != nil {
+			log.Printf("ws: failed to load song list: %v", err)
+		} else if includeSongs {
+			sentSongVersion = initial.SongListVersion
+		}
+		if err := writeState(ctx, conn, d); err != nil {
 			return
 		}
 
@@ -205,9 +227,14 @@ func handleWS(hub *rb3net.Hub, artDir string) http.HandlerFunc {
 				if !ok {
 					return
 				}
-				includeSongs := state.SongListVersion != lastSongVersion
-				lastSongVersion = state.SongListVersion
-				if err := writeState(ctx, conn, toDashboardState(state, includeSongs, artDir)); err != nil {
+				includeSongs := state.SongListVersion != sentSongVersion
+				d, err := toDashboardState(state, includeSongs, artDir, sqlDB)
+				if err != nil {
+					log.Printf("ws: failed to load song list: %v", err)
+				} else if includeSongs {
+					sentSongVersion = state.SongListVersion
+				}
+				if err := writeState(ctx, conn, d); err != nil {
 					return
 				}
 			}

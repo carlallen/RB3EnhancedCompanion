@@ -88,13 +88,14 @@ type GameState struct {
 	Band          [4]BandMember
 	StageKit      StageKit
 
-	// SongList is fetched from the console's own HTTP server the first time
-	// it reports the song select screen after each connection - see
-	// SongListWatcher - and persisted to the database, so it's also loaded
-	// from there at startup to survive restarts. SongListVersion increments
-	// each time SongList is (re)set, so subscribers can tell when it's
-	// actually changed without diffing the (potentially large) slice itself.
-	SongList        []Song
+	// The song list itself is fetched from the console's own HTTP server the
+	// first time it reports the song select screen after each connection -
+	// see SongListWatcher - and persisted straight to the database; it's
+	// never cached here, and is instead loaded fresh from the database any
+	// time it needs to be sent to the web frontend (see
+	// server.toDashboardState). SongListVersion increments each time the
+	// stored song list changes, so subscribers can tell without re-querying
+	// the database on every state update.
 	SongListVersion int
 }
 

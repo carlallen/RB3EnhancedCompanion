@@ -113,8 +113,9 @@ func Jump(ctx context.Context, ip, shortname string) error {
 
 // SongListWatcher fetches the song list from the console's HTTP server the
 // first time RB3Enhanced reports the song select screen after each
-// successful connection, stores it on the Hub for subscribers, e.g. the web
-// dashboard, to pick up, and persists it to DB so it survives restarts.
+// successful connection and persists it to DB, bumping the Hub's
+// SongListVersion so subscribers, e.g. the web dashboard, know to reload it
+// from there.
 type SongListWatcher struct {
 	Hub *Hub
 	DB  *sql.DB
@@ -169,18 +170,9 @@ func (w *SongListWatcher) fetch(ctx context.Context, ip string) {
 	}
 	if err := db.SaveSongs(w.DB, records, w.MetadataDirs...); err != nil {
 		log.Printf("rb3net: song list save failed: %v (console_ip=%s)", err, ip)
-	} else {
-		// SaveSongs fills in each record's difficulty/genre/vocal-parts/
-		// year/length/metadata-datetime fields from its metadata file (see
-		// db.applySongMetadata) - copy those back so the live state served
-		// over /ws carries them too, not just what the console reported.
-		for i := range songs {
-			songs[i] = Song(records[i])
-		}
 	}
 
 	w.Hub.Mutate(func(s *GameState) {
-		s.SongList = songs
 		s.SongListVersion++
 	})
 }

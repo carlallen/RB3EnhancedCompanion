@@ -584,6 +584,14 @@ func MarkRB3ECDBChecked(sqlDB *sql.DB, shortname string) error {
 	return err
 }
 
+// CountSongs returns the number of songs currently stored in the songs
+// table, without loading their data.
+func CountSongs(sqlDB *sql.DB) (int, error) {
+	var count int
+	err := sqlDB.QueryRow(`SELECT COUNT(*) FROM songs`).Scan(&count)
+	return count, err
+}
+
 // LoadSongs returns every song stored in the songs table, ordered by title.
 func LoadSongs(sqlDB *sql.DB) ([]SongRecord, error) {
 	rows, err := sqlDB.Query(`

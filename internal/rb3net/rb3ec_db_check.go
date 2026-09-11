@@ -132,12 +132,10 @@ func (w *RB3ECDBCheckWatcher) check(ctx context.Context) {
 		return
 	}
 
-	// changed tracks whether this pass wrote any art or metadata that the
-	// Hub's in-memory SongList doesn't yet reflect - both go straight to
-	// disk/DB, bypassing the Hub, so without a refresh afterwards a server
-	// left running (as opposed to restarted, which loads fresh from the
-	// database at startup) would keep serving connected clients the song
-	// list it already had in memory.
+	// changed tracks whether this pass wrote any art or metadata, so
+	// SongListVersion only needs bumping - waking subscribers, e.g. the web
+	// dashboard, to reload the song list from the database - when something
+	// actually changed.
 	changed := false
 
 	for _, s := range pending {
@@ -187,22 +185,12 @@ func (w *RB3ECDBCheckWatcher) check(ctx context.Context) {
 	}
 }
 
-// refreshHub reloads every song from the database and publishes it to the
-// Hub, so clients connected to a server that's been running (rather than
-// restarted) see art/metadata this check() pass just wrote straight to
-// disk/DB.
+// refreshHub bumps SongListVersion so clients connected to a server that's
+// been running (rather than restarted) reload the song list from the
+// database and pick up art/metadata this check() pass just wrote straight
+// to disk/DB.
 func (w *RB3ECDBCheckWatcher) refreshHub() {
-	saved, err := db.LoadSongs(w.DB)
-	if err != nil {
-		log.Printf("rb3net: RB3EC db check: failed to reload songs: %v", err)
-		return
-	}
-	songList := make([]Song, len(saved))
-	for i, s := range saved {
-		songList[i] = Song(s)
-	}
 	w.Hub.Mutate(func(s *GameState) {
-		s.SongList = songList
 		s.SongListVersion++
 	})
 }
