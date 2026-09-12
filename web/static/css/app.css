@@ -172,13 +172,18 @@ input[type="text"]:focus {
 .device-row-actions { margin-left: auto; display: flex; gap: 0.5rem; }
 .device-row-actions form { margin: 0; }
 
-.device-channels { margin-top: 0.5rem; }
-.device-channels summary { cursor: pointer; opacity: 0.75; font-size: 0.85rem; }
+.device-channels, .device-colours { margin-top: 0.5rem; }
+.device-channels summary, .device-colours summary { cursor: pointer; opacity: 0.75; font-size: 0.85rem; }
 .channel-grid { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.6rem; }
 .channel-row { display: flex; gap: 0.5rem; }
 .channel-field { flex: 1; min-width: 0; }
 .channel-field label { font-size: 0.7rem; margin-bottom: 0.2rem; }
 .channel-field input { width: 100%; box-sizing: border-box; border-radius: 0.4rem; padding: 0.35rem 0.5rem; font-size: 0.85rem; }
+
+.colour-grid { display: flex; gap: 0.75rem; margin-top: 0.6rem; flex-wrap: wrap; }
+.colour-field { align-items: center; }
+.colour-field label { font-size: 0.7rem; margin-bottom: 0.2rem; }
+.colour-field input[type="color"] { width: 2.5rem; height: 1.75rem; padding: 0; border: 1px solid var(--border); border-radius: 0.4rem; background: none; }
 
 .add-device-form { display: flex; gap: 0.5rem; margin-top: 1rem; }
 .add-device-form input[type="text"] { flex: 1; min-width: 0; }

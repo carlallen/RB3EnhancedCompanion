@@ -1,11 +1,14 @@
 package rb3net
 
 import (
+	"bytes"
 	"context"
 	"database/sql"
+	"encoding/json"
 	"fmt"
 	"log"
 	"net"
+	"net/http"
 	"strconv"
 	"sync"
 	"time"
@@ -39,6 +42,10 @@ const wledCheckInterval = 1 * time.Second
 // than a UDP packet's practical size.
 const wledMaxLEDsPerPacket = 360
 
+// wledJSONAPITimeout bounds a single JSON API request to a WLED device, so
+// an unreachable device doesn't hold up turning off the others.
+const wledJSONAPITimeout = 3 * time.Second
+
 // wledStrobePeriod maps a Stage Kit strobe speed (1-4) to the duration of
 // one full on/off cycle. WLED has no concept of the Stage Kit's strobe
 // speeds, so this app drives the blink timing itself - matching the speeds
@@ -52,35 +59,27 @@ var wledStrobePeriod = [5]time.Duration{
 	250 * time.Millisecond, // speed 4
 }
 
-// wledColour is the colour shown on a WLED pixel while its corresponding
-// stage kit colour is lit.
-var wledColour = [4][3]byte{
-	{255, 0, 0},   // Red
-	{0, 255, 0},   // Green
-	{0, 0, 255},   // Blue
-	{255, 200, 0}, // Yellow
-}
-
 // wledFrame gives the colour every one of a device's configured LEDs
 // should show for one instant of stage kit state.
 type wledFrame map[int][3]byte
 
 // buildWLEDFrame renders sk (with strobeLit giving the strobe pixel's
-// current on/off phase) into physical LED colours, using channelLEDs (see
-// db.WLEDDevice.ChannelLEDs) to map each stage kit channel to the LED
-// index(es) that mirror it.
-func buildWLEDFrame(sk StageKit, strobeLit bool, channelLEDs [][]int) wledFrame {
+// current on/off phase) into physical LED colours, using d.ChannelLEDs to
+// map each stage kit channel to the LED index(es) that mirror it and
+// d.Colours for the colour shown for each of Red, Green, Blue, Yellow, and
+// (while lit) Strobe.
+func buildWLEDFrame(sk StageKit, strobeLit bool, d db.WLEDDevice) wledFrame {
 	frame := make(wledFrame)
-	for channel := 0; channel < db.WLEDChannelCount && channel < len(channelLEDs); channel++ {
+	for channel := 0; channel < db.WLEDChannelCount && channel < len(d.ChannelLEDs); channel++ {
 		var colour [3]byte
 		if channel == db.WLEDStrobeChannel {
 			if strobeLit {
-				colour = [3]byte{255, 255, 255}
+				colour = packedWLEDColour(d.Colours[db.WLEDStrobeColourIndex])
 			}
 		} else if pos, c := channel/4, channel%4; sk.LED[pos][c] {
-			colour = wledColour[c]
+			colour = packedWLEDColour(d.Colours[c])
 		}
-		for _, led := range channelLEDs[channel] {
+		for _, led := range d.ChannelLEDs[channel] {
 			if led < 0 || led > 255 {
 				continue
 			}
@@ -88,6 +87,13 @@ func buildWLEDFrame(sk StageKit, strobeLit bool, channelLEDs [][]int) wledFrame 
 		}
 	}
 	return frame
+}
+
+// packedWLEDColour unpacks one of WLEDDevice.Colours' 24-bit values into the
+// [3]byte a wledFrame holds.
+func packedWLEDColour(c uint32) [3]byte {
+	r, g, b := db.UnpackWLEDColour(c)
+	return [3]byte{r, g, b}
 }
 
 // sendWARLS sends frame to ip as one or more WLED WARLS realtime packets.
@@ -128,6 +134,38 @@ func sendWARLS(ip string, frame wledFrame) error {
 	return nil
 }
 
+// setWLEDPower turns a WLED device fully on or off via its JSON API
+// (POST /json/state), distinct from sendWARLS's realtime pixel frames: this
+// takes the device out of realtime mode entirely, rather than just holding
+// a black frame until wledTimeoutSeconds lapses and it falls back to its
+// own configured effect.
+func setWLEDPower(ip string, on bool) error {
+	body, err := json.Marshal(map[string]bool{"on": on})
+	if err != nil {
+		return err
+	}
+
+	ctx, cancel := context.WithTimeout(context.Background(), wledJSONAPITimeout)
+	defer cancel()
+
+	target := fmt.Sprintf("http://%s/json/state", ip)
+	req, err := http.NewRequestWithContext(ctx, http.MethodPost, target, bytes.NewReader(body))
+	if err != nil {
+		return err
+	}
+	req.Header.Set("Content-Type", "application/json")
+
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return fmt.Errorf("post to %s: %w", ip, err)
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode >= 300 {
+		return fmt.Errorf("%s returned %s", ip, resp.Status)
+	}
+	return nil
+}
+
 // WLEDWatcher mirrors the stage kit's lights to every configured WLED
 // device over UDP using WLED's WARLS realtime protocol. Frames are only
 // sent while RB3Enhanced reports being in-game (GameState.InGame); outside
@@ -141,6 +179,10 @@ func sendWARLS(ip string, frame wledFrame) error {
 // configured speed, sending a fresh frame on every transition. The device
 // list is reloaded from the database periodically, so devices added,
 // removed, or remapped on the config page take effect without a restart.
+// Every enabled device is also explicitly turned on or off over its JSON
+// API whenever RB3Enhanced's connection is gained or lost
+// (GameState.Connected), rather than left to fall back to its own effect
+// once wledTimeoutSeconds lapses after a disconnect.
 type WLEDWatcher struct {
 	Hub *Hub
 	DB  *sql.DB
@@ -173,6 +215,7 @@ func (w *WLEDWatcher) Run(ctx context.Context) {
 	initial := w.Hub.State()
 	latest := initial.StageKit
 	inGame := initial.InGame
+	connected := initial.Connected
 	strobeLit := false
 
 	var strobeTicker *time.Ticker
@@ -228,6 +271,10 @@ func (w *WLEDWatcher) Run(ctx context.Context) {
 			if latest.Strobe != prevStrobe {
 				rearmStrobe()
 			}
+			if state.Connected != connected {
+				go w.setDevicesPower(state.Connected)
+			}
+			connected = state.Connected
 			send(time.Now())
 		case now := <-strobeTickerC:
 			strobeLit = !strobeLit
@@ -251,6 +298,26 @@ func (w *WLEDWatcher) reloadDevices(ctx context.Context) {
 	w.mu.Unlock()
 }
 
+// setDevicesPower sends every currently known enabled device an on/off
+// command over its JSON API - called once on each edge of RB3Enhanced's
+// connection, so a device doesn't sit showing its last frame until
+// wledTimeoutSeconds lapses after a disconnect, and comes back on again as
+// soon as RB3Enhanced reconnects rather than waiting for the next frame.
+func (w *WLEDWatcher) setDevicesPower(on bool) {
+	w.mu.RLock()
+	devices := w.devices
+	w.mu.RUnlock()
+
+	for _, d := range devices {
+		if !d.Enabled {
+			continue
+		}
+		if err := setWLEDPower(d.IP, on); err != nil {
+			log.Printf("wled: failed to set power for %s (%s): %v", d.IP, d.Name, err)
+		}
+	}
+}
+
 func (w *WLEDWatcher) broadcast(sk StageKit, strobeLit bool) {
 	w.mu.RLock()
 	devices := w.devices
@@ -260,7 +327,7 @@ func (w *WLEDWatcher) broadcast(sk StageKit, strobeLit bool) {
 		if !d.Enabled {
 			continue
 		}
-		frame := buildWLEDFrame(sk, strobeLit, d.ChannelLEDs)
+		frame := buildWLEDFrame(sk, strobeLit, d)
 		if err := sendWARLS(d.IP, frame); err != nil {
 			log.Printf("wled: failed to send frame to %s (%s): %v", d.IP, d.Name, err)
 		}

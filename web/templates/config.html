@@ -57,6 +57,23 @@
               </form>
             </div>
           </div>
+          <details class="device-colours">
+            <summary>Edit colours</summary>
+            <form method="post" action="/config/wled-devices/colours">
+              <input type="hidden" name="id" value="{{$device.ID}}">
+              <div class="colour-grid">
+                {{range $cell := $device.Colours}}
+                <div class="field colour-field">
+                  <label for="wled_{{$device.ID}}_colour_{{$cell.Key}}">{{$cell.Label}}</label>
+                  <input type="color" id="wled_{{$device.ID}}_colour_{{$cell.Key}}" name="colour_{{$cell.Key}}" value="{{$cell.Value}}">
+                </div>
+                {{end}}
+              </div>
+              <div class="button-row">
+                <button class="button" type="submit">Save colours</button>
+              </div>
+            </form>
+          </details>
           <details class="device-channels" {{if eq $device.ID $.WLEDErrorDeviceID}}open{{end}}>
             <summary>Edit LED mapping</summary>
             <form method="post" action="/config/wled-devices/channels">

@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"strings"
 )
 
 // WLEDDevice is a WLED-powered LED strip mapped to mirror the stage kit's
@@ -19,6 +20,59 @@ type WLEDDevice struct {
 	// mirror it. A channel can map to zero, one, or several LEDs. Always
 	// has length WLEDChannelCount; see DefaultWLEDChannelLEDs.
 	ChannelLEDs [][]int
+
+	// Colours gives the RGB colour shown on a device's LEDs for each of the
+	// WLEDColourChannelCount stage kit colours (see WLEDColourChannelLabels),
+	// packed as a 24-bit 0xRRGGBB integer. Always has length
+	// WLEDColourChannelCount; see DefaultWLEDColours and PackWLEDColour.
+	Colours []uint32
+}
+
+// WLEDColourChannelCount is Red, Green, Blue, and Yellow - the stage kit's
+// four lit colours - plus Strobe.
+const WLEDColourChannelCount = 5
+
+// WLEDStrobeColourIndex is the Strobe colour's index within a WLEDDevice's
+// Colours.
+const WLEDStrobeColourIndex = WLEDColourChannelCount - 1
+
+// WLEDColourChannelLabels names each entry of WLEDDevice.Colours, in order.
+func WLEDColourChannelLabels() []string {
+	return []string{"Red", "Green", "Blue", "Yellow", "Strobe"}
+}
+
+// Default colours for a newly added device, matching the stage kit
+// hardware's own LED colours; Strobe defaults to white.
+const (
+	defaultWLEDColourRed    = 0xFF0000
+	defaultWLEDColourGreen  = 0x00FF00
+	defaultWLEDColourBlue   = 0x0000FF
+	defaultWLEDColourYellow = 0xFFFF00
+	defaultWLEDColourStrobe = 0xFFFFFF
+)
+
+// DefaultWLEDColours returns the stage kit's traditional colours, in
+// WLEDColourChannelLabels order, used for a newly added device.
+func DefaultWLEDColours() []uint32 {
+	return []uint32{
+		defaultWLEDColourRed,
+		defaultWLEDColourGreen,
+		defaultWLEDColourBlue,
+		defaultWLEDColourYellow,
+		defaultWLEDColourStrobe,
+	}
+}
+
+// PackWLEDColour packs 0-255 r, g, b values into the single 24-bit integer
+// (0xRRGGBB) a colour column stores.
+func PackWLEDColour(r, g, b byte) uint32 {
+	return uint32(r)<<16 | uint32(g)<<8 | uint32(b)
+}
+
+// UnpackWLEDColour splits a packed 24-bit colour back into its r, g, b
+// bytes.
+func UnpackWLEDColour(c uint32) (r, g, b byte) {
+	return byte(c >> 16), byte(c >> 8), byte(c)
 }
 
 // WLEDChannelCount is the 8 stage kit positions x 4 colours (Red, Green,
@@ -53,14 +107,73 @@ func DefaultWLEDChannelLEDs() [][]int {
 	return m
 }
 
-const createWLEDDevicesTable = `
+var createWLEDDevicesTable = fmt.Sprintf(`
 CREATE TABLE IF NOT EXISTS wled_devices (
-	id           INTEGER PRIMARY KEY AUTOINCREMENT,
-	name         TEXT NOT NULL DEFAULT '',
-	ip           TEXT NOT NULL,
-	channel_leds TEXT NOT NULL DEFAULT '',
-	enabled      INTEGER NOT NULL DEFAULT 1
-)`
+	id             INTEGER PRIMARY KEY AUTOINCREMENT,
+	name           TEXT NOT NULL DEFAULT '',
+	ip             TEXT NOT NULL,
+	channel_leds   TEXT NOT NULL DEFAULT '',
+	enabled        INTEGER NOT NULL DEFAULT 1,
+	colour_red     INTEGER NOT NULL DEFAULT %d,
+	colour_green   INTEGER NOT NULL DEFAULT %d,
+	colour_blue    INTEGER NOT NULL DEFAULT %d,
+	colour_yellow  INTEGER NOT NULL DEFAULT %d,
+	colour_strobe  INTEGER NOT NULL DEFAULT %d
+)`,
+	defaultWLEDColourRed, defaultWLEDColourGreen, defaultWLEDColourBlue,
+	defaultWLEDColourYellow, defaultWLEDColourStrobe)
+
+// wledColourColumns lists the wled_devices colour columns, in
+// WLEDColourChannelLabels order, alongside their ALTER TABLE definitions -
+// used to bring an already-existing table (created before these columns
+// existed) up to date.
+var wledColourColumns = []string{
+	fmt.Sprintf("colour_red INTEGER NOT NULL DEFAULT %d", defaultWLEDColourRed),
+	fmt.Sprintf("colour_green INTEGER NOT NULL DEFAULT %d", defaultWLEDColourGreen),
+	fmt.Sprintf("colour_blue INTEGER NOT NULL DEFAULT %d", defaultWLEDColourBlue),
+	fmt.Sprintf("colour_yellow INTEGER NOT NULL DEFAULT %d", defaultWLEDColourYellow),
+	fmt.Sprintf("colour_strobe INTEGER NOT NULL DEFAULT %d", defaultWLEDColourStrobe),
+}
+
+// migrateWLEDDevicesTable adds any wledColourColumns missing from an
+// already-existing wled_devices table (created before colours existed).
+func migrateWLEDDevicesTable(sqlDB *sql.DB) error {
+	rows, err := sqlDB.Query(`PRAGMA table_info(wled_devices)`)
+	if err != nil {
+		return err
+	}
+	columns := make(map[string]bool)
+	for rows.Next() {
+		var (
+			cid       int
+			name      string
+			colType   string
+			notNull   int
+			dfltValue interface{}
+			pk        int
+		)
+		if err := rows.Scan(&cid, &name, &colType, &notNull, &dfltValue, &pk); err != nil {
+			rows.Close()
+			return err
+		}
+		columns[name] = true
+	}
+	if err := rows.Err(); err != nil {
+		return err
+	}
+	rows.Close()
+
+	for _, colDef := range wledColourColumns {
+		name, _, _ := strings.Cut(colDef, " ")
+		if columns[name] {
+			continue
+		}
+		if _, err := sqlDB.Exec(fmt.Sprintf(`ALTER TABLE wled_devices ADD COLUMN %s`, colDef)); err != nil {
+			return err
+		}
+	}
+	return nil
+}
 
 func encodeChannelLEDs(channelLEDs [][]int) (string, error) {
 	b, err := json.Marshal(channelLEDs)
@@ -83,7 +196,10 @@ func decodeChannelLEDs(s string) [][]int {
 // ListWLEDDevices returns every configured WLED device, in the order they
 // were added.
 func ListWLEDDevices(sqlDB *sql.DB) ([]WLEDDevice, error) {
-	rows, err := sqlDB.Query(`SELECT id, name, ip, channel_leds, enabled FROM wled_devices ORDER BY id`)
+	rows, err := sqlDB.Query(`
+		SELECT id, name, ip, channel_leds, enabled,
+			colour_red, colour_green, colour_blue, colour_yellow, colour_strobe
+		FROM wled_devices ORDER BY id`)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +209,9 @@ func ListWLEDDevices(sqlDB *sql.DB) ([]WLEDDevice, error) {
 	for rows.Next() {
 		var d WLEDDevice
 		var channelLEDs string
-		if err := rows.Scan(&d.ID, &d.Name, &d.IP, &channelLEDs, &d.Enabled); err != nil {
+		d.Colours = make([]uint32, WLEDColourChannelCount)
+		if err := rows.Scan(&d.ID, &d.Name, &d.IP, &channelLEDs, &d.Enabled,
+			&d.Colours[0], &d.Colours[1], &d.Colours[2], &d.Colours[3], &d.Colours[4]); err != nil {
 			return nil, err
 		}
 		d.ChannelLEDs = decodeChannelLEDs(channelLEDs)
@@ -139,5 +257,20 @@ func SetWLEDDeviceChannelLEDs(sqlDB *sql.DB, id int64, channelLEDs [][]int) erro
 		return err
 	}
 	_, err = sqlDB.Exec(`UPDATE wled_devices SET channel_leds = ? WHERE id = ?`, encoded, id)
+	return err
+}
+
+// SetWLEDDeviceColours replaces the Red, Green, Blue, Yellow, and Strobe
+// colours (in that, WLEDColourChannelLabels, order) for the WLED device with
+// the given id. colours must have length WLEDColourChannelCount.
+func SetWLEDDeviceColours(sqlDB *sql.DB, id int64, colours []uint32) error {
+	if len(colours) != WLEDColourChannelCount {
+		return fmt.Errorf("expected %d colours, got %d", WLEDColourChannelCount, len(colours))
+	}
+	_, err := sqlDB.Exec(`
+		UPDATE wled_devices
+		SET colour_red = ?, colour_green = ?, colour_blue = ?, colour_yellow = ?, colour_strobe = ?
+		WHERE id = ?`,
+		colours[0], colours[1], colours[2], colours[3], colours[4], id)
 	return err
 }
