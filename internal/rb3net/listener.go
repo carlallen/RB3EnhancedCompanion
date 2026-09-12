@@ -57,7 +57,9 @@ func (l *Listener) Run(ctx context.Context) error {
 	}
 }
 
-// watchdog marks the hub disconnected after a period with no packets.
+// watchdog marks the hub disconnected - and no longer in-game, since a lost
+// connection means there's no one left reporting otherwise - after a period
+// with no packets.
 func (l *Listener) watchdog(ctx context.Context) {
 	ticker := time.NewTicker(disconnectTimeout)
 	defer ticker.Stop()
@@ -70,7 +72,10 @@ func (l *Listener) watchdog(ctx context.Context) {
 			idle := l.lastSeen.IsZero() || time.Since(l.lastSeen) >= disconnectTimeout
 			l.mu.Unlock()
 			if idle {
-				l.Hub.Mutate(func(s *GameState) { s.Connected = false })
+				l.Hub.Mutate(func(s *GameState) {
+					s.Connected = false
+					s.InGame = false
+				})
 			}
 		}
 	}
