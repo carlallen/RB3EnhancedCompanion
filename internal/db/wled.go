@@ -236,6 +236,14 @@ func AddWLEDDevice(sqlDB *sql.DB, name, ip string) (int64, error) {
 	return res.LastInsertId()
 }
 
+// SetWLEDDeviceNameIP renames the WLED device with the given id and/or
+// updates the IP address it's sent frames at, without touching its other
+// configuration.
+func SetWLEDDeviceNameIP(sqlDB *sql.DB, id int64, name, ip string) error {
+	_, err := sqlDB.Exec(`UPDATE wled_devices SET name = ?, ip = ? WHERE id = ?`, name, ip, id)
+	return err
+}
+
 // DeleteWLEDDevice removes the WLED device with the given id.
 func DeleteWLEDDevice(sqlDB *sql.DB, id int64) error {
 	_, err := sqlDB.Exec(`DELETE FROM wled_devices WHERE id = ?`, id)

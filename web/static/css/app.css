@@ -172,8 +172,12 @@ input[type="text"]:focus {
 .device-row-actions { margin-left: auto; display: flex; gap: 0.5rem; }
 .device-row-actions form { margin: 0; }
 
-.device-channels, .device-colours { margin-top: 0.5rem; }
-.device-channels summary, .device-colours summary { cursor: pointer; opacity: 0.75; font-size: 0.85rem; }
+.device-details, .device-channels, .device-colours { margin-top: 0.5rem; }
+.device-details summary, .device-channels summary, .device-colours summary { cursor: pointer; opacity: 0.75; font-size: 0.85rem; }
+.details-form { display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; }
+.details-form .field { flex: 1; min-width: 8rem; }
+.details-form input[type="text"] { width: 100%; box-sizing: border-box; }
+.details-form .button-row { flex: 1 1 100%; }
 .channel-grid { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.6rem; }
 .channel-row { display: flex; gap: 0.5rem; }
 .channel-field { flex: 1; min-width: 0; }

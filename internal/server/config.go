@@ -210,6 +210,33 @@ func handleAddWLEDDevice(sqlDB *sql.DB) http.HandlerFunc {
 	}
 }
 
+// handleWLEDDeviceDetails renames a WLED device and/or changes its IP
+// address from the "id", "wled-device-name", and "ip" form fields.
+func handleWLEDDeviceDetails(sqlDB *sql.DB) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if err := r.ParseForm(); err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
+		id, err := strconv.ParseInt(r.FormValue("id"), 10, 64)
+		if err != nil {
+			http.Error(w, "invalid id", http.StatusBadRequest)
+			return
+		}
+		ip := strings.TrimSpace(r.FormValue("ip"))
+		if ip == "" {
+			http.Error(w, "ip is required", http.StatusBadRequest)
+			return
+		}
+		name := strings.TrimSpace(r.FormValue("wled-device-name"))
+		if err := db.SetWLEDDeviceNameIP(sqlDB, id, name, ip); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		http.Redirect(w, r, "/config", http.StatusSeeOther)
+	}
+}
+
 // handleDeleteWLEDDevice removes a WLED device named by the "id" form field.
 func handleDeleteWLEDDevice(sqlDB *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {

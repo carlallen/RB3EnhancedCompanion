@@ -57,6 +57,23 @@
               </form>
             </div>
           </div>
+          <details class="device-details">
+            <summary>Edit name/IP</summary>
+            <form method="post" action="/config/wled-devices/details" class="details-form">
+              <input type="hidden" name="id" value="{{$device.ID}}">
+              <div class="field">
+                <label for="wled_{{$device.ID}}_name">Name</label>
+                <input type="text" id="wled_{{$device.ID}}_name" name="wled-device-name" value="{{$device.Name}}" autocomplete="off">
+              </div>
+              <div class="field">
+                <label for="wled_{{$device.ID}}_ip">IP address</label>
+                <input type="text" id="wled_{{$device.ID}}_ip" name="ip" value="{{$device.IP}}" autocomplete="off" required>
+              </div>
+              <div class="button-row">
+                <button class="button" type="submit">Save name/IP</button>
+              </div>
+            </form>
+          </details>
           <details class="device-colours">
             <summary>Edit colours</summary>
             <form method="post" action="/config/wled-devices/colours">

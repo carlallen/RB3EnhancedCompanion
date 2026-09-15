@@ -22,6 +22,7 @@ func NewRouter(hub *rb3net.Hub, database *sql.DB, staticDir, storeDir, templateD
 	mux.Handle("/config", handleConfig(configTmpl, database))
 	mux.Handle("/config/wled-devices", handleAddWLEDDevice(database))
 	mux.Handle("/config/wled-devices/delete", handleDeleteWLEDDevice(database))
+	mux.Handle("/config/wled-devices/details", handleWLEDDeviceDetails(database))
 	mux.Handle("/config/wled-devices/enabled", handleWLEDDeviceEnabled(database))
 	mux.Handle("/config/wled-devices/channels", handleWLEDDeviceChannels(configTmpl, database))
 	mux.Handle("/config/wled-devices/colours", handleWLEDDeviceColours(database))
